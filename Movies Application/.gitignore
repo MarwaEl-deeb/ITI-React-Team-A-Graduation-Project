@@ -16,5 +16,4 @@ lerna-debug.log*
 *.suo
 *.ntvs*
 *.njsproj
-*.sln
 *.sw?
