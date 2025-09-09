@@ -3,11 +3,15 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 1,
             "patches": [
                 {
                     "date": 1757352912703,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1757372465983,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,8 @@\n yarn-error.log*\n pnpm-debug.log*\n lerna-debug.log*\n \n-dist\n dist-ssr\n *.local\n \n # Editor directories and files\n"
                 }
             ],
             "date": 1757352912703,
