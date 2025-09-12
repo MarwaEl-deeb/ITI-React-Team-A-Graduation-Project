@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { MainContext } from "../useContex"
+import { MainContext } from "../useContext"
 
 
 function Pagination() {
