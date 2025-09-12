@@ -8,8 +8,12 @@ function Movies(){
 const {movies}=useContext(MainContext)
 const moviejsx =movies.map((m)=>{
 const {adult ,id, original_language,original_title, overview,poster_path,release_date}=m;
-const dateData=release_date.split("-")
-const date=new Date(dateData[0],dateData[1],dateData[2]).toLocaleDateString()
+const date=new Date(release_date).toLocaleDateString("en-US",
+  {month:"short",
+  day:"2-digit",
+  year:"numeric"
+  }
+)
 return(
  <Card key={id} className="m-4 border-0" style={{ width: '14rem' }}>
       <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${poster_path}`} />

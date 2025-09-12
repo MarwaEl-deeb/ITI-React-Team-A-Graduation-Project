@@ -4,6 +4,7 @@ import Search from './Components/Search'
 import { MainContext } from './useContex'
 import Movies from './Components/Card'
 import Pagination from './Components/Pagination'
+import Welcome from './Components/Welcome'
 
 function App() {
   const [movies, setMovies] = useState([])
@@ -34,7 +35,7 @@ function App() {
   return (
     <MainContext.Provider value={{ movies, totalPages, page, setPage }}>
       <NavBar />
-      <Search />
+      <Welcome />
       <Movies />
       <Pagination />
     </MainContext.Provider>
