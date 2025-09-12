@@ -1,7 +1,6 @@
 * {
   margin-left: 0px;
-  font-family:cursive;
-  color: #726625;
+  font-family: cursive;
 }
 
 nav {
@@ -11,17 +10,14 @@ nav {
   height: 8vh;
   padding: 0 2%;
   top: 0;
-  background-color: #FFE353;
+  background-color: #ffe353;
 }
 
 .navbar-brand select {
   font-weight: bold;
-/* <<<<<<< HEAD */
   font-size: 1.4rem;
   color: #726625;
-/* ======= */
   font-size: 22px;
-/* >>>>>>> 896b63246a1aa32cdfa97b92b1c673270d5d2214 */
 }
 
 .navbar-brand .form-select,
@@ -44,6 +40,35 @@ nav {
   color: #d4c151;
 }
 
+/* Card */
+.CardBody {
+  padding: 0px;
+  border: 0px;
+}
+
+.Card {
+  transition: all 1s;
+}
+
+.Card:hover {
+  transform: scale(1.05);
+}
+
+/* cardTitle */
+.cardTitle {
+  font-size: 12px;
+}
+
+/* CardIamge */
+.CardIamge {
+  padding: 2px;
+  border-radius: 20px;
+}
+
+/* cardFavIcon */
+.cardFavIcon {
+  cursor: pointer;
+}
 
 option {
   font-size: 1rem;
@@ -53,7 +78,6 @@ a {
   text-decoration: none;
   color: black;
 }
-
 
 .watchListIcon {
   height: 20%;
@@ -74,29 +98,36 @@ a {
   font-weight: normal;
 }
 
-
 i {
   color: black;
   margin: 0 5px 0 10px;
-
 }
 
-.container {
+/* ***** ******* ******* ****** welcome style ***** ******* ******* ***** */
+.nowPlaying {
+  margin-left: 3%;
+}
+
+.WelcomeMainContainer {
+  display: flex;
   justify-content: center;
-  align-items: center;
-  width: 98vw;
-  height: 38vh;
-  margin-top: 3vh;
+  margin: 25px 0px 0px 0px;
+}
+
+.WelcomeContainer {
+  width: 96%;
+  margin: 5vh 0vh 10vh 0vh;
 }
 
 .welcome {
-  background-color: #eeee;
-  padding: 3%;
+  background-color: #f3f1f1;
+  padding: 4%;
   width: 100%;
 }
 
-.welcome>p {
+.welcome > p {
   font-size: smaller;
+  padding: 20px 0px 10px 0px;
 }
 
 .serachInput {
@@ -113,11 +144,10 @@ i {
   outline: 2px solid rgba(116, 115, 115, 0.442);
 }
 
-
 .SearchButton {
   width: 100%;
   width: 120px;
-  background-color: #FFE353;
+  background-color: #ffe353;
   border-radius: 10px;
   border: none;
   height: 100%;
@@ -128,6 +158,7 @@ button:hover {
   transform: scale(1.1);
 }
 
+/* ******* ******* ******* ******* ******* ******* ****** ****** ****** */
 .loading {
   display: flex;
   justify-content: center;
@@ -144,7 +175,7 @@ button:hover {
   height: 50px;
   animation-name: load;
   animation-duration: 0.5s;
-  animation-iteration-count: infinite
+  animation-iteration-count: infinite;
 }
 
 @keyframes load {
@@ -165,8 +196,6 @@ button:hover {
 
   100% {
     transform: rotate(360deg);
-
-
   }
 }
 
@@ -197,11 +226,10 @@ button:hover {
   border-color: #f5f542 !important;
 }
 
-
 /************ WatchList ************/
 
 .btn-custom {
-  background-color: #FFE353;
+  background-color: #ffe353;
   color: #726625;
   font-weight: bold;
   text-decoration: none;
