@@ -1,6 +1,16 @@
+import { useParams } from "react-router-dom";
+import NavBar from "../Components/NavBar";
+import CardDetails from "../Components/CardDetails";
+
 function DetailsPage() {
-    return (
-        <div></div>
-    )
+  const { id } = useParams();
+
+  return (
+    <>
+      <NavBar />
+      <CardDetails id={id} />
+    </>
+  );
 }
-export default DetailsPage
+
+export default DetailsPage;
