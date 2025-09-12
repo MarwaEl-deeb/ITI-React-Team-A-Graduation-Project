@@ -150,7 +150,7 @@ export default function CardDetails({ id }) {
                   </div>
                 )}
 
-              {
+              {movie.homepage && (
                 <Button
                   variant="warning"
                   href={movie.homepage}
@@ -161,7 +161,7 @@ export default function CardDetails({ id }) {
                   <FaGlobe className="me-2" />
                   Website
                 </Button>
-              }
+              )}
             </Card.Body>
           </Col>
         </Row>
