@@ -1,7 +1,6 @@
 * {
   margin-left: 0px;
   font-family: cursive;
-  color: #726625;
 }
 
 nav {
@@ -11,7 +10,7 @@ nav {
   height: 8vh;
   padding: 0 2%;
   top: 0;
-  background-color: #FFE353;
+  background-color: #ffe353;
 }
 
 .navbar-brand select {
@@ -71,7 +70,6 @@ nav {
   cursor: pointer;
 }
 
-
 option {
   font-size: 1rem;
 }
@@ -80,7 +78,6 @@ a {
   text-decoration: none;
   color: black;
 }
-
 
 .watchListIcon {
   height: 20%;
@@ -101,16 +98,14 @@ a {
   font-weight: normal;
 }
 
-
 i {
   color: black;
   margin: 0 5px 0 10px;
-
 }
 
 /* ***** ******* ******* ****** welcome style ***** ******* ******* ***** */
 .nowPlaying {
-  margin-left: 3%
+  margin-left: 3%;
 }
 
 .WelcomeMainContainer {
@@ -125,14 +120,14 @@ i {
 }
 
 .welcome {
-  background-color: #F3F1F1;
+  background-color: #f3f1f1;
   padding: 4%;
   width: 100%;
 }
 
-.welcome>p {
+.welcome > p {
   font-size: smaller;
-  padding: 20px 0px 10px 0px
+  padding: 20px 0px 10px 0px;
 }
 
 .serachInput {
@@ -149,11 +144,10 @@ i {
   outline: 2px solid rgba(116, 115, 115, 0.442);
 }
 
-
 .SearchButton {
   width: 100%;
   width: 120px;
-  background-color: #FFE353;
+  background-color: #ffe353;
   border-radius: 10px;
   border: none;
   height: 100%;
@@ -181,7 +175,7 @@ button:hover {
   height: 50px;
   animation-name: load;
   animation-duration: 0.5s;
-  animation-iteration-count: infinite
+  animation-iteration-count: infinite;
 }
 
 @keyframes load {
@@ -202,8 +196,6 @@ button:hover {
 
   100% {
     transform: rotate(360deg);
-
-
   }
 }
 
@@ -234,11 +226,10 @@ button:hover {
   border-color: #f5f542 !important;
 }
 
-
 /************ WatchList ************/
 
 .btn-custom {
-  background-color: #FFE353;
+  background-color: #ffe353;
   color: #726625;
   font-weight: bold;
   text-decoration: none;
