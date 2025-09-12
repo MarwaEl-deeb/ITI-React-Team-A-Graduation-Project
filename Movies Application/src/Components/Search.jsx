@@ -16,7 +16,7 @@ function Welcome() {
           </div>
 
           <div className="col-3 col-lg-2">
-            <Link to="/WatchList">
+            <Link to="/Search">
               <button className="SearchButton">Search</button>
             </Link>
           </div>
