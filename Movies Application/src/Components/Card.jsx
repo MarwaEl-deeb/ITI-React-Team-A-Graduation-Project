@@ -26,22 +26,27 @@ function Movies() {
       }
     );
     return (
-      <Card key={id} className="m-4 border-0" style={{ width: "14rem" }}>
-        <Card.Img
-          variant="top"
+      <Card key={id} className="m-4 border-0 Card" style={{ width: "200px", height: "420px" }}>
+        <Card.Img className="CardIamge"
+          variant="center"
           src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
           alt={original_title}
           onClick={() => navigate(`/movie/${id}`)}
         />
-        <Card.Body>
-          <Card.Title>{original_title}</Card.Title>
-
-          <Card.Text style={{ color: "#aaaa" }}>{date}</Card.Text>
-          <Button variant="primary" onClick={() => navigate(`/movie/${id}`)}>
-            {id}
-          </Button>
-        </Card.Body>
-      </Card>
+        <Card.Body className="CardBody">
+          <div className="container">
+            <div className="row">
+              <div className="col-10">
+                <Card.Title style={{ fontSize: "18px" }}>{original_title}</Card.Title>
+                <Card.Text style={{ color: "#aaaa" }}>{date}</Card.Text>
+              </div>
+              <div className="col-2 top-2">
+                <img src="./heart.svg" className="cardFavIcon" onClick="" />
+              </div>
+            </div>
+          </div>
+        </Card.Body >
+      </Card >
     );
   });
 

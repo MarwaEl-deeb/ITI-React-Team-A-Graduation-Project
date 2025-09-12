@@ -1,6 +1,6 @@
 * {
   margin-left: 0px;
-  font-family:cursive;
+  font-family: cursive;
   color: #726625;
 }
 
@@ -16,12 +16,9 @@ nav {
 
 .navbar-brand select {
   font-weight: bold;
-/* <<<<<<< HEAD */
   font-size: 1.4rem;
   color: #726625;
-/* ======= */
   font-size: 22px;
-/* >>>>>>> 896b63246a1aa32cdfa97b92b1c673270d5d2214 */
 }
 
 .navbar-brand .form-select,
@@ -42,6 +39,36 @@ nav {
   transform: scale(1.04);
   background-color: rgba(255, 0, 0, 0);
   color: #d4c151;
+}
+
+/* Card */
+.CardBody {
+  padding: 0px;
+  border: 0px;
+}
+
+.Card {
+  transition: all 1s;
+}
+
+.Card:hover {
+  transform: scale(1.05);
+}
+
+/* cardTitle */
+.cardTitle {
+  font-size: 12px;
+}
+
+/* CardIamge */
+.CardIamge {
+  padding: 2px;
+  border-radius: 20px;
+}
+
+/* cardFavIcon */
+.cardFavIcon {
+  cursor: pointer;
 }
 
 
@@ -81,22 +108,31 @@ i {
 
 }
 
-.container {
+/* ***** ******* ******* ****** welcome style ***** ******* ******* ***** */
+.nowPlaying {
+  margin-left: 3%
+}
+
+.WelcomeMainContainer {
+  display: flex;
   justify-content: center;
-  align-items: center;
-  width: 98vw;
-  height: 38vh;
-  margin-top: 3vh;
+  margin: 25px 0px 0px 0px;
+}
+
+.WelcomeContainer {
+  width: 96%;
+  margin: 5vh 0vh 10vh 0vh;
 }
 
 .welcome {
-  background-color: #eeee;
-  padding: 3%;
+  background-color: #F3F1F1;
+  padding: 4%;
   width: 100%;
 }
 
 .welcome>p {
   font-size: smaller;
+  padding: 20px 0px 10px 0px
 }
 
 .serachInput {
@@ -128,6 +164,7 @@ button:hover {
   transform: scale(1.1);
 }
 
+/* ******* ******* ******* ******* ******* ******* ****** ****** ****** */
 .loading {
   display: flex;
   justify-content: center;
