@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { MainContext } from "../useContex";
+import { MainContext } from "../useContext";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
