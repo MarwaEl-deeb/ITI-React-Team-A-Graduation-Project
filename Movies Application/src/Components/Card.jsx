@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { MainContext } from "../useContex";
+import { MainContext } from "../useContext";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
@@ -17,12 +17,14 @@ function Movies() {
       poster_path,
       release_date,
     } = m;
-    const dateData = release_date.split("-");
-    const date = new Date(
-      dateData[0],
-      dateData[1],
-      dateData[2]
-    ).toLocaleDateString();
+    const date = new Date(release_date).toLocaleDateString("en-US",
+      {
+        month: "short",
+        day: "2-digit",
+        year: "numeric"
+
+      }
+    );
     return (
       <Card key={id} className="m-4 border-0" style={{ width: "14rem" }}>
         <Card.Img
