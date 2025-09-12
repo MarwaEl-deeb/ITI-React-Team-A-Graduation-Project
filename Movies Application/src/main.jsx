@@ -21,7 +21,7 @@ const router = createBrowserRouter([
     path: "/TV-Shows",
     element: (
       <>
-      <TVShowsHomePage />,
+      <TVShowsHomePage />
       <NavBar/>
       </>
     )
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
     path: "/Search",
     element: (
       <>
-        <SearchPage />,
+        <SearchPage />
         <NavBar/>
       </>
     )
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
     path: "/DetailsPage",
     element:( 
       <>
-      <DetailsPage />,
+      <DetailsPage />
       <NavBar/>
     </>
     )
