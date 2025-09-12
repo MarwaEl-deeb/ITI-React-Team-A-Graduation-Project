@@ -10,6 +10,7 @@ import TVShowsHomePage from "./Pages/TVShowsHomePage.jsx";
 import SearchPage from "./Pages/SearchPage.jsx";
 import WatchListPage from "./Pages/WatchListPage.jsx";
 import DetailsPage from "./Pages/DetailsPage.jsx";
+import NavBar from "./Components/NavBar";
 
 const router = createBrowserRouter([
   {
@@ -18,19 +19,33 @@ const router = createBrowserRouter([
   },
   {
     path: "/TV-Shows",
-    element: <TVShowsHomePage />,
+    element: (
+      <TVShowsHomePage />,
+      <NavBar/>
+    )
   },
   {
     path: "/Search",
-    element: <SearchPage />,
+    element: (
+      <SearchPage />,
+      <NavBar/>
+    )
   },
   {
     path: "/WatchList",
-    element: <WatchListPage />,
+    element:(
+      <WatchListPage />,
+      <NavBar/>
+    ) 
+    
   },
   {
     path: "/DetailsPage",
-    element: <DetailsPage />,
+    element:( 
+      <DetailsPage />,
+      <NavBar/>
+    
+    )
   },
 ]);
 
