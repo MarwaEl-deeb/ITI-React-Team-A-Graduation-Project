@@ -7,7 +7,9 @@ import {
   Row,
   Col,
   Container,
+  ListGroup,
 } from "react-bootstrap";
+import { FaGlobe } from "react-icons/fa";
 import RatingStars from "./RatingStars";
 import "../index.css";
 
@@ -44,12 +46,31 @@ export default function CardDetails({ id }) {
     }
   );
 
+  // cut overview if too long
+  const shortOverview =
+    movie.overview.length > 250
+      ? movie.overview.substring(0, 250) + "..."
+      : movie.overview;
+
+  // colors for genres
+  const genreColors = ["primary", "success", "danger", "info", "warning"];
+
   return (
     <Container fluid className="p-3">
-      <Card className="movie-card " style={{ border: "none" }}>
-        <Row className="g-2 flex-column flex-md-row">
-          {" "}
-          <Col md={5} style={{ overflow: "hidden", borderRadius: "12px" }}>
+      <Card
+        className="movie-card shadow-sm"
+        style={{
+          border: "none",
+          borderRadius: "15px",
+          transition: "transform 0.2s ease, box-shadow 0.2s ease",
+        }}
+      >
+        <Row className="g-3 flex-column flex-md-row">
+          {/* Poster */}
+          <Col
+            md={5}
+            style={{ overflow: "hidden", borderRadius: "10%", padding: "5px" }}
+          >
             <img
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={movie.original_title}
@@ -61,60 +82,70 @@ export default function CardDetails({ id }) {
               }}
             />
           </Col>
+
           {/* Details */}
           <Col md={7}>
             <Card.Body>
-              <Card.Title>{movie.original_title}</Card.Title>
+              <Card.Title className="fw-bold fs-3">
+                {movie.original_title}
+              </Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
                 {formattedDate}
               </Card.Subtitle>
+
               <RatingStars
                 rating={movie.vote_average}
                 votes={movie.vote_count}
               />
-              <Card.Text className="mt-2">{movie.overview}</Card.Text>
+
+              <Card.Text className="mt-3">{shortOverview}</Card.Text>
 
               {/* Genres */}
-              <div className="mb-2">
+              <div className="mb-3">
                 {movie.genres &&
-                  movie.genres.map((g) => (
-                    <Badge bg="secondary" key={g.id} className="me-1">
+                  movie.genres.map((g, index) => (
+                    <Badge
+                      bg={genreColors[index % genreColors.length]}
+                      key={g.id}
+                      className="me-1"
+                    >
                       {g.name}
                     </Badge>
                   ))}
               </div>
 
-              <p>
-                <strong>Duration:</strong> {movie.runtime} Min.
-              </p>
-              <p>
-                <strong>Languages:</strong>{" "}
-                {movie.spoken_languages
-                  .map((lang) => lang.english_name)
-                  .join(", ")}
-              </p>
-
-              {/* Production Company Logo */}
-              <div className="company-logo my-2">
-                {movie.production_companies.length > 0 &&
-                  movie.production_companies[0].logo_path && (
-                    <img
-                      src={`https://image.tmdb.org/t/p/w200${movie.production_companies[0].logo_path}`}
-                      alt={movie.production_companies[0].name}
-                      style={{ maxHeight: "50px" }}
-                    />
-                  )}
-              </div>
+              {/* Extra Details */}
+              <ListGroup variant="flush" className="mb-3">
+                <ListGroup.Item>
+                  <strong>Duration:</strong> {movie.runtime} Min.
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <strong>Languages:</strong>{" "}
+                  {movie.spoken_languages
+                    .map((lang) => lang.english_name)
+                    .join(", ")}
+                </ListGroup.Item>
+                {movie.production_companies.length > 0 && (
+                  <ListGroup.Item>
+                    <strong>Company:</strong>{" "}
+                    {movie.production_companies[0].name}
+                  </ListGroup.Item>
+                )}
+              </ListGroup>
 
               {/* Website Button */}
-              <Button
-                variant="outline-warning"
-                href={movie.homepage}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Website
-              </Button>
+              {movie.homepage && (
+                <Button
+                  variant="warning"
+                  href={movie.homepage}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="fw-bold"
+                >
+                  <FaGlobe className="me-2" />
+                  Website
+                </Button>
+              )}
             </Card.Body>
           </Col>
         </Row>
