@@ -196,3 +196,22 @@ button:hover {
   background-color: #f5f542;
   border-color: #f5f542 !important;
 }
+
+
+/************ WatchList ************/
+
+.btn-custom {
+  background-color: #FFE353;
+  color: #726625;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 0;
+  text-align: center;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: #e6ca40;
+  color: #4a3f1a;
+}
