@@ -34,7 +34,7 @@ function Movies() {
           onClick={() => navigate(`/movie/${id}`)}
         />
         <Card.Body>
-          <Card.Title>{original_title}</Card.Title>
+          <Card.Title className="fw-bold" style={{color:"#A08E33",}}>{original_title}</Card.Title>
 
           <Card.Text style={{ color: "#aaaa" }}>{date}</Card.Text>
           <Button variant="primary" onClick={() => navigate(`/movie/${id}`)}>
