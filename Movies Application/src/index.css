@@ -14,7 +14,7 @@ nav {
 
 .navbar-brand select {
   font-weight: bold;
-  font-size: 1.4rem;
+  font-size: 22px;
 }
 
 .navbar-brand .form-select,
@@ -36,15 +36,6 @@ nav {
   background-color: rgba(255, 0, 0, 0)
 }
 
-.headerRightSide select {
-  background-color: rgba(133, 131, 131, 0);
-  border: none
-}
-
-
-select:focus {
-  outline: none;
-}
 
 option {
   font-size: 1rem;
