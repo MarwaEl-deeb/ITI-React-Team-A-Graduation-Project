@@ -28,7 +28,6 @@ function NavBar() {
         }
     };
 
-
     return (
         <nav>
             <div className="navbar navTitle">
