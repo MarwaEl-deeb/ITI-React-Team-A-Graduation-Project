@@ -9,7 +9,7 @@ import {
   Container,
   ListGroup,
 } from "react-bootstrap";
-import { FaGlobe } from "react-icons/fa";
+import { FaGlobe, FaHeart } from "react-icons/fa";
 import RatingStars from "./RatingStars";
 import "../index.css";
 
@@ -80,8 +80,9 @@ export default function CardDetails({ id }) {
           {/* Details */}
           <Col md={7}>
             <Card.Body>
-              <Card.Title className="fw-bold fs-3">
+              <Card.Title className="fw-bold fs-3 d-flex justify-content-between align-items-center">
                 {movie.original_title}
+                <FaHeart style={{ color: "gold", cursor: "pointer" }} />{" "}
               </Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
                 {formattedDate}
