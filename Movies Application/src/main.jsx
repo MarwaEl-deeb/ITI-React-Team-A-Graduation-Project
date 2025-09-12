@@ -20,31 +20,37 @@ const router = createBrowserRouter([
   {
     path: "/TV-Shows",
     element: (
+      <>
       <TVShowsHomePage />,
       <NavBar/>
+      </>
     )
   },
   {
     path: "/Search",
     element: (
-      <SearchPage />,
-      <NavBar/>
+      <>
+        <SearchPage />,
+        <NavBar/>
+      </>
     )
   },
   {
     path: "/WatchList",
     element:(
-      <WatchListPage />,
-      <NavBar/>
-    ) 
-    
+      <>
+        <NavBar />
+        <WatchListPage />
+      </>
+    )
   },
   {
     path: "/DetailsPage",
     element:( 
+      <>
       <DetailsPage />,
       <NavBar/>
-    
+    </>
     )
   },
   { path: "/movie/:id", element: <DetailsPage /> },
