@@ -1,11 +1,11 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider, } from "react-router-dom";
-import './index.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import App from './App.jsx'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import App from "./App.jsx";
 import "./Translator.js";
-import MaviesHomePage from "./Pages/MoviesHomePage.jsx";
+import MoviesHomePage from "./Pages/MoviesHomePage.jsx";
 import TVShowsHomePage from "./Pages/TVShowsHomePage.jsx";
 import SearchPage from "./Pages/SearchPage.jsx";
 import WatchListPage from "./Pages/WatchListPage.jsx";
@@ -47,11 +47,11 @@ const router = createBrowserRouter([
     
     )
   },
+  { path: "/movie/:id", element: <DetailsPage /> },
 ]);
-
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>
-)
+);
