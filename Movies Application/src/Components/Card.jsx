@@ -17,17 +17,19 @@ function Movies() {
       poster_path,
       release_date,
     } = m;
-    const date = new Date(release_date).toLocaleDateString("en-US",
-      {
-        month: "short",
-        day: "2-digit",
-        year: "numeric"
-
-      }
-    );
+    const date = new Date(release_date).toLocaleDateString("en-US", {
+      month: "short",
+      day: "2-digit",
+      year: "numeric",
+    });
     return (
-      <Card key={id} className="m-4 border-0 Card" style={{ width: "200px", height: "420px" }}>
-        <Card.Img className="CardIamge"
+      <Card
+        key={id}
+        className="m-4 border-0 Card"
+        style={{ width: "200px", height: "420px" }}
+      >
+        <Card.Img
+          className="CardIamge"
           variant="center"
           src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
           alt={original_title}
@@ -37,7 +39,9 @@ function Movies() {
           <div className="container">
             <div className="row">
               <div className="col-10">
-                <Card.Title style={{ fontSize: "18px" }}>{original_title}</Card.Title>
+                <Card.Title style={{ fontSize: "18px" }}>
+                  {original_title}
+                </Card.Title>
                 <Card.Text style={{ color: "#aaaa" }}>{date}</Card.Text>
               </div>
               <div className="col-2 top-2">
@@ -45,8 +49,8 @@ function Movies() {
               </div>
             </div>
           </div>
-        </Card.Body >
-      </Card >
+        </Card.Body>
+      </Card>
     );
   });
 

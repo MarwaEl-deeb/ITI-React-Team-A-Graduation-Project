@@ -23,7 +23,7 @@ const router = createBrowserRouter([
         <TVShowsHomePage />
         <NavBar />
       </>
-    )
+    ),
   },
   {
     path: "/Search",
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         <SearchPage />
         <NavBar />
       </>
-    )
+    ),
   },
   {
     path: "/WatchList",
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
         <NavBar />
         <WatchListPage />
       </>
-    )
+    ),
   },
   {
     path: "/DetailsPage",
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
         <DetailsPage />
         <NavBar />
       </>
-    )
+    ),
   },
   { path: "/movie/:id", element: <DetailsPage /> },
 ]);

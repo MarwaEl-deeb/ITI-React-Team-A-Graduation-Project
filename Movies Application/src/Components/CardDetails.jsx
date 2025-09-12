@@ -37,48 +37,42 @@ export default function CardDetails({ id }) {
     );
   }
 
+  if (!movie) return <p className="text-center">No movie found</p>;
+
   const formattedDate = new Date(movie.release_date).toLocaleDateString(
     "en-US",
-    {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    }
+    { year: "numeric", month: "short", day: "numeric" }
   );
 
-  // cut overview if too long
   const shortOverview =
     movie.overview.length > 250
       ? movie.overview.substring(0, 250) + "..."
       : movie.overview;
 
-  // colors for genres
   const genreColors = ["primary", "success", "danger", "info", "warning"];
 
   return (
     <Container fluid className="p-3">
-      <Card
-        className="movie-card shadow-sm"
-        style={{
-          border: "none",
-          borderRadius: "15px",
-          transition: "transform 0.2s ease, box-shadow 0.2s ease",
-        }}
-      >
+      <Card className="movie-card">
         <Row className="g-3 flex-column flex-md-row">
           {/* Poster */}
           <Col
             md={5}
-            style={{ overflow: "hidden", borderRadius: "10%", padding: "5px" }}
+            className="d-flex justify-content-center align-items-stretch"
           >
             <img
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={movie.original_title}
-              className="w-100"
+              className="CardDetails"
               style={{
-                maxHeight: "450px",
+                height: "98%",
+                paddingLeft: "5px",
+                paddingRight: "5px",
+                margin: "5px",
+                width: "auto",
+                maxHeight: "500px",
                 objectFit: "contain",
-                borderRadius: "12px",
+                borderRadius: "15px",
               }}
             />
           </Col>
@@ -102,16 +96,15 @@ export default function CardDetails({ id }) {
 
               {/* Genres */}
               <div className="mb-3">
-                {movie.genres &&
-                  movie.genres.map((g, index) => (
-                    <Badge
-                      bg={genreColors[index % genreColors.length]}
-                      key={g.id}
-                      className="me-1"
-                    >
-                      {g.name}
-                    </Badge>
-                  ))}
+                {movie.genres?.map((g, index) => (
+                  <Badge
+                    bg={genreColors[index % genreColors.length]}
+                    key={g.id}
+                    className="me-1 genre-badge"
+                  >
+                    {g.name}
+                  </Badge>
+                ))}
               </div>
 
               {/* Extra Details */}
@@ -125,16 +118,39 @@ export default function CardDetails({ id }) {
                     .map((lang) => lang.english_name)
                     .join(", ")}
                 </ListGroup.Item>
-                {movie.production_companies.length > 0 && (
-                  <ListGroup.Item>
-                    <strong>Company:</strong>{" "}
-                    {movie.production_companies[0].name}
-                  </ListGroup.Item>
-                )}
               </ListGroup>
+              {movie.production_companies &&
+                movie.production_companies.length > 0 && (
+                  <div className="d-flex flex-wrap align-items-center mb-3">
+                    {movie.production_companies.map((company) => (
+                      <div
+                        key={company.id}
+                        className="me-3 mb-2 d-flex flex-column align-items-center"
+                      >
+                        {company.logo_path ? (
+                          <img
+                            src={`https://image.tmdb.org/t/p/w200${company.logo_path}`}
+                            alt={company.name}
+                            title={company.name}
+                            style={{
+                              maxHeight: "50px",
+                              objectFit: "contain",
+                              background: "#fff",
+                              borderRadius: "6px",
+                              padding: "4px",
+                            }}
+                          />
+                        ) : (
+                          <span className="text-muted small">
+                            {company.name}
+                          </span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
 
-              {/* Website Button */}
-              {movie.homepage && (
+              {
                 <Button
                   variant="warning"
                   href={movie.homepage}
@@ -145,7 +161,7 @@ export default function CardDetails({ id }) {
                   <FaGlobe className="me-2" />
                   Website
                 </Button>
-              )}
+              }
             </Card.Body>
           </Col>
         </Row>
