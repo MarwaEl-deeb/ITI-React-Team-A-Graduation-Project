@@ -33,9 +33,9 @@ function NavBar() {
         <nav>
             <div className="navbar navTitle">
                 <strong className="navbar-brand ">
-                    <select className="form-select" name="categery" value={selected} onChange={handleChange}>
+                    <select className="form-select" name="categery" value={selected} onChange={handleChange} >
 
-                        <option value="Movie App" selected>
+                        <option value="Movie App" selected >
                             Movie App
                         </option>
                         <option value="TV Shows">
@@ -44,8 +44,8 @@ function NavBar() {
                     </select>
                 </strong>
             </div>
-            <div className="d-flex headerRightSide ">
-                <select name="lang" className="form-select" id="">
+            <div className="d-flex headerRightSide fw-bold" style={{color:"#726625"}} >
+                <select name="lang" className="form-select fw-bold" id="" style={{color:"#726625"}}>
                     <option value="En" selected>En</option>
                     <option value="Ar">Ar</option>
                 </select>

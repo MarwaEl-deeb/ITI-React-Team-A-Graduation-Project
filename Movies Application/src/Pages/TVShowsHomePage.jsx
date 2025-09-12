@@ -2,7 +2,8 @@ import NavBar from '../Components/NavBar'
 
 function TVShowsHomePage() {
     return (
-        <NavBar />
+        <div></div>
+        // <NavBar />
     );
 }
 export default TVShowsHomePage

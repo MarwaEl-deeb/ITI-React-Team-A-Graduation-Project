@@ -1,6 +1,7 @@
 * {
   margin-left: 0px;
   font-family:cursive;
+  color: #726625;
 }
 
 nav {
@@ -16,6 +17,7 @@ nav {
 .navbar-brand select {
   font-weight: bold;
   font-size: 1.4rem;
+  color: #726625;
 }
 
 .navbar-brand .form-select,
@@ -30,7 +32,8 @@ nav {
 
 .navbar-brand .form-select:hover {
   transform: scale(1.04);
-  background-color: rgba(255, 0, 0, 0)
+  background-color: rgba(255, 0, 0, 0);
+  color: #d4c151;
 }
 
 .headerRightSide select {
