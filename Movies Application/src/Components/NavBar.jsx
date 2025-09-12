@@ -50,16 +50,18 @@ function NavBar() {
                     <option value="Ar">Ar</option>
                 </select>
 
-                <span>
+                <span className="watchListIcon align-self-center">
+                    <img src="./heartFilled.png" className="watchListIcon" />
+                </span>
+
+                <span className="align-self-center WatchLinkContainer">
                     <Link className="nav-link active position-relative" to="/WatchList">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="/heart.svg" />
-                        </svg>
-                        WatchList
-                        <span className="badge bg-white position-absolute top-0  start-100 ms-1">
+                        <span className="watchListText">WatchList</span>
+                        <span className="badge bg-white position-absolute top-0 ms-2 translate-middle">
                             <span className="favListNum">7</span>
                         </span>
                     </Link>
+
                 </span>
             </div>
         </nav >

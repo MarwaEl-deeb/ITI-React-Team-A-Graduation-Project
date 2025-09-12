@@ -16,8 +16,12 @@ nav {
 
 .navbar-brand select {
   font-weight: bold;
+/* <<<<<<< HEAD */
   font-size: 1.4rem;
   color: #726625;
+/* ======= */
+  font-size: 22px;
+/* >>>>>>> 896b63246a1aa32cdfa97b92b1c673270d5d2214 */
 }
 
 .navbar-brand .form-select,
@@ -30,19 +34,16 @@ nav {
   cursor: pointer;
 }
 
+.headerRightSide select {
+  font-weight: bold;
+}
+
 .navbar-brand .form-select:hover {
   transform: scale(1.04);
   background-color: rgba(255, 0, 0, 0);
   color: #d4c151;
 }
 
-.headerRightSide select {
-  padding: 15px;
-}
-
-select:focus {
-  outline: none;
-}
 
 option {
   font-size: 1rem;
@@ -53,10 +54,24 @@ a {
   color: black;
 }
 
-.FavListNum {
+
+.watchListIcon {
+  height: 20%;
+}
+
+.WatchLinkContainer {
+  padding-right: 12px;
+}
+
+.watchListText {
+  font-weight: bold;
+  padding-left: 12px;
+}
+
+.favListNum {
   color: black;
   font-size: 12px;
-  font-weight: normal
+  font-weight: normal;
 }
 
 

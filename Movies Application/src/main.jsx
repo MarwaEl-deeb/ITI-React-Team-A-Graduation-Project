@@ -5,7 +5,6 @@ import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App.jsx";
 import "./Translator.js";
-import MoviesHomePage from "./Pages/MoviesHomePage.jsx";
 import TVShowsHomePage from "./Pages/TVShowsHomePage.jsx";
 import SearchPage from "./Pages/SearchPage.jsx";
 import WatchListPage from "./Pages/WatchListPage.jsx";
@@ -21,8 +20,8 @@ const router = createBrowserRouter([
     path: "/TV-Shows",
     element: (
       <>
-      <TVShowsHomePage />
-      <NavBar/>
+        <TVShowsHomePage />
+        <NavBar />
       </>
     )
   },
@@ -31,13 +30,13 @@ const router = createBrowserRouter([
     element: (
       <>
         <SearchPage />
-        <NavBar/>
+        <NavBar />
       </>
     )
   },
   {
     path: "/WatchList",
-    element:(
+    element: (
       <>
         <NavBar />
         <WatchListPage />
@@ -46,11 +45,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/DetailsPage",
-    element:( 
+    element: (
       <>
-      <DetailsPage />
-      <NavBar/>
-    </>
+        <DetailsPage />
+        <NavBar />
+      </>
     )
   },
   { path: "/movie/:id", element: <DetailsPage /> },
