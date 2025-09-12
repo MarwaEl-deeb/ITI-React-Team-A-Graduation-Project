@@ -8,7 +8,6 @@ function NavBar() {
 
     const [selected, setSelected] = useState("Movie App");
 
-    // sync state with current route
     useEffect(() => {
         if (location.pathname === "/") {
             setSelected("Movie App");
@@ -19,7 +18,7 @@ function NavBar() {
 
     const handleChange = (e) => {
         const value = e.target.value;
-        setSelected(value); // update header text
+        setSelected(value);
 
         if (value === "Movie App") {
             navigate("/");
@@ -43,8 +42,8 @@ function NavBar() {
                     </select>
                 </strong>
             </div>
-            <div className="d-flex headerRightSide fw-bold" style={{color:"#726625"}} >
-                <select name="lang" className="form-select fw-bold" id="" style={{color:"#726625"}}>
+            <div className="d-flex headerRightSide fw-bold" style={{ color: "#726625" }} >
+                <select name="lang" className="form-select fw-bold" id="" style={{ color: "#726625" }}>
                     <option value="En" selected>En</option>
                     <option value="Ar">Ar</option>
                 </select>
