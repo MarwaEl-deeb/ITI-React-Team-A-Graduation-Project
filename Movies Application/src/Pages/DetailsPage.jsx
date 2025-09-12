@@ -9,8 +9,8 @@ function DetailsPage() {
     <>
       <NavBar />
       <CardDetails id={id} />
-      <h2>Movie ID: {id}</h2>
     </>
   );
 }
+
 export default DetailsPage;

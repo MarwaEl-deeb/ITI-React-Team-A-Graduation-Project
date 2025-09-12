@@ -6,6 +6,7 @@ import Movies from "./Components/Card";
 import Pagination from "./Components/Pagination";
 import Welcome from "./Components/Welcome";
 import DetailsPage from "./Pages/DetailsPage";
+import CardDetails from "./Components/CardDetails";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -36,7 +37,9 @@ function App() {
     );
   }
   return (
-    <MainContext.Provider value={{ movies, totalPages, page, setPage }}>
+    <MainContext.Provider
+      value={{ movies, totalPages, page, setPage, loading, setLoading }}
+    >
       <NavBar />
       <Welcome />
       <Movies />
