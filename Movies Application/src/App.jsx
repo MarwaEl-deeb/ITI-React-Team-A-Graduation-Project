@@ -1,34 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import { useState, useEffect } from 'react'
+// import './App.css'
+import NavBar from './Components/NavBar'
+import Welcome from './Components/Search'
+import { MainContext } from './useContex'
+import Movies from './Components/Card'
+import Pagination from './Components/Pagination'
 function App() {
-  const [count, setCount] = useState(0)
+  const [movies, setMovies] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [page, setPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(1)
 
+  useEffect(() => {
+    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=dd1481c9866799f1bc15adf106a083fe&page=${page}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setMovies(data.results);
+        setTotalPages(data.total_pages)
+        setLoading(false)
+      }
+      )
+      .catch((error) => { console.error(error) })
+  }, [page])
+
+
+  if (loading) {
+    return (<div className="loading">
+      <div className="loadspan">
+      </div>
+    </div>
+    )
+  }
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <MainContext.Provider value={{ movies, totalPages, page, setPage }}>
+      <NavBar />
+      <Welcome />
+      <Movies />
+      <Pagination />
+    </MainContext.Provider>
+
   )
 }
 
