@@ -18,14 +18,11 @@ function Movies() {
       release_date,
       vote_average,
     } = m;
-    const date = new Date(release_date).toLocaleDateString("en-US",
-      {
-        month: "short",
-        day: "2-digit",
-        year: "numeric"
-
-      }
-    );
+    const date = new Date(release_date).toLocaleDateString("en-US", {
+      month: "short",
+      day: "2-digit",
+      year: "numeric",
+    });
     return (
       <Card key={id} className="m-4 border-0 Card" style={{ width: "200px", height: "420px" }}>
         <Card.Img className="CardImage"
@@ -53,8 +50,8 @@ function Movies() {
               </div>
             </div>
           </div>
-        </Card.Body >
-      </Card >
+        </Card.Body>
+      </Card>
     );
   });
 
