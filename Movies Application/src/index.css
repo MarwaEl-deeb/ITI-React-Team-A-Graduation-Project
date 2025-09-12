@@ -1,35 +1,68 @@
-*{
+* {
   margin-left: 0px;
 }
+
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 96vw;
-  height: 5vh;
+  height: 8vh;
   padding: 0 2%;
   top: 0;
-  background-color: #f5f542;
+  background-color: #FFE353;
 }
 
-select {
-  background: inherit;
-  border: none;
+.navbar-brand select {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.navbar-brand .form-select,
+.headerRightSide select {
+  background-color: rgba(255, 255, 255, 0);
+  border: none !important;
+  box-shadow: none !important;
+  outline: none;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.navbar-brand .form-select:hover {
+  transform: scale(1.04);
+  background-color: rgba(255, 0, 0, 0)
+}
+
+.headerRightSide select {
+  padding: 15px;
+}
+
+select:focus {
+  outline: none;
+}
+
+option {
+  font-size: 1rem;
 }
 
 a {
   text-decoration: none;
   color: black;
 }
- 
+
+.FavListNum {
+  color: black;
+  font-size: 12px;
+  font-weight: normal
+}
+
 
 i {
   color: black;
   margin: 0 5px 0 10px;
 
 }
+
 .container {
-  display: flex;
   justify-content: center;
   align-items: center;
   width: 98vw;
@@ -40,34 +73,40 @@ i {
 .welcome {
   background-color: #eeee;
   padding: 3%;
-  width: 90vw;
-  height: 30vh;
+  width: 100%;
 }
 
 .welcome>p {
   font-size: smaller;
 }
 
-.welcome>input,
-.welcome>button {
+.serachInput {
   display: inline-block;
-  width: 80%;
-  border-radius: 5px;
-  margin: 1%;
-  border: 5px solid white
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  padding: 10px;
+  padding-left: 30px;
 }
 
-.welcome>button {
-  width: 70px;
-  background-color: #f5f542;
-  border-color: #f5f542;
-  height: 40px;
+.serachInput:focus {
+  outline: 2px solid rgba(116, 115, 115, 0.442);
 }
 
-button:hover{
-  transform: scale(1.1);
+
+.SearchButton {
+  width: 100%;
+  width: 120px;
+  background-color: #FFE353;
+  border-radius: 10px;
+  border: none;
+  height: 100%;
   transition: all 1s;
-  
+}
+
+button:hover {
+  transform: scale(1.1);
 }
 
 .loading {
@@ -118,7 +157,8 @@ button:hover{
   align-items: center;
   justify-content: center;
 }
-.pagination{
+
+.pagination {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,14 +166,14 @@ button:hover{
   overflow: hidden;
   margin: auto;
 }
-.paginationBtn{
+
+.paginationBtn {
   background-color: inherit;
   color: cadetblue;
   border: none;
 }
 
-.paginationBtn:focus{
+.paginationBtn:focus {
   background-color: #f5f542;
   border-color: #f5f542 !important;
 }
-

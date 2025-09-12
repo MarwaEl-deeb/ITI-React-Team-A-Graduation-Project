@@ -1,13 +1,10 @@
-// <<<<<<< HEAD
 import { useState, useEffect } from 'react'
-// import './App.css'
 import NavBar from './Components/NavBar'
-import Welcome from './Components/Search'
+import Search from './Components/Search'
 import { MainContext } from './useContex'
 import Movies from './Components/Card'
 import Pagination from './Components/Pagination'
 
-// >>>>>>> 13fd30bc365d2ac8a5f2c7ea443d215a44debd62
 function App() {
   const [movies, setMovies] = useState([])
   const [loading, setLoading] = useState(true)
@@ -35,19 +32,14 @@ function App() {
     )
   }
   return (
-// <<<<<<< HEAD
     <MainContext.Provider value={{ movies, totalPages, page, setPage }}>
       <NavBar />
-      <Welcome />
+      <Search />
       <Movies />
       <Pagination />
     </MainContext.Provider>
 
   )
-
-   
-  
-// >>>>>>> 13fd30bc365d2ac8a5f2c7ea443d215a44debd62
 }
 
 export default App
