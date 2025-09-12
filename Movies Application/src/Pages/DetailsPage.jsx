@@ -1,6 +1,13 @@
+import { useParams } from "react-router-dom";
+import NavBar from "../Components/NavBar";
+
 function DetailsPage() {
-    return (
-        <div></div>
-    )
+  const { id } = useParams();
+  return (
+    <>
+      <NavBar />
+      <h2>Movie ID: {id}</h2>
+    </>
+  );
 }
-export default DetailsPage
+export default DetailsPage;
