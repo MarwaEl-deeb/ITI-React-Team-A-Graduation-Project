@@ -1,6 +1,7 @@
 import Image from "react-bootstrap/Image";
 import { useState, useEffect } from "react";
 import RatingStars from "./RatingStars";
+import "../index.css";
 
 export default function CardDetails({ id }) {
   const [movie, setMovie] = useState(null);
@@ -53,11 +54,46 @@ export default function CardDetails({ id }) {
           <div className="moving-classign ">
             {movie.genres &&
               movie.genres.map((g) => (
-                <span key={g.id} className="genre">
+                <span key={g.id} className="badge bg-secondary me-2">
                   {g.name}
                 </span>
               ))}
           </div>
+          <p>
+            <strong>Duration:</strong> {movie.runtime} Min.
+          </p>
+          <p>
+            <strong>Languages:</strong>
+            {movie.spoken_languages &&
+              movie.spoken_languages
+                .map((lang) => lang.english_name)
+                .join(", ")}
+          </p>
+
+          <div className="company-logo">
+            {movie.production_companies.length > 0 &&
+              movie.production_companies[0].logo_path && (
+                <img
+                  src={`https://image.tmdb.org/t/p/w200${movie.production_companies[0].logo_path}`}
+                  alt={movie.production_companies[0].name}
+                />
+              )}
+          </div>
+          <a
+            href={movie.homepage}
+            target="_blank"
+            rel="noopener noreferrer "
+            style={{
+              textDecoration: "none",
+              color: "gray",
+              padding: "5px",
+              border: "1px solid yellow",
+              borderRadius: "6px",
+              margin: "5px",
+            }}
+          >
+            Website
+          </a>
         </>
       )}
     </div>
