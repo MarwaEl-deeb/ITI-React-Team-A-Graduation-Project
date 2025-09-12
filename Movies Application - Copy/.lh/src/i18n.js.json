@@ -1,0 +1,46 @@
+{
+    "sourceFile": "src/i18n.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1757674699660,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1757674708194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import i18n from \"i18next\";\r\n import { initReactI18next } from \"react-i18next\";\r\n-import en from \"../locales/en.json\";\r\n+import en from \"/locales/en.json\";\r\n import ar from \"./locales/ar.json\";\r\n \r\n i18n.use(initReactI18next).init({\r\n     resources: {\r\n"
+                },
+                {
+                    "date": 1757674716577,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import i18n from \"i18next\";\r\n+import { initReactI18next } from \"react-i18next\";\r\n+import en from \"./src/locales/en.json\";\r\n+import ar from \"./locales/ar.json\";\r\n+\r\n+i18n.use(initReactI18next).init({\r\n+    resources: {\r\n+        en: { translation: en },\r\n+        ar: { translation: ar }\r\n+    },\r\n+    lng: \"en\",       // default language\r\n+    fallbackLng: \"en\",\r\n+    interpolation: { escapeValue: false }\r\n+});\r\n+\r\n+export default i18n;\r\n"
+                },
+                {
+                    "date": 1757674771745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import i18n from \"i18next\";\r\n import { initReactI18next } from \"react-i18next\";\r\n-import en from \"./src/locales/en.json\";\r\n-import ar from \"./locales/ar.json\";\r\n+import en from \"../locales/en.json\";\r\n+import ar from \"../locales/ar.json\";\r\n \r\n i18n.use(initReactI18next).init({\r\n     resources: {\r\n         en: { translation: en },\r\n"
+                },
+                {
+                    "date": 1757674789039,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import i18n from \"i18next\";\r\n import { initReactI18next } from \"react-i18next\";\r\n-import en from \"../locales/en.json\";\r\n+import en from../ locales / en.json\";\r\n import ar from \"../locales/ar.json\";\r\n \r\n i18n.use(initReactI18next).init({\r\n     resources: {\r\n@@ -13,20 +13,4 @@\n     interpolation: { escapeValue: false }\r\n });\r\n \r\n export default i18n;\r\n-import i18n from \"i18next\";\r\n-import { initReactI18next } from \"react-i18next\";\r\n-import en from \"/locales/en.json\";\r\n-import ar from \"./locales/ar.json\";\r\n-\r\n-i18n.use(initReactI18next).init({\r\n-    resources: {\r\n-        en: { translation: en },\r\n-        ar: { translation: ar }\r\n-    },\r\n-    lng: \"en\",       // default language\r\n-    fallbackLng: \"en\",\r\n-    interpolation: { escapeValue: false }\r\n-});\r\n-\r\n-export default i18n;\r\n"
+                },
+                {
+                    "date": 1757674794802,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import i18n from \"i18next\";\r\n import { initReactI18next } from \"react-i18next\";\r\n-import en from../ locales / en.json\";\r\n+import en from \"/locales/en.json\";\r\n import ar from \"../locales/ar.json\";\r\n \r\n i18n.use(initReactI18next).init({\r\n     resources: {\r\n"
+                },
+                {
+                    "date": 1757674799933,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import i18n from \"i18next\";\r\n import { initReactI18next } from \"react-i18next\";\r\n import en from \"/locales/en.json\";\r\n-import ar from \"../locales/ar.json\";\r\n+import ar from \"/locales/ar.json\";\r\n \r\n i18n.use(initReactI18next).init({\r\n     resources: {\r\n         en: { translation: en },\r\n"
+                },
+                {
+                    "date": 1757674947702,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import i18n from \"i18next\";\r\n import { initReactI18next } from \"react-i18next\";\r\n-import en from \"/locales/en.json\";\r\n-import ar from \"/locales/ar.json\";\r\n+import en from \"./locales/en.json\";\r\n+import ar from \"./locales/ar.json\";\r\n \r\n i18n.use(initReactI18next).init({\r\n     resources: {\r\n         en: { translation: en },\r\n"
+                }
+            ],
+            "date": 1757674699660,
+            "name": "Commit-0",
+            "content": "import i18n from \"i18next\";\r\nimport { initReactI18next } from \"react-i18next\";\r\nimport en from \"../locales/en.json\";\r\nimport ar from \"./locales/ar.json\";\r\n\r\ni18n.use(initReactI18next).init({\r\n    resources: {\r\n        en: { translation: en },\r\n        ar: { translation: ar }\r\n    },\r\n    lng: \"en\",       // default language\r\n    fallbackLng: \"en\",\r\n    interpolation: { escapeValue: false }\r\n});\r\n\r\nexport default i18n;\r\n"
+        }
+    ]
+}

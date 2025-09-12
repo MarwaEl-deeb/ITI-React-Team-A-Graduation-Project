@@ -1,0 +1,34 @@
+{
+    "sourceFile": "src/Pages/TVShowsHomePage.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1757681034964,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1757681790919,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,8 @@\n+import NavBar from './Components/NavBar'\r\n+\r\n function TVShowsHomePage() {\r\n     return (\r\n-        <div></div>\r\n-    )\r\n\\ No newline at end of file\n+        <Nav>\r\n+            )\r\n }\r\n-export default TVShowsHomePage\n+            export default TVShowsHomePage\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757681801757,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import NavBar from './Components/NavBar'\r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n-        <Nav>\r\n-            )\r\n+        <NavBar />\r\n+    );\r\n\\ No newline at end of file\n }\r\n-            export default TVShowsHomePage\n+export default TVShowsHomePage\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757681816672,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import NavBar from './Components/NavBar'\r\n+import NavBar from 'Components/NavBar'\r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n         <NavBar />\r\n"
+                },
+                {
+                    "date": 1757681841122,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import NavBar from 'Components/NavBar'\r\n+import NavBar from '../Components/NavBar'\r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n         <NavBar />\r\n"
+                }
+            ],
+            "date": 1757681034964,
+            "name": "Commit-0",
+            "content": "function TVShowsHomePage() {\r\n    return (\r\n        <div></div>\r\n    )\r\n}\r\nexport default TVShowsHomePage"
+        }
+    ]
+}
