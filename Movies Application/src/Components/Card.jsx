@@ -7,7 +7,6 @@ import Circle from "./Circle";
 function CardList({ data, isRecommendation, isSearch }) {
   const { items, selectedType } = useContext(MainContext);
   const navigate = useNavigate();
-  const [isFav, setIsFav] = useState(false);
 
   const list = data || items;
 
@@ -24,37 +23,32 @@ function CardList({ data, isRecommendation, isSearch }) {
           vote_average,
         } = item;
 
+        const [isFav, setIsFav] = useState(false);
+
         const title = selectedType === "movies" ? original_title : name;
-        const dateRaw =
-          selectedType === "movies" ? release_date : first_air_date;
+        const dateRaw = selectedType === "movies" ? release_date : first_air_date;
 
         const date = dateRaw
           ? new Date(dateRaw).toLocaleDateString("en-US", {
-              month: "short",
-              day: "2-digit",
-              year: "numeric",
-            })
+            month: "short",
+            day: "2-digit",
+            year: "numeric",
+          })
           : "N/A";
 
         return (
           <Card
             key={id}
-            className={isSearch ? "m-3 border-0 Card" : "m-4 border-0 Card"} // updated className for search
+            className={isSearch ? "m-3 border-0 Card" : "m-4 border-0 Card"}
             style={{ width: "200px", height: "420px" }}
           >
             <Card.Img
               className="CardImage"
               variant="center"
-              src={
-                poster_path
-                  ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-                  : "/placeholder.png"
-              }
+              src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : "/placeholder.png"}
               alt={title}
               onClick={() =>
-                navigate(
-                  selectedType === "movies" ? `/movie/${id}` : `/tv/${id}`
-                )
+                navigate(selectedType === "movies" ? `/movie/${id}` : `/tv/${id}`)
               }
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
@@ -67,40 +61,25 @@ function CardList({ data, isRecommendation, isSearch }) {
                   {isRecommendation ? (
                     <>
                       <div className="col-12">
-                        <Card.Title
-                          style={{ fontSize: "17px", fontWeight: "bold" }}
-                        >
-                          {title?.length > 25
-                            ? title.slice(0, 20) + "..."
-                            : title}
+                        <Card.Title style={{ fontSize: "17px", fontWeight: "bold" }}>
+                          {title?.length > 25 ? title.slice(0, 20) + "..." : title}
                         </Card.Title>
                       </div>
                       <div className="col-12">
-                        <Card.Text style={{ color: "#7d7b7bc5" }}>
-                          {date}
-                        </Card.Text>
+                        <Card.Text style={{ color: "#7d7b7bc5" }}>{date}</Card.Text>
                       </div>
                     </>
                   ) : (
                     <>
                       <div className="col-10">
-                        <Card.Title
-                          style={{ fontSize: "17px", fontWeight: "bold" }}
-                        >
-                          {title?.length > 25
-                            ? title.slice(0, 20) + "..."
-                            : title}
+                        <Card.Title style={{ fontSize: "17px", fontWeight: "bold" }}>
+                          {title?.length > 25 ? title.slice(0, 20) + "..." : title}
                         </Card.Title>
-                        <Card.Text style={{ color: "#7d7b7bc5" }}>
-                          {date}
-                        </Card.Text>
+                        <Card.Text style={{ color: "#7d7b7bc5" }}>{date}</Card.Text>
                       </div>
-                      <div
-                        className="col-2 position-relative"
-                        style={{ height: "120px" }}
-                      >
+                      <div className="col-2 position-relative" style={{ height: "120px" }}>
                         <img
-                          src={isFav ? "/yellowHeart.png" : "/heart.svg"} // toggle source
+                          src={isFav ? "/yellowHeart.png" : "/heart.svg"}
                           className="cardFavIcon position-absolute"
                           style={{ top: "25px" }}
                           onClick={() => setIsFav(!isFav)}

@@ -7,13 +7,13 @@ function Search() {
 
   const handleSearch = () => {
     if (query.trim()) {
-      navigate(`/search?query=${query}`);
+      navigate(`/search?query=${encodeURIComponent(query)}`);
     }
   };
 
   return (
-    <div className="row">
-      <div className="col-9 col-lg-10 btnSearchContainer">
+    <div className="row g-2 align-items-center">
+      <div className="col-9 col-sm-9 col-lg-11 btnSearchContainer">
         <input
           type="text"
           className="serachInput"
@@ -23,8 +23,11 @@ function Search() {
         />
       </div>
 
-      <div className="col-3 col-lg-2">
-        <button className="SearchButton" onClick={handleSearch}>
+      <div className="col-3 col-sm-3 col-lg-1 d-grid">
+        <button
+          className="SearchButton"
+          onClick={handleSearch}
+        >
           Search
         </button>
       </div>

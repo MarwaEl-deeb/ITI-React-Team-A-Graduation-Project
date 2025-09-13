@@ -26,10 +26,8 @@ export default function SearchPage() {
 
   return (
     <div className="SearchResult mt-5">
-      <div className="searchPageInput">
-        <Search />
+      <div className="searchPageInput "> <Search /> </div>
 
-      </div>
       {loading ? (
         <p>Loading...</p>
       ) : (

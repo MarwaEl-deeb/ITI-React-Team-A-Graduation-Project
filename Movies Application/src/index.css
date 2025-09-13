@@ -2,7 +2,8 @@
   margin-left: 0px;
   font-family: cursive;
 }
-body{
+
+body {
   padding-bottom: 5%;
 }
 
@@ -40,7 +41,7 @@ nav {
 .navbar-brand .form-select:hover {
   transform: scale(1.04);
   background-color: rgba(255, 0, 0, 0);
-  color: #d4c151;
+  color: rgba(0, 0, 0, 0.703);
 }
 
 /* ********** Card ********** */
@@ -163,11 +164,10 @@ i {
 }
 
 .serachInput {
-  display: inline-block;
   background-color: white;
   border: 1px solid #76756fbb;
   border-radius: 10px;
-  width: 100%;
+  width: 98%;
   padding: 10px;
   padding-left: 30px;
 }
@@ -177,12 +177,10 @@ i {
 }
 
 .SearchButton {
-  width: 100%;
-  width: 120px;
   background-color: #ffe353;
   border-radius: 10px;
   border: none;
-  height: 100%;
+  padding: 10px;
   transition: all 1s;
 }
 
@@ -192,10 +190,14 @@ button:hover {
 
 }
 
-.searchHeader,
-.SearchResult .searchPageInput {
-  margin: 4%;
+.searchHeader {
+  margin: 5%;
   margin-top: 1%;
+}
+
+.SearchResult .searchPageInput {
+  width: 89%;
+  margin: 10px auto;
 }
 
 /* ******* ******* ******* ******* ******* ******* ****** ****** ****** */
@@ -226,12 +228,12 @@ button:hover {
 
   50% {
     transform: rotate(180deg);
-    
+
   }
 
   75% {
     transform: rotate(250deg);
- 
+
   }
 
   100% {
@@ -245,6 +247,7 @@ button:hover {
   align-items: center;
   justify-content: center;
 }
+
 /****************Pagination************************/
 .pagination {
   display: flex;
@@ -254,21 +257,22 @@ button:hover {
   overflow: hidden;
   margin: auto;
   border: none;
-  color:darkgray;    
+  color: darkgray;
 }
 
 
- .page-item.active  .page-link {
+.page-item.active .page-link {
   background-color: #ffe353;
-  color:darkgray;              
-  border: 2px solid #ffe353; 
-}
-.page-item:not(.active) .page-link{
-  border: 2px solid #ffff ;
-   color:darkgray;    
+  color: darkgray;
+  border: 2px solid #ffe353;
 }
 
-.page-item.disabled{
+.page-item:not(.active) .page-link {
+  border: 2px solid #ffff;
+  color: darkgray;
+}
+
+.page-item.disabled {
   visibility: hidden;
 }
 
