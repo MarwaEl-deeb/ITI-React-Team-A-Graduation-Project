@@ -1,9 +1,23 @@
-import NavBar from '../Components/NavBar'
+import { useEffect, useContext } from "react";
+import Welcome from "../Components/Welcome";
+import CardList from "../Components/Card";
+import Pagination from "../Components/Pagination";
+import { MainContext } from "../useContext";
 
 function TVShowsHomePage() {
+    const { setSelectedType } = useContext(MainContext);
+
+    useEffect(() => {
+        setSelectedType("tv");
+    }, [setSelectedType]);
+    console.log(setSelectedType)
     return (
-        <div></div>
-        // <NavBar />
+        <div>
+            <Welcome />
+            <CardList />
+            <Pagination />
+        </div>
     );
 }
-export default TVShowsHomePage
+
+export default TVShowsHomePage;

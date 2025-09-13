@@ -40,7 +40,7 @@ nav {
   color: #d4c151;
 }
 
-/* Card */
+/* ********** Card ********** */
 .CardBody {
   padding: 0px;
   border: 0px;
@@ -48,27 +48,60 @@ nav {
 
 .Card {
   transition: all 1s;
+  cursor: pointer;
+
 }
 
 .Card:hover {
   transform: scale(1.05);
 }
 
-/* cardTitle */
-.cardTitle {
-  font-size: 12px;
-}
-
-/* CardIamge */
-.CardIamge {
-  padding: 2px;
+.CardImage {
   border-radius: 20px;
+  margin-bottom: 15%;
+  object-fit: fill;
 }
 
-/* cardFavIcon */
 .cardFavIcon {
   cursor: pointer;
 }
+
+/* ********** Circle ********** */
+.circle {
+  --percentage: 85;
+  width: 50px;
+  height: 50px;
+  --progress-color: #00ff88;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #0b1620;
+  position: absolute;
+  bottom: 22%;
+  left: 10%;
+  background: conic-gradient(var(--progress-color) calc(var(--percentage) * 1%),
+      #1a2a3a 0);
+}
+
+.circle::before {
+  content: "";
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  background: #0b1620;
+  border-radius: 50%;
+}
+
+.circle span {
+  position: absolute;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ********** NavBar ********** */
+
 
 option {
   font-size: 1rem;
@@ -125,7 +158,7 @@ i {
   width: 100%;
 }
 
-.welcome > p {
+.welcome>p {
   font-size: smaller;
   padding: 20px 0px 10px 0px;
 }
@@ -155,7 +188,9 @@ i {
 }
 
 button:hover {
-  transform: scale(1.1);
+  background-color: #e6ca40;
+  color: #4a3f1a;
+
 }
 
 /* ******* ******* ******* ******* ******* ******* ****** ****** ****** */
@@ -217,14 +252,16 @@ button:hover {
 
 .paginationBtn {
   background-color: inherit;
-  color: cadetblue;
+  color: rgba(0, 0, 0, 0.666);
   border: none;
 }
 
-.paginationBtn:focus {
-  background-color: #f5f542;
-  border-color: #f5f542 !important;
+.paginationBtn:hover {
+  background-color: #ffe353;
+  border-radius: 5px;
 }
+
+
 
 /************ WatchList ************/
 
@@ -242,4 +279,32 @@ button:hover {
 .btn-custom:hover {
   background-color: #e6ca40;
   color: #4a3f1a;
+}
+
+/* custom details*/
+.CardDetails {
+  border-radius: 12px;
+  border: none;
+
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.movie-card {
+  border: none;
+  border-radius: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.genre-badge {
+  padding: 7px;
+  min-width: 80px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.list-group-item {
+  border: none !important;
+  padding-left: 0;
 }
