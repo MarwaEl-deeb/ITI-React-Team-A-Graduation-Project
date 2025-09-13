@@ -21,7 +21,7 @@ export default function CardDetails({ id, selectedType }) {
   const endpoint =
     selectedType === "movies"
       ? `https://api.themoviedb.org/3/movie/${id}?api_key=dd1481c9866799f1bc15adf106a083fe`
-      : `https://api.themoviedb.org/3/tv/${id}`;
+      : `https://api.themoviedb.org/3/tv/${id}?api_key=dd1481c9866799f1bc15adf106a083fe`;
 
   useEffect(() => {
     setLoading(true);
@@ -56,9 +56,9 @@ export default function CardDetails({ id, selectedType }) {
   const formattedDate =
     movie.release_date || movie.first_air_date
       ? new Date(movie.release_date || movie.first_air_date).toLocaleDateString(
-        "en-US",
-        { year: "numeric", month: "short", day: "numeric" }
-      )
+          "en-US",
+          { year: "numeric", month: "short", day: "numeric" }
+        )
       : "N/A";
 
   const duration = movie.runtime || movie.episode_run_time?.[0] || "N/A";

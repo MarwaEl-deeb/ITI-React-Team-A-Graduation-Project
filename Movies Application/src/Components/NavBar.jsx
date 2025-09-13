@@ -67,12 +67,14 @@ function NavBar() {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarContent">
-          <div className="d-flex ms-auto headerRightSide fw-bold">
+          <div
+            className="d-flex ms-auto headerRightSide fw-bold"
+          // style={{ color: "#726625" }}
+          >
             <select
               name="lang"
               className="form-select fw-bold"
-              value={lang}
-              onChange={handleLanguageChange}
+            // style={{ color: "#726625" }}
             >
               <option value="En">En</option>
               <option value="Ar">العربية</option>
