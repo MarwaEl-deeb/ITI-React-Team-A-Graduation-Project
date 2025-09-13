@@ -52,6 +52,14 @@ const router = createBrowserRouter([
     ),
   },
   { path: "/movie/:id", element: <DetailsPage /> },
+  {path:"*",
+    element:(
+      <div className="d-flex justify-content-center align-items-center "
+      style={{height:"100vh"}}>
+        <h1>ops!</h1>
+      </div>
+    )
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
