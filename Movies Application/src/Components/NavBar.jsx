@@ -60,7 +60,7 @@ function NavBar() {
         </select>
 
         <span className="watchListIcon align-self-center">
-          <img src="./heartFilled.png" className="watchListIcon" alt="fav" />
+          <img src="/heartFilled.png" className="watchListIcon" alt="fav" />
         </span>
 
         <span className="align-self-center WatchLinkContainer">
