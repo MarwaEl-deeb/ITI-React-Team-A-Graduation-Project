@@ -1,4 +1,14 @@
 {
   "welcome": "مرحبا بكم في موقعي",
-  "about": "معلومات عنا"
+  "about": "معلومات عنا",
+  "WatchList": " قائمة_المشاهدات",
+  "Movie App": "تطبيق الأفلام",
+  "TV Shows": "البرامج التلفزيونية",
+  "Welcome to our movie app": "مرحبًا بكم في تطبيق الأفلام الخاص بنا",
+  "Now Playing": "يعرض الآن",
+  "Popular": "شائع",
+  " Millions of movies ,TV shows and people to discover.Explore now.": " ملايين الأفلام والبرامج التلفزيونية والأشخاص لاكتشافها. استكشف الآن.",
+  "Search and Explore...": "ابحث واستكشف...",
+  "Search": "بحث",
+  "Search Results for:": "نتائج البحث عن:"
 }

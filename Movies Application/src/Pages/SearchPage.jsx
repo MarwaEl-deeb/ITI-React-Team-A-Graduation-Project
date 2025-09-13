@@ -3,12 +3,14 @@ import { useEffect, useState } from "react";
 import NavBar from "../Components/NavBar";
 import Search from "../Components/Search";
 import CardList from "../Components/Card";
+import { useTranslation } from "react-i18next";
 
 export default function SearchPage() {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("query");
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (query) {
@@ -32,7 +34,7 @@ export default function SearchPage() {
         <p>Loading...</p>
       ) : (
         <>
-          <h2 className="my-5 searchHeader">Search Results for: "{query}"</h2>
+          <h2 className="my-5 searchHeader">{t("Search Results for:")} "{query}"</h2>
           {results.length > 0 ? (
             <CardList data={results} isSearch={true} />
           ) : (
