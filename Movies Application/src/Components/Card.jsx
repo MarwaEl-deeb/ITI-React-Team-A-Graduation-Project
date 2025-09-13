@@ -1,10 +1,10 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { MainContext } from "../useContext";
 import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
 import Circle from "./Circle";
 
-function CardList({ data, isRecommendation }) {
+function CardList({ data, isRecommendation, isSearch }) {
   const { items, selectedType } = useContext(MainContext);
   const navigate = useNavigate();
 
@@ -23,6 +23,8 @@ function CardList({ data, isRecommendation }) {
           vote_average,
         } = item;
 
+        const [isFav, setIsFav] = useState(false);
+
         const title = selectedType === "movies" ? original_title : name;
         const dateRaw = selectedType === "movies" ? release_date : first_air_date;
 
@@ -35,7 +37,11 @@ function CardList({ data, isRecommendation }) {
           : "N/A";
 
         return (
-          <Card key={id} className="m-4 border-0 Card" style={{ width: "200px", height: "420px" }}>
+          <Card
+            key={id}
+            className={isSearch ? "m-3 border-0 Card" : "m-4 border-0 Card"} // updated className for search
+            style={{ width: "200px", height: "420px" }}
+          >
             <Card.Img
               className="CardImage"
               variant="center"
@@ -52,7 +58,6 @@ function CardList({ data, isRecommendation }) {
             <Card.Body className="CardBody">
               <div className="container">
                 <div className="row">
-                  {/* Recommended cards: title full row, text second row */}
                   {isRecommendation ? (
                     <>
                       <div className="col-12">
@@ -74,9 +79,10 @@ function CardList({ data, isRecommendation }) {
                       </div>
                       <div className="col-2 position-relative" style={{ height: "120px" }}>
                         <img
-                          src="/heart.svg"
+                          src={isFav ? "/yellowHeart.png" : "/heart.svg"} // toggle source
                           className="cardFavIcon position-absolute"
                           style={{ top: "25px" }}
+                          onClick={() => setIsFav(!isFav)}
                         />
                       </div>
                     </>
