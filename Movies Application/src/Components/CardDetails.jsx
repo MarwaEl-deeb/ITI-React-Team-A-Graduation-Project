@@ -17,7 +17,6 @@ export default function CardDetails({ id, selectedType }) {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Correct endpoint for movies and TV shows
   const endpoint =
     selectedType === "movies"
       ? `https://api.themoviedb.org/3/movie/${id}?api_key=dd1481c9866799f1bc15adf106a083fe`

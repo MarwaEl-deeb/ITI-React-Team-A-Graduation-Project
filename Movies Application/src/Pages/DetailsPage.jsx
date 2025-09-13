@@ -12,11 +12,10 @@ function DetailsPage() {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
 
-  // Correct endpoint based on type
   const endpoint =
     selectedType === "movies"
       ? `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=dd1481c9866799f1bc15adf106a083fe`
-      : `https://api.themoviedb.org/3/tv/${id}/popular?api_key=dd1481c9866799f1bc15adf106a083fe`;
+      : `https://api.themoviedb.org/3/tv/${id}/similar?api_key=dd1481c9866799f1bc15adf106a083fe`;
 
   useEffect(() => {
     setLoading(true);
