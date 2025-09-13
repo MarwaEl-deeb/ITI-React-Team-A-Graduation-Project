@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 71,
+            "activePatchIndex": 79,
             "patches": [
                 {
                     "date": 1757681034964,
@@ -292,6 +292,38 @@
                 {
                     "date": 1757783240046,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n \r\n     return (\r\n         <div>\r\n             <Welcome />\r\n-            <CardList data={tvItems} selectedType={selectedType} />\r\n+            <CardList data={tvItems} />\r\n             <Pagination />\r\n         </div>\r\n     );\r\n }\r\n"
+                },
+                {
+                    "date": 1757783496502,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         )\r\n             .then((res) => res.json())\r\n             .then((data) => {\r\n                 setTvItems(data.results || []);\r\n-                setTotalPages(data.total_pages);\r\n+                setTotalPages(data.total_pages || 1);\r\n                 setLoading(false);\r\n             })\r\n             .catch(() => setLoading(false));\r\n     }, [page]);\r\n@@ -37,9 +37,9 @@\n     return (\r\n         <div>\r\n             <Welcome />\r\n             <CardList data={tvItems} />\r\n-            <Pagination />\r\n+            <Pagination totalPages={totalPages} page={page} setPage={setPage} />\r\n         </div>\r\n     );\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1757783665460,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,46 +1,62 @@\n import { useEffect, useState, useContext } from \"react\";\r\n import Welcome from \"../Components/Welcome\";\r\n import CardList from \"../Components/Card\";\r\n import Pagination from \"../Components/Pagination\";\r\n+import NavBar from \"../Components/NavBar\";\r\n import { MainContext } from \"../useContext\";\r\n \r\n function TVShowsHomePage() {\r\n-    const { setSelectedType } = useContext(MainContext);\r\n-    const [tvItems, setTvItems] = useState([]);\r\n+    const [items, setItems] = useState([]);\r\n     const [loading, setLoading] = useState(true);\r\n     const [page, setPage] = useState(1);\r\n     const [totalPages, setTotalPages] = useState(1);\r\n+    const [selectedType, setSelectedType] = useState(\"tv\"); // default to TV\r\n+    const { setSelectedType: setGlobalSelectedType } = useContext(MainContext);\r\n \r\n+    // Update global context selectedType\r\n     useEffect(() => {\r\n-        setSelectedType(\"tv\");\r\n-    }, [setSelectedType]);\r\n+        setGlobalSelectedType(\"tv\");\r\n+    }, [setGlobalSelectedType]);\r\n \r\n+    // Fetch TV shows whenever page or selectedType changes\r\n     useEffect(() => {\r\n         setLoading(true);\r\n-\r\n         fetch(\r\n             `https://api.themoviedb.org/3/tv/popular?api_key=dd1481c9866799f1bc15adf106a083fe&page=${page}`\r\n         )\r\n             .then((res) => res.json())\r\n             .then((data) => {\r\n-                setTvItems(data.results || []);\r\n+                setItems(data.results || []);\r\n                 setTotalPages(data.total_pages || 1);\r\n                 setLoading(false);\r\n             })\r\n             .catch(() => setLoading(false));\r\n-    }, [page]);\r\n+    }, [page, selectedType]);\r\n \r\n     if (loading) {\r\n         return <p>Loading TV Shows...</p>;\r\n     }\r\n \r\n     return (\r\n-        <div>\r\n+        <MainContext.Provider\r\n+            value={{\r\n+                items,\r\n+                setItems,\r\n+                totalPages,\r\n+                page,\r\n+                setPage,\r\n+                loading,\r\n+                setLoading,\r\n+                selectedType,\r\n+                setSelectedType,\r\n+            }}\r\n+        >\r\n+            <NavBar />\r\n             <Welcome />\r\n-            <CardList data={tvItems} />\r\n-            <Pagination totalPages={totalPages} page={page} setPage={setPage} />\r\n-        </div>\r\n+            <CardList /> {/* CardList will now use context items */}\r\n+            <Pagination /> {/* Pagination will now use context page/totalPages */}\r\n+        </MainContext.Provider>\r\n     );\r\n }\r\n \r\n export default TVShowsHomePage;\r\n"
+                },
+                {
+                    "date": 1757783675036,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,8 @@\n                 selectedType,\r\n                 setSelectedType,\r\n             }}\r\n         >\r\n-            <NavBar />\r\n             <Welcome />\r\n             <CardList /> {/* CardList will now use context items */}\r\n             <Pagination /> {/* Pagination will now use context page/totalPages */}\r\n         </MainContext.Provider>\r\n"
+                },
+                {
+                    "date": 1757783698595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,14 +12,12 @@\n     const [totalPages, setTotalPages] = useState(1);\r\n     const [selectedType, setSelectedType] = useState(\"tv\"); // default to TV\r\n     const { setSelectedType: setGlobalSelectedType } = useContext(MainContext);\r\n \r\n-    // Update global context selectedType\r\n     useEffect(() => {\r\n         setGlobalSelectedType(\"tv\");\r\n     }, [setGlobalSelectedType]);\r\n \r\n-    // Fetch TV shows whenever page or selectedType changes\r\n     useEffect(() => {\r\n         setLoading(true);\r\n         fetch(\r\n             `https://api.themoviedb.org/3/tv/popular?api_key=dd1481c9866799f1bc15adf106a083fe&page=${page}`\r\n"
+                },
+                {
+                    "date": 1757783706591,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,13 @@\n             .catch(() => setLoading(false));\r\n     }, [page, selectedType]);\r\n \r\n     if (loading) {\r\n-        return <p>Loading TV Shows...</p>;\r\n+        return (\r\n+            <div className=\"loading\">\r\n+                <div className=\"loading\"></div>\r\n+            </div >\r\n+        );\r\n     }\r\n \r\n     return (\r\n         <MainContext.Provider\r\n"
+                },
+                {
+                    "date": 1757783760781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,10 +53,10 @@\n                 setSelectedType,\r\n             }}\r\n         >\r\n             <Welcome />\r\n-            <CardList /> {/* CardList will now use context items */}\r\n-            <Pagination /> {/* Pagination will now use context page/totalPages */}\r\n+            <CardList />\r\n+            <Pagination />\r\n         </MainContext.Provider>\r\n     );\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1757783766653,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     const [items, setItems] = useState([]);\r\n     const [loading, setLoading] = useState(true);\r\n     const [page, setPage] = useState(1);\r\n     const [totalPages, setTotalPages] = useState(1);\r\n-    const [selectedType, setSelectedType] = useState(\"tv\"); // default to TV\r\n+    const [selectedType, setSelectedType] = useState(\"tv\");\r\n     const { setSelectedType: setGlobalSelectedType } = useContext(MainContext);\r\n \r\n     useEffect(() => {\r\n         setGlobalSelectedType(\"tv\");\r\n"
+                },
+                {
+                    "date": 1757783774303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n import { useEffect, useState, useContext } from \"react\";\r\n import Welcome from \"../Components/Welcome\";\r\n import CardList from \"../Components/Card\";\r\n import Pagination from \"../Components/Pagination\";\r\n-import NavBar from \"../Components/NavBar\";\r\n import { MainContext } from \"../useContext\";\r\n \r\n function TVShowsHomePage() {\r\n     const [items, setItems] = useState([]);\r\n"
                 }
             ],
             "date": 1757681034964,
