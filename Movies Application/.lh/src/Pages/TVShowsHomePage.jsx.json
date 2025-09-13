@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 49,
+            "activePatchIndex": 51,
             "patches": [
                 {
                     "date": 1757681034964,
@@ -204,6 +204,14 @@
                 {
                     "date": 1757776151562,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,22 @@\n-\n+import { useEffect, useContext } from \"react\";\r\n+import Welcome from \"../Components/Welcome\";\r\n+import CardList from \"../Components/Card\";\r\n+import Pagination from \"../Components/Pagination\";\r\n+import { MainContext } from \"../useContext\";\r\n+\r\n+function TVShowsHomePage() {\r\n+    const { setSelectedType } = useContext(MainContext);\r\n+\r\n+    useEffect(() => {\r\n+        setSelectedType(\"movies\");\r\n+    }, [setSelectedType]);\r\n+    return (\r\n+        <div>\r\n+            <Welcome />\r\n+            <CardList />\r\n+            <Pagination />\r\n+        </div>\r\n+    );\r\n+}\r\n+\r\n+export default TVShowsHomePage;\r\n"
+                },
+                {
+                    "date": 1757779769873,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n function TVShowsHomePage() {\r\n     const { setSelectedType } = useContext(MainContext);\r\n \r\n     useEffect(() => {\r\n-        setSelectedType(\"movies\");\r\n+        setSelectedType(\"tv\");\r\n     }, [setSelectedType]);\r\n     return (\r\n         <div>\r\n             <Welcome />\r\n"
+                },
+                {
+                    "date": 1757781445766,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,20 +1,21 @@\n-import { useEffect, useContext } from \"react\";\r\n import Welcome from \"../Components/Welcome\";\r\n import CardList from \"../Components/Card\";\r\n import Pagination from \"../Components/Pagination\";\r\n+import { useContext, useEffect } from \"react\";\r\n import { MainContext } from \"../useContext\";\r\n \r\n function TVShowsHomePage() {\r\n     const { setSelectedType } = useContext(MainContext);\r\n \r\n     useEffect(() => {\r\n-        setSelectedType(\"tv\");\r\n+        setSelectedType(\"tv\"); // set type\r\n     }, [setSelectedType]);\r\n+\r\n     return (\r\n         <div>\r\n             <Welcome />\r\n-            <CardList />\r\n+            <CardList /> {/* CardList fetches itself based on selectedType */}\r\n             <Pagination />\r\n         </div>\r\n     );\r\n }\r\n"
                 }
             ],
             "date": 1757681034964,

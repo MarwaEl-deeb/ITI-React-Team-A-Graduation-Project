@@ -1,32 +1,31 @@
-import { useEffect, useState, useContext } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { MainContext } from "../useContext";
-
 
 function NavBar() {
   const navigate = useNavigate();
   const location = useLocation();
-
-  const [selected, setSelected] = useState("Movie App");
   const { selectedType, setSelectedType } = useContext(MainContext);
-
+  const [localSelected, setLocalSelected] = useState(selectedType);
 
   useEffect(() => {
     if (location.pathname === "/") {
-      setSelected("Movie App");
+      setSelectedType("movies");
+      setLocalSelected("movies");
     } else if (location.pathname === "/TV-Shows") {
-      setSelected("TV Shows");
+      setSelectedType("tv");
+      setLocalSelected("tv");
     }
-  }, [location.pathname]);
+  }, [location.pathname, setSelectedType]);
 
   const handleChange = (e) => {
     const value = e.target.value;
-    setSelected(value);
+    setSelectedType(value);
+    setLocalSelected(value);
 
-    if (value === "Movie App") {
+    if (value === "movies") {
       navigate("/");
-    } else if (value === "TV Shows") {
+    } else if (value === "tv") {
       navigate("/TV-Shows");
     }
   };
@@ -34,20 +33,18 @@ function NavBar() {
   return (
     <nav>
       <div className="navbar navTitle">
-        <strong className="navbar-brand ">
+        <strong className="navbar-brand">
           <select
             className="form-select"
-            name="categery"
-            value={selectedType}
-            onChange={(e) => setSelectedType(e.target.value)}
+            value={localSelected} // use local state
+            onChange={handleChange}
           >
-            <option value="Movie App" selected>
-              Movie App
-            </option>
-            <option value="TV Shows">TV Shows</option>
+            <option value="movies">Movie App</option>
+            <option value="tv">TV Shows</option>
           </select>
         </strong>
       </div>
+
       <div
         className="d-flex headerRightSide fw-bold"
         style={{ color: "#726625" }}
@@ -55,17 +52,14 @@ function NavBar() {
         <select
           name="lang"
           className="form-select fw-bold"
-          id=""
           style={{ color: "#726625" }}
         >
-          <option value="En" selected>
-            En
-          </option>
+          <option value="En">En</option>
           <option value="Ar">Ar</option>
         </select>
 
         <span className="watchListIcon align-self-center">
-          <img src="./heartFilled.png" className="watchListIcon" />
+          <img src="./heartFilled.png" className="watchListIcon" alt="fav" />
         </span>
 
         <span className="align-self-center WatchLinkContainer">
@@ -80,4 +74,5 @@ function NavBar() {
     </nav>
   );
 }
+
 export default NavBar;

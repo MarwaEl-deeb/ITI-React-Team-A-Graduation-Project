@@ -13,7 +13,6 @@ export default function SearchPage() {
   const navigate = useNavigate();
 
 
-
   useEffect(() => {
     if (query) {
       setLoading(true);
@@ -30,14 +29,14 @@ export default function SearchPage() {
 
   return (
     <>
-      <div className="container mt-4">
+      <div className="container mt-5">
         <Search />
 
         {loading ? (
           <p>Loading...</p>
         ) : (
           <>
-            <h2 className="my-4">Search Results for "{query}"</h2>
+            <h2 className="my-5">Search Results for "{query}"</h2>
             {results.length > 0 ? (
               <div className="d-flex flex-wrap justify-content-center">
                 {results.map((m) => {
