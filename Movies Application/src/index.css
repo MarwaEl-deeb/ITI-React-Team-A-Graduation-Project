@@ -48,6 +48,7 @@ nav {
 
 .Card {
   transition: all 1s;
+  cursor: pointer;
 
 }
 

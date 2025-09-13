@@ -24,8 +24,8 @@ function CardList() {
         const title = selectedType === "movies" ? original_title : name;
         const dateRaw =
           selectedType === "movies" ? release_date : first_air_date;
+        console.log("CardList rendering with selectedType:", selectedType);
 
-        console.log(selectedType)
 
         const date = dateRaw
           ? new Date(dateRaw).toLocaleDateString("en-US", {
@@ -72,7 +72,7 @@ function CardList() {
                     style={{ height: "120px" }}
                   >
                     <img
-                      src="./heart.svg"
+                      src="/heart.svg"
                       className="cardFavIcon position-absolute"
                       style={{ top: "25px" }}
                     />

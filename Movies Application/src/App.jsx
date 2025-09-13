@@ -23,8 +23,8 @@ function App() {
     fetch(endpoint)
       .then((res) => res.json())
       .then((data) => {
-        setItems(data.results || []);
-        setTotalPages(data.total_pages || 1);
+        setItems(data.results);
+        setTotalPages(data.total_pages);
         setLoading(false);
       })
       .catch((err) => {
