@@ -147,6 +147,7 @@ i {
 /* ***** ******* ******* ****** welcome style ***** ******* ******* ***** */
 .nowPlaying {
   margin-left: 3%;
+  margin-right: 3%;
 }
 
 .WelcomeMainContainer {
@@ -288,6 +289,11 @@ button:hover {
 }
 
 
+.recommendText {
+  margin-left: 2%;
+  margin-right: 2%;
+  padding: 15px
+}
 
 
 

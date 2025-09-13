@@ -5,12 +5,14 @@ import NavBar from "../Components/NavBar";
 import CardDetails from "../Components/CardDetails";
 import CardList from "../Components/Card";
 import { MainContext } from "../useContext";
+import { useTranslation } from "react-i18next";
 
 function DetailsPage() {
   const { id } = useParams();
   const { selectedType } = useContext(MainContext);
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     setLoading(true);
@@ -40,7 +42,10 @@ function DetailsPage() {
           <Spinner animation="border" variant="warning" />
         </div>
       ) : movies.length ? (
-        <CardList data={movies} isRecommendation={true} />
+        <div>
+          <h2 className="recommendText">{t("Recommendations")}</h2>
+          <CardList data={movies} isRecommendation={true} />
+        </div>
       ) : (
         <p className="text-center">No recommendations found</p>
       )}
