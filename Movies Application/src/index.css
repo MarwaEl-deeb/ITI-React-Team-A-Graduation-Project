@@ -56,9 +56,9 @@ nav {
 }
 
 .CardImage {
-  padding: 2px;
   border-radius: 20px;
   margin-bottom: 15%;
+  object-fit: fill;
 }
 
 .cardFavIcon {

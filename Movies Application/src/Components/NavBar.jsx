@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 
 function NavBar() {
   const navigate = useNavigate();
@@ -28,52 +27,69 @@ function NavBar() {
   };
 
   return (
-    <nav>
-      <div className="navbar navTitle">
-        <strong className="navbar-brand ">
+    <nav className="navbar navbar-expand-lg navTitle">
+      <div className="container-fluid">
+        {/* Brand / Select */}
+        <strong className="navbar-brand">
           <select
             className="form-select"
             name="categery"
             value={selected}
             onChange={handleChange}
           >
-            <option value="Movie App" selected>
-              Movie App
-            </option>
+            <option value="Movie App">Movie App</option>
             <option value="TV Shows">TV Shows</option>
           </select>
         </strong>
-      </div>
-      <div
-        className="d-flex headerRightSide fw-bold"
-        style={{ color: "#726625" }}
-      >
-        <select
-          name="lang"
-          className="form-select fw-bold"
-          id=""
-          style={{ color: "#726625" }}
+
+        {/* Toggler (hamburger button) */}
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          <option value="En" selected>
-            En
-          </option>
-          <option value="Ar">Ar</option>
-        </select>
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
-        <span className="watchListIcon align-self-center">
-          <img src="/heartFilled.png" className="watchListIcon" />
-        </span>
+        {/* Collapsible content */}
+        <div className="collapse navbar-collapse" id="navbarContent">
+          <div
+            className="d-flex ms-auto headerRightSide fw-bold"
+            style={{ color: "#726625" }}
+          >
+            <select
+              name="lang"
+              className="form-select fw-bold"
+              style={{ color: "#726625" }}
+            >
+              <option value="En">En</option>
+              <option value="Ar">Ar</option>
+            </select>
 
-        <span className="align-self-center WatchLinkContainer">
-          <Link className="nav-link active position-relative" to="/WatchList">
-            <span className="watchListText">WatchList</span>
-            <span className="badge bg-white position-absolute top-0 ms-2 translate-middle">
-              <span className="favListNum">7</span>
+            <span className="watchListIcon align-self-center">
+              <img src="/heartFilled.png" className="watchListIcon" />
             </span>
-          </Link>
-        </span>
+
+            <span className="align-self-center WatchLinkContainer">
+              <Link
+                className="nav-link active position-relative"
+                to="/WatchList"
+              >
+                <span className="watchListText">WatchList</span>
+                <span className="badge bg-white position-absolute top-0 ms-2 translate-middle">
+                  <span className="favListNum">7</span>
+                </span>
+              </Link>
+            </span>
+          </div>
+        </div>
       </div>
     </nav>
   );
 }
+
 export default NavBar;
