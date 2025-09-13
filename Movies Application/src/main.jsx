@@ -52,7 +52,6 @@ const router = createBrowserRouter([
     ),
   },
   { path: "/movie/:id", element: <DetailsPage /> },
-  { path: "/tv/:id", element: <DetailsPage /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
