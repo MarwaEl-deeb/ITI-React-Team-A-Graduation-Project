@@ -38,7 +38,15 @@ function App() {
   }
   return (
     <MainContext.Provider
-      value={{ movies, totalPages, page, setPage, loading, setLoading }}
+      value={{
+        movies,
+        setMovies,
+        totalPages,
+        page,
+        setPage,
+        loading,
+        setLoading,
+      }}
     >
       <NavBar />
       <Welcome />
