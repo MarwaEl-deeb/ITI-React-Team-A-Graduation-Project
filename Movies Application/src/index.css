@@ -16,7 +16,7 @@ nav {
 .navbar-brand select {
   font-weight: bold;
   font-size: 1.4rem;
-  color: #726625;
+  /* color: #726625; */
   font-size: 22px;
 }
 
@@ -122,12 +122,13 @@ a {
 .watchListText {
   font-weight: bold;
   padding-left: 12px;
+
 }
 
 .favListNum {
   color: black;
   font-size: 12px;
-  font-weight: normal;
+  /* font-weight: normal; */
 }
 
 i {
