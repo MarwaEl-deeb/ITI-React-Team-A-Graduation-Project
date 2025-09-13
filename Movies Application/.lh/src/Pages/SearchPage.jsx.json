@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 5,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1757681050180,
@@ -28,6 +28,10 @@
                 {
                     "date": 1757774506354,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,10 @@\n   const [results, setResults] = useState([]);\r\n   const [loading, setLoading] = useState(true);\r\n   const navigate = useNavigate();\r\n \r\n+\r\n+  //  https://api.themoviedb.org/3/movie/popular?api_key=api_key=dd1481c9866799f1bc15adf106a083fe&query=${query}\r\n   useEffect(() => {\r\n     if (query) {\r\n       setLoading(true);\r\n       fetch(\r\n@@ -57,9 +59,9 @@\n \r\n                   return (\r\n                     <Card\r\n                       key={id}\r\n-                      className=\"m-3 border-0 Card\"\r\n+                      className=\"m-2 border-0 Card\"\r\n                       style={{ width: \"200px\", height: \"420px\" }}\r\n                     >\r\n                       <Card.Img\r\n                         className=\"CardImage\"\r\n"
+                },
+                {
+                    "date": 1757775950166,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n   const [loading, setLoading] = useState(true);\r\n   const navigate = useNavigate();\r\n \r\n \r\n-  //  https://api.themoviedb.org/3/movie/popular?api_key=api_key=dd1481c9866799f1bc15adf106a083fe&query=${query}\r\n+  //  https://api.themoviedb.org/3//search/tv?api_key=api_key=dd1481c9866799f1bc15adf106a083fe&query=${query}\r\n   useEffect(() => {\r\n     if (query) {\r\n       setLoading(true);\r\n       fetch(\r\n"
                 }
             ],
             "date": 1757681050180,

@@ -8,7 +8,7 @@ function TVShowsHomePage() {
     const { setSelectedType } = useContext(MainContext);
 
     useEffect(() => {
-        setSelectedType("tv");
+        setSelectedType("movies");
     }, [setSelectedType]);
     console.log(setSelectedType)
     return (
