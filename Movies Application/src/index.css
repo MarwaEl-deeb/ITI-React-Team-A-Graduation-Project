@@ -270,12 +270,14 @@ button:hover {
 
 
 .page-item.active .page-link {
+  border-radius: 5px;
   background-color: #ffe353;
   color: darkgray;
   border: 2px solid #ffe353;
 }
 
 .page-item:not(.active) .page-link {
+  border-radius: 5px;
   border: 2px solid #ffff;
   color: darkgray;
 }
