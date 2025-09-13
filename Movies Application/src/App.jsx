@@ -54,11 +54,10 @@ function App() {
       }}
     >
       <NavBar />
-      <Welcome />
 
+      <Welcome />
       <CardList />
       <PaginationComponent />
-      <DetailsPage />
     </MainContext.Provider>
   );
 }

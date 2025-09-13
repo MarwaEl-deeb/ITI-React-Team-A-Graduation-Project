@@ -1,6 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { Spinner, Card, Container, Row, Col } from "react-bootstrap";
-
+import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import NavBar from "../Components/NavBar";
 import CardDetails from "../Components/CardDetails";
@@ -14,11 +13,12 @@ function DetailsPage() {
   const [movies, setMovies] = useState([]);
 
   const endpoint =
-    selectedType == "movies"
+    selectedType === "movies"
       ? `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=dd1481c9866799f1bc15adf106a083fe`
-      : `https://api.themoviedb.org/3/tv/${id}/recommendations?api_key=dd1481c9866799f1bc15adf106a083fe`;
+      : `https://api.themoviedb.org/3/tv/${id}/similar?api_key=dd1481c9866799f1bc15adf106a083fe`;
 
   useEffect(() => {
+    setLoading(true);
     fetch(endpoint)
       .then((res) => res.json())
       .then((data) => {
@@ -27,26 +27,26 @@ function DetailsPage() {
       })
       .catch((err) => {
         console.error(err);
+        setMovies([]);
         setLoading(false);
       });
-  }, [id, endpoint]);
-
-  if (loading)
-    return (
-      <div className="text-center my-4">
-        <Spinner animation="border" variant="warning" />
-      </div>
-    );
-
-  if (!movies.length)
-    return <p className="text-center">No recommendations found</p>;
+  }, [id, selectedType]); // dependency updated
 
   return (
     <>
       <NavBar />
       <CardDetails id={id} selectedType={selectedType} />
       <hr style={{ width: "90%", margin: "2rem auto" }} />
-      <CardList data={movies} isRecommendation={true} />
+
+      {loading ? (
+        <div className="text-center my-4">
+          <Spinner animation="border" variant="warning" />
+        </div>
+      ) : movies.length ? (
+        <CardList data={movies} isRecommendation={true} />
+      ) : (
+        <p className="text-center">No recommendations found</p>
+      )}
     </>
   );
 }
