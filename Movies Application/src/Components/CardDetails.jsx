@@ -17,7 +17,7 @@ export default function CardDetails({ id, selectedType }) {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Correct endpoint for movies and TV shows
+  // Determine correct endpoint based on type
   const endpoint =
     selectedType === "movies"
       ? `https://api.themoviedb.org/3/movie/${id}?api_key=dd1481c9866799f1bc15adf106a083fe`
@@ -25,14 +25,19 @@ export default function CardDetails({ id, selectedType }) {
 
   useEffect(() => {
     setLoading(true);
+
+    // Debug log to ensure correct API is called
+    console.log("Fetching from endpoint:", endpoint);
+
     fetch(endpoint)
       .then((res) => res.json())
       .then((data) => {
+        console.log("API response:", data); // Check API response
         setMovie(data);
         setLoading(false);
       })
       .catch((err) => {
-        console.error(err);
+        console.error("Fetch error:", err);
         setMovie(null);
         setLoading(false);
       });
@@ -46,7 +51,7 @@ export default function CardDetails({ id, selectedType }) {
     );
   }
 
-  if (!movie) return <p className="text-center">No movie found</p>;
+  if (!movie) return <p className="text-center">No movie/TV show found</p>;
 
   const formattedDate =
     movie.release_date || movie.first_air_date
@@ -75,10 +80,7 @@ export default function CardDetails({ id, selectedType }) {
       <Card className="movie-card">
         <Row className="g-3 flex-column flex-md-row">
           {/* Poster */}
-          <Col
-            md={5}
-            className="d-flex justify-content-center align-items-stretch"
-          >
+          <Col md={5} className="d-flex justify-content-center align-items-stretch">
             <img
               src={posterSrc}
               alt={movie.original_title || movie.name}
@@ -103,14 +105,9 @@ export default function CardDetails({ id, selectedType }) {
                 {movie.original_title || movie.name}
                 <FaHeart style={{ color: "gold", cursor: "pointer" }} />
               </Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">
-                {formattedDate}
-              </Card.Subtitle>
+              <Card.Subtitle className="mb-2 text-muted">{formattedDate}</Card.Subtitle>
 
-              <RatingStars
-                rating={movie.vote_average || 0}
-                votes={movie.vote_count || 0}
-              />
+              <RatingStars rating={movie.vote_average || 0} votes={movie.vote_count || 0} />
 
               <Card.Text className="mt-3">{shortOverview}</Card.Text>
 
@@ -134,9 +131,7 @@ export default function CardDetails({ id, selectedType }) {
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <strong>Languages:</strong>{" "}
-                  {movie.spoken_languages
-                    ?.map((lang) => lang.english_name)
-                    .join(", ") || "N/A"}
+                  {movie.spoken_languages?.map((lang) => lang.english_name).join(", ") || "N/A"}
                 </ListGroup.Item>
               </ListGroup>
 
