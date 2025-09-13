@@ -3,11 +3,23 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1757681087615,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1757766178961,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,18 @@\n+import { useParams } from \"react-router-dom\";\r\n+import NavBar from \"../Components/NavBar\";\r\n+import CardDetails from \"../Components/CardDetails\";\r\n+import Recommendation from \"../Components/Recommendation\";\r\n+\r\n function DetailsPage() {\r\n\\ No newline at end of file\n-    return (\r\n-        <div></div>\r\n-    )\r\n+  const { id } = useParams();\r\n+\r\n+  return (\r\n+    <>\r\n+      <CardDetails id={id} />\r\n+      <hr style={{ width: \"90%\", margin: \"2rem auto\" }} />\r\n+      <Recommendation id={id} />\r\n+    </>\r\n+  );\r\n }\r\n-export default DetailsPage\n+\r\n+export default DetailsPage;\r\n"
+                },
+                {
+                    "date": 1757766214900,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,12 +7,13 @@\n   const { id } = useParams();\r\n \r\n   return (\r\n     <>\r\n+      <NavBar />\r\n       <CardDetails id={id} />\r\n       <hr style={{ width: \"90%\", margin: \"2rem auto\" }} />\r\n       <Recommendation id={id} />\r\n     </>\r\n   );\r\n }\r\n \r\n\\ No newline at end of file\n-export default DetailsPage;\n+export default DetailsPage;\r\n"
+                },
+                {
+                    "date": 1757769128209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,13 +7,12 @@\n   const { id } = useParams();\r\n \r\n   return (\r\n     <>\r\n-      <NavBar />\r\n       <CardDetails id={id} />\r\n       <hr style={{ width: \"90%\", margin: \"2rem auto\" }} />\r\n       <Recommendation id={id} />\r\n     </>\r\n   );\r\n }\r\n \r\n-export default DetailsPage;\n\\ No newline at end of file\n+export default DetailsPage;\r\n"
                 }
             ],
             "date": 1757681087615,

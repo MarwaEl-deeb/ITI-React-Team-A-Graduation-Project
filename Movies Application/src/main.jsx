@@ -20,8 +20,8 @@ const router = createBrowserRouter([
     path: "/TV-Shows",
     element: (
       <>
-        <TVShowsHomePage />
         <NavBar />
+        <TVShowsHomePage />
       </>
     ),
   },
@@ -29,8 +29,8 @@ const router = createBrowserRouter([
     path: "/Search",
     element: (
       <>
-        <SearchPage />
         <NavBar />
+        <SearchPage />
       </>
     ),
   },
@@ -48,7 +48,6 @@ const router = createBrowserRouter([
     element: (
       <>
         <DetailsPage />
-        <NavBar />
       </>
     ),
   },

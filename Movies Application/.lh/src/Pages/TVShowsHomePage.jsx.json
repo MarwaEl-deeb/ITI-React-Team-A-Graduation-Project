@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 4,
+            "activePatchIndex": 34,
             "patches": [
                 {
                     "date": 1757681034964,
@@ -24,6 +24,126 @@
                 {
                     "date": 1757681841122,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import NavBar from 'Components/NavBar'\r\n+import NavBar from '../Components/NavBar'\r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n         <NavBar />\r\n"
+                },
+                {
+                    "date": 1757764488237,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import NavBar from '../Components/NavBar'\r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n-        <NavBar />\r\n+         <Welcome />\r\n+      <Card />\r\n     );\r\n }\r\n export default TVShowsHomePage\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757764518953,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n-import NavBar from '../Components/NavBar'\r\n+import Card from \"./Components/Card\";\r\n+import Welcome from \"./Components/Welcome\";\r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n          <Welcome />\r\n"
+                },
+                {
+                    "date": 1757764529920,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,11 @@\n import Welcome from \"./Components/Welcome\";\r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n-         <Welcome />\r\n-      <Card />\r\n+        <div>\r\n+            <Welcome />\r\n+            <Card />\r\n+        </div>\r\n     );\r\n }\r\n export default TVShowsHomePage\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757764561295,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n-import Card from \"./Components/Card\";\r\n-import Welcome from \"./Components/Welcome\";\r\n+import Card from \"../Components/Card\";\r\n+import Welcome from \"../Components/Welcome\";\r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n         <div>\r\n"
+                },
+                {
+                    "date": 1757765155370,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,9 @@\n-import Card from \"../Components/Card\";\r\n-import Welcome from \"../Components/Welcome\";\r\n+import Card from \"./Components/Card\";\r\n+import Welcome from \"./Components/Welcome\";\r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n-        <div>\r\n-            <Welcome />\r\n-            <Card />\r\n-        </div>\r\n+        \r\n     );\r\n }\r\n export default TVShowsHomePage\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757765162629,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n-import Card from \"./Components/Card\";\r\n-import Welcome from \"./Components/Welcome\";\r\n+import NavBar from '../Components/NavBar'\r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n-        \r\n+        <div></div>\r\n+        // <NavBar />\r\n     );\r\n }\r\n export default TVShowsHomePage\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757765289063,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,12 @@\n-import NavBar from '../Components/NavBar'\r\n+import Card from \"../Components/Card\";\r\n+import Welcome from \"../Components/Welcome\";\r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n-        <div></div>\r\n-        // <NavBar />\r\n+        <div>\r\n+            <Welcome />\r\n+            <Card />\r\n+        </div>\r\n     );\r\n }\r\n export default TVShowsHomePage\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757765325961,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import Card from \"../Components/Card\";\r\n import Welcome from \"../Components/Welcome\";\r\n+import { MainContext } from \"../useContext\";\r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n         <div>\r\n"
+                },
+                {
+                    "date": 1757766044051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,5 +9,5 @@\n             <Card />\r\n         </div>\r\n     );\r\n }\r\n-export default TVShowsHomePage\n\\ No newline at end of file\n+export default TVShowsHomePage;\r\n"
+                },
+                {
+                    "date": 1757766066370,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,11 @@\n import Card from \"../Components/Card\";\r\n import Welcome from \"../Components/Welcome\";\r\n-import { MainContext } from \"../useContext\";\r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n         <div>\r\n             <Welcome />\r\n-            <Card />\r\n         </div>\r\n     );\r\n }\r\n export default TVShowsHomePage;\r\n"
+                },
+                {
+                    "date": 1757766101547,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,8 @@\n import Welcome from \"../Components/Welcome\";\r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n-        <div>\r\n-            <Welcome />\r\n-        </div>\r\n+        <Welcome />\r\n     );\r\n }\r\n export default TVShowsHomePage;\r\n"
+                },
+                {
+                    "date": 1757766128944,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,10 @@\n-import Card from \"../Components/Card\";\r\n+import NavBar from \"../Components/NavBar\";\r\n import Welcome from \"../Components/Welcome\";\r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n+        <NavBar />\r\n         <Welcome />\r\n     );\r\n }\r\n export default TVShowsHomePage;\r\n"
+                },
+                {
+                    "date": 1757766135703,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import Welcome from \"../Components/Welcome\";\r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n-        <NavBar />\r\n+        <NavBar/>\r\n         <Welcome />\r\n     );\r\n }\r\n export default TVShowsHomePage;\r\n"
+                },
+                {
+                    "date": 1757766141720,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,11 @@\n import Welcome from \"../Components/Welcome\";\r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n-        <NavBar/>\r\n-        <Welcome />\r\n+        <div>\r\n+            <NavBar />\r\n+            <Welcome />\r\n+        </div>\r\n     );\r\n }\r\n export default TVShowsHomePage;\r\n"
+                },
+                {
+                    "date": 1757766241431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,4 @@\n-import NavBar from \"../Components/NavBar\";\r\n import Welcome from \"../Components/Welcome\";\r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n"
+                },
+                {
+                    "date": 1757766247577,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n+import NavBar from \"../Components/NavBar\";\r\n import Welcome from \"../Components/Welcome\";\r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n"
+                },
+                {
+                    "date": 1757766265888,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,10 @@\n \r\n function TVShowsHomePage() {\r\n     return (\r\n         <div>\r\n+            <Welcome />\r\n             <NavBar />\r\n-            <Welcome />\r\n         </div>\r\n     );\r\n }\r\n export default TVShowsHomePage;\r\n"
+                },
+                {
+                    "date": 1757766304720,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,8 @@\n \r\n function TVShowsHomePage() {\r\n     return (\r\n         <div>\r\n-            <Welcome />\r\n             <NavBar />\r\n         </div>\r\n     );\r\n }\r\n"
+                },
+                {
+                    "date": 1757766316035,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,13 @@\n import NavBar from \"../Components/NavBar\";\r\n import Welcome from \"../Components/Welcome\";\r\n+import Card from \"../Components/Card\";\r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n         <div>\r\n             <NavBar />\r\n+            <Welcome />\r\n         </div>\r\n     );\r\n }\r\n export default TVShowsHomePage;\r\n"
+                },
+                {
+                    "date": 1757766321381,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \r\n function TVShowsHomePage() {\r\n     return (\r\n         <div>\r\n-            <NavBar />\r\n+            <Card />\r\n             <Welcome />\r\n         </div>\r\n     );\r\n }\r\n"
+                },
+                {
+                    "date": 1757766348092,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n-import NavBar from \"../Components/NavBar\";\r\n import Welcome from \"../Components/Welcome\";\r\n import Card from \"../Components/Card\";\r\n+import { MainContext } from \"./useContext\";\r\n \r\n+\r\n function TVShowsHomePage() {\r\n     return (\r\n         <div>\r\n             <Card />\r\n"
+                },
+                {
+                    "date": 1757766361511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import Welcome from \"../Components/Welcome\";\r\n import Card from \"../Components/Card\";\r\n-import { MainContext } from \"./useContext\";\r\n+import { MainContext } from \"../useContext\";\r\n \r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n"
+                },
+                {
+                    "date": 1757766398570,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import Welcome from \"../Components/Welcome\";\r\n import Card from \"../Components/Card\";\r\n import { MainContext } from \"../useContext\";\r\n \r\n+const { movies } = MainContext._currentValue;\r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n         <div>\r\n"
+                },
+                {
+                    "date": 1757767185545,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,13 @@\n import Welcome from \"../Components/Welcome\";\r\n-import Card from \"../Components/Card\";\r\n-import { MainContext } from \"../useContext\";\r\n+import CardList from \"../Components/Card\";\r\n \r\n-const { movies } = MainContext._currentValue;\r\n-\r\n function TVShowsHomePage() {\r\n     return (\r\n         <div>\r\n-            <Card />\r\n             <Welcome />\r\n+            <CardList />\r\n         </div>\r\n     );\r\n }\r\n+\r\n export default TVShowsHomePage;\r\n"
+                },
+                {
+                    "date": 1757767903595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,14 @@\n import Welcome from \"../Components/Welcome\";\r\n import CardList from \"../Components/Card\";\r\n+import Pagination from \"../Components/Pagination\";\r\n \r\n function TVShowsHomePage() {\r\n     return (\r\n         <div>\r\n             <Welcome />\r\n             <CardList />\r\n+            <Pagination />\r\n         </div>\r\n     );\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1757768491694,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,18 @@\n+import { useEffect, useContext } from \"react\";\r\n import Welcome from \"../Components/Welcome\";\r\n import CardList from \"../Components/Card\";\r\n import Pagination from \"../Components/Pagination\";\r\n+import { MainContext } from \"../useContext\";\r\n \r\n function TVShowsHomePage() {\r\n+    const { setSelectedType } = useContext(MainContext);\r\n+\r\n+    useEffect(() => {\r\n+        // when this page loads, make sure the type is TV\r\n+        setSelectedType(\"tv\");\r\n+    }, [setSelectedType]);\r\n+\r\n     return (\r\n         <div>\r\n             <Welcome />\r\n             <CardList />\r\n"
+                },
+                {
+                    "date": 1757768651296,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,14 +7,14 @@\n function TVShowsHomePage() {\r\n     const { setSelectedType } = useContext(MainContext);\r\n \r\n     useEffect(() => {\r\n-        // when this page loads, make sure the type is TV\r\n         setSelectedType(\"tv\");\r\n     }, [setSelectedType]);\r\n \r\n     return (\r\n         <div>\r\n+            <\r\n             <Welcome />\r\n             <CardList />\r\n             <Pagination />\r\n         </div>\r\n"
+                },
+                {
+                    "date": 1757768677907,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,23 +2,23 @@\n import Welcome from \"../Components/Welcome\";\r\n import CardList from \"../Components/Card\";\r\n import Pagination from \"../Components/Pagination\";\r\n import { MainContext } from \"../useContext\";\r\n+import\r\n+    function TVShowsHomePage() {\r\n+        const { setSelectedType } = useContext(MainContext);\r\n \r\n-function TVShowsHomePage() {\r\n-    const { setSelectedType } = useContext(MainContext);\r\n+        useEffect(() => {\r\n+            setSelectedType(\"tv\");\r\n+        }, [setSelectedType]);\r\n \r\n-    useEffect(() => {\r\n-        setSelectedType(\"tv\");\r\n-    }, [setSelectedType]);\r\n+        return (\r\n+            <div>\r\n+                <Navbar />\r\n+                <Welcome />\r\n+                <CardList />\r\n+                <Pagination />\r\n+            </div>\r\n+        );\r\n+    }\r\n \r\n-    return (\r\n-        <div>\r\n-            <\r\n-            <Welcome />\r\n-            <CardList />\r\n-            <Pagination />\r\n-        </div>\r\n-    );\r\n-}\r\n-\r\n export default TVShowsHomePage;\r\n"
+                },
+                {
+                    "date": 1757768936495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,23 +2,24 @@\n import Welcome from \"../Components/Welcome\";\r\n import CardList from \"../Components/Card\";\r\n import Pagination from \"../Components/Pagination\";\r\n import { MainContext } from \"../useContext\";\r\n-import\r\n-    function TVShowsHomePage() {\r\n-        const { setSelectedType } = useContext(MainContext);\r\n+import Navbar from \"../Components/NavBar\";\r\n \r\n-        useEffect(() => {\r\n-            setSelectedType(\"tv\");\r\n-        }, [setSelectedType]);\r\n+function TVShowsHomePage() {\r\n+    const { setSelectedType } = useContext(MainContext);\r\n \r\n-        return (\r\n-            <div>\r\n-                <Navbar />\r\n-                <Welcome />\r\n-                <CardList />\r\n-                <Pagination />\r\n-            </div>\r\n-        );\r\n-    }\r\n+    useEffect(() => {\r\n+        setSelectedType(\"tv\");\r\n+    }, [setSelectedType]);\r\n \r\n+    return (\r\n+        <div>\r\n+            <Navbar />\r\n+            <Welcome />\r\n+            <CardList />\r\n+            <Pagination />\r\n+        </div>\r\n+    );\r\n+}\r\n+\r\n export default TVShowsHomePage;\r\n"
+                },
+                {
+                    "date": 1757769057033,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,8 @@\n import Welcome from \"../Components/Welcome\";\r\n import CardList from \"../Components/Card\";\r\n import Pagination from \"../Components/Pagination\";\r\n import { MainContext } from \"../useContext\";\r\n-import Navbar from \"../Components/NavBar\";\r\n \r\n function TVShowsHomePage() {\r\n     const { setSelectedType } = useContext(MainContext);\r\n \r\n@@ -13,9 +12,8 @@\n     }, [setSelectedType]);\r\n \r\n     return (\r\n         <div>\r\n-            <Navbar />\r\n             <Welcome />\r\n             <CardList />\r\n             <Pagination />\r\n         </div>\r\n"
                 }
             ],
             "date": 1757681034964,
