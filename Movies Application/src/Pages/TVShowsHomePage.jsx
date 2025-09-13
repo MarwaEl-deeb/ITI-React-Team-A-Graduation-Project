@@ -10,7 +10,6 @@ function TVShowsHomePage() {
     useEffect(() => {
         setSelectedType("movies");
     }, [setSelectedType]);
-    console.log(setSelectedType)
     return (
         <div>
             <Welcome />

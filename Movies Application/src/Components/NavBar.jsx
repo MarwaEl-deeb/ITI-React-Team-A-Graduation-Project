@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { MainContext } from "../useContext";
+
 
 function NavBar() {
   const navigate = useNavigate();
   const location = useLocation();
 
   const [selected, setSelected] = useState("Movie App");
+  const { selectedType, setSelectedType } = useContext(MainContext);
+
 
   useEffect(() => {
     if (location.pathname === "/") {
@@ -34,8 +38,8 @@ function NavBar() {
           <select
             className="form-select"
             name="categery"
-            value={selected}
-            onChange={handleChange}
+            value={selectedType}
+            onChange={(e) => setSelectedType(e.target.value)}
           >
             <option value="Movie App" selected>
               Movie App
@@ -61,7 +65,7 @@ function NavBar() {
         </select>
 
         <span className="watchListIcon align-self-center">
-          <img src="/heartFilled.png" className="watchListIcon" />
+          <img src="./heartFilled.png" className="watchListIcon" />
         </span>
 
         <span className="align-self-center WatchLinkContainer">

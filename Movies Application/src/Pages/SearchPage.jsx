@@ -13,7 +13,7 @@ export default function SearchPage() {
   const navigate = useNavigate();
 
 
-  //  https://api.themoviedb.org/3/search/tv?api_key=api_key=dd1481c9866799f1bc15adf106a083fe&query=${query}
+
   useEffect(() => {
     if (query) {
       setLoading(true);
