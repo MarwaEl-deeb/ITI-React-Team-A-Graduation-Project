@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Spinner, Card } from "react-bootstrap";
+import { Spinner, Card, Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Circle from "./Circle";
 
@@ -34,9 +34,9 @@ export default function Recommendation({ id }) {
     return <p className="text-center">No recommendations found</p>;
 
   return (
-    <div className="recommendation-wrapper p-3">
+    <Container className="recommendation-wrapper py-3">
       <h3>Recommendations</h3>
-      <div className="d-flex flex-wrap justify-content-start gap-3">
+      <Row className="g-3">
         {movies.map((movie) => {
           const {
             id,
@@ -45,7 +45,6 @@ export default function Recommendation({ id }) {
             release_date,
             vote_average,
           } = movie;
-
           const date = new Date(release_date).toLocaleDateString("en-US", {
             month: "short",
             day: "2-digit",
@@ -53,42 +52,59 @@ export default function Recommendation({ id }) {
           });
 
           return (
-            <Card
-              key={id}
-              className="m-4 mx-auto border-0 Card shadow p-2"
-              style={{ width: "220px", height: "400px" }}
-            >
-              <Card.Img
-                className="CardImage"
-                variant="center"
-                src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-                alt={original_title}
-                onClick={() => navigate(`/movie/${id}`)}
+            <Col key={id} xs={12} sm={6} md={4} lg={3}>
+              <Card
+                className="border-0 shadow-sm p-2"
                 style={{
-                  width: "100%", // الصورة تاخد كامل عرض الكارد
-                  height: "250px", // تحددي ارتفاع ثابت
-                  objectFit: "cover", // الصورة تغطي المساحة بدون تشويه
-                  borderRadius: "8px", // اختياري للتزيين
+                  position: "relative",
+                  height: "400px",
+                  cursor: "pointer",
                 }}
-              />
-              <Circle value={vote_average} />
-              <Card.Body className="p-2">
-                <Card.Title
-                  style={{ fontSize: "14px", fontWeight: "bold" }}
-                  title={original_title}
+              >
+                <Card.Img
+                  variant="top"
+                  src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+                  alt={original_title}
+                  onClick={() => navigate(`/movie/${id}`)}
+                  style={{
+                    width: "100%",
+                    height: "250px",
+                    objectFit: "cover",
+                    borderRadius: "8px",
+                  }}
+                />
+                {/* Circle فوق الصورة */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "280px",
+                    left: "20px",
+                    zIndex: 2,
+                  }}
                 >
-                  {original_title.length > 25
-                    ? original_title.slice(0, 24) + "..."
-                    : original_title}
-                </Card.Title>
-                <Card.Text style={{ fontSize: "12px", color: "#555" }}>
-                  {date}
-                </Card.Text>
-              </Card.Body>
-            </Card>
+                  <Circle value={vote_average} />
+                </div>
+
+                <Card.Body className="p-2">
+                  <Card.Title
+                    style={{
+                      fontSize: "14px",
+                      fontWeight: "bold",
+                      marginTop: "20px",
+                    }}
+                    title={original_title}
+                  >
+                    original_title.length
+                  </Card.Title>
+                  <Card.Text style={{ fontSize: "12px", color: "#555" }}>
+                    {date}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
           );
         })}
-      </div>
-    </div>
+      </Row>
+    </Container>
   );
 }
