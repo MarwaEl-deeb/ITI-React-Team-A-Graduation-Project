@@ -8,6 +8,7 @@ function NavBar() {
   const { selectedType, setSelectedType } = useContext(MainContext);
   const [localSelected, setLocalSelected] = useState(selectedType);
 
+  // Sync local state with context and location
   useEffect(() => {
     if (location.pathname === "/") {
       setSelectedType("movies");

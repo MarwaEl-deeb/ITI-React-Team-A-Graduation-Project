@@ -57,7 +57,7 @@ function App() {
     >
       <NavBar />
       <Welcome />
-      <CardList />
+      <CardList items={items} selectedType={selectedType} />
       <Pagination />
     </MainContext.Provider>
   );

@@ -4,13 +4,16 @@ import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
 import Circle from "./Circle";
 
-function CardList() {
+function CardList({ data }) {
   const { items, selectedType } = useContext(MainContext);
   const navigate = useNavigate();
 
+  // if "data" is passed, use it (search results); otherwise use context items
+  const list = data || items;
+
   return (
     <div className="movies">
-      {items.map((item) => {
+      {list.map((item) => {
         const {
           id,
           original_title,
@@ -24,7 +27,6 @@ function CardList() {
         const title = selectedType === "movies" ? original_title : name;
         const dateRaw =
           selectedType === "movies" ? release_date : first_air_date;
-
 
         const date = dateRaw
           ? new Date(dateRaw).toLocaleDateString("en-US", {
@@ -43,7 +45,11 @@ function CardList() {
             <Card.Img
               className="CardImage"
               variant="center"
-              src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+              src={
+                poster_path
+                  ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+                  : "/placeholder.png"
+              }
               alt={title}
               onClick={() =>
                 navigate(
@@ -71,7 +77,7 @@ function CardList() {
                     style={{ height: "120px" }}
                   >
                     <img
-                      src="./heart.svg"
+                      src="/heart.svg"
                       className="cardFavIcon position-absolute"
                       style={{ top: "25px" }}
                     />
