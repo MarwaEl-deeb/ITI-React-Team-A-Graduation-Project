@@ -4,13 +4,15 @@ import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
 import Circle from "./Circle";
 
-function CardList() {
+function CardList({ data, isRecommendation }) {
   const { items, selectedType } = useContext(MainContext);
   const navigate = useNavigate();
 
+  const list = data || items;
+
   return (
     <div className="movies">
-      {items.map((item) => {
+      {list.map((item) => {
         const {
           id,
           original_title,
@@ -22,10 +24,7 @@ function CardList() {
         } = item;
 
         const title = selectedType === "movies" ? original_title : name;
-        const dateRaw =
-          selectedType === "movies" ? release_date : first_air_date;
-        console.log("CardList rendering with selectedType:", selectedType);
-
+        const dateRaw = selectedType === "movies" ? release_date : first_air_date;
 
         const date = dateRaw
           ? new Date(dateRaw).toLocaleDateString("en-US", {
@@ -36,20 +35,14 @@ function CardList() {
           : "N/A";
 
         return (
-          <Card
-            key={id}
-            className="m-4 border-0 Card"
-            style={{ width: "200px", height: "420px" }}
-          >
+          <Card key={id} className="m-4 border-0 Card" style={{ width: "200px", height: "420px" }}>
             <Card.Img
               className="CardImage"
               variant="center"
-              src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+              src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : "/placeholder.png"}
               alt={title}
               onClick={() =>
-                navigate(
-                  selectedType === "movies" ? `/movie/${id}` : `/tv/${id}`
-                )
+                navigate(selectedType === "movies" ? `/movie/${id}` : `/tv/${id}`)
               }
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
@@ -59,24 +52,35 @@ function CardList() {
             <Card.Body className="CardBody">
               <div className="container">
                 <div className="row">
-                  <div className="col-10">
-                    <Card.Title style={{ fontSize: "17px", fontWeight: "bold" }}>
-                      {title?.length > 25
-                        ? title.slice(0, 20) + "..."
-                        : title}
-                    </Card.Title>
-                    <Card.Text style={{ color: "#7d7b7bc5" }}>{date}</Card.Text>
-                  </div>
-                  <div
-                    className="col-2 position-relative"
-                    style={{ height: "120px" }}
-                  >
-                    <img
-                      src="/heart.svg"
-                      className="cardFavIcon position-absolute"
-                      style={{ top: "25px" }}
-                    />
-                  </div>
+                  {/* Recommended cards: title full row, text second row */}
+                  {isRecommendation ? (
+                    <>
+                      <div className="col-12">
+                        <Card.Title style={{ fontSize: "17px", fontWeight: "bold" }}>
+                          {title?.length > 25 ? title.slice(0, 20) + "..." : title}
+                        </Card.Title>
+                      </div>
+                      <div className="col-12">
+                        <Card.Text style={{ color: "#7d7b7bc5" }}>{date}</Card.Text>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="col-10">
+                        <Card.Title style={{ fontSize: "17px", fontWeight: "bold" }}>
+                          {title?.length > 25 ? title.slice(0, 20) + "..." : title}
+                        </Card.Title>
+                        <Card.Text style={{ color: "#7d7b7bc5" }}>{date}</Card.Text>
+                      </div>
+                      <div className="col-2 position-relative" style={{ height: "120px" }}>
+                        <img
+                          src="/heart.svg"
+                          className="cardFavIcon position-absolute"
+                          style={{ top: "25px" }}
+                        />
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             </Card.Body>

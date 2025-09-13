@@ -57,6 +57,7 @@ console.log(loading)
     >
       <NavBar />
       <Welcome />
+
       <CardList />
       <PaginationComponent />
        
