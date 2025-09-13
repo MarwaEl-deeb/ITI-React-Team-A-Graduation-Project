@@ -12,6 +12,8 @@ export default function SearchPage() {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+
+  //  https://api.themoviedb.org/3/movie/popular?api_key=api_key=dd1481c9866799f1bc15adf106a083fe&query=${query}
   useEffect(() => {
     if (query) {
       setLoading(true);
@@ -49,16 +51,16 @@ export default function SearchPage() {
 
                   const date = release_date
                     ? new Date(release_date).toLocaleDateString("en-US", {
-                        month: "short",
-                        day: "2-digit",
-                        year: "numeric",
-                      })
+                      month: "short",
+                      day: "2-digit",
+                      year: "numeric",
+                    })
                     : "N/A";
 
                   return (
                     <Card
                       key={id}
-                      className="m-4 border-0 Card"
+                      className="m-2 border-0 Card"
                       style={{ width: "200px", height: "420px" }}
                     >
                       <Card.Img
