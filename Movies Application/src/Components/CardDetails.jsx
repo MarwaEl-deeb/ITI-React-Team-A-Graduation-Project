@@ -35,7 +35,7 @@ export default function CardDetails({ id, selectedType }) {
         setMovie(null);
         setLoading(false);
       });
-  }, [id, selectedType]);
+  }, [id, selectedType, endpoint]);
 
   if (loading) {
     return (
