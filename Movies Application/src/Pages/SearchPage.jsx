@@ -25,15 +25,18 @@ export default function SearchPage() {
   }, [query]);
 
   return (
-    <div className="container mt-5">
-      <Search />
+    <div className="SearchResult mt-5">
+      <div className="searchPageInput">
+        <Search />
+
+      </div>
       {loading ? (
         <p>Loading...</p>
       ) : (
         <>
-          <h2 className="my-5">Search Results for "{query}"</h2>
+          <h2 className="my-5 searchHeader">Search Results for: "{query}"</h2>
           {results.length > 0 ? (
-            <CardList data={results} />
+            <CardList data={results} isSearch={true} />
           ) : (
             <p style={{ color: "red" }}>NOT FOUND </p>
           )}
