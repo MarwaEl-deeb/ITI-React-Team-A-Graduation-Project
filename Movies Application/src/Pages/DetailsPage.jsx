@@ -1,21 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Spinner, Card, Container, Row, Col } from "react-bootstrap";
-// import { useNavigate } from "react-router-dom";
+
 import { useParams } from "react-router-dom";
 import NavBar from "../Components/NavBar";
 import CardDetails from "../Components/CardDetails";
 import CardList from "../Components/Card";
+import { MainContext } from "../useContext";
 
 function DetailsPage() {
   const { id } = useParams();
+  const { selectedType } = useContext(MainContext);
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
-  // const navigate = useNavigate();
+
+  const endpoint =
+    selectedType == "movies"
+      ? `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=dd1481c9866799f1bc15adf106a083fe`
+      : `https://api.themoviedb.org/3/tv/${id}/recommendations?api_key=dd1481c9866799f1bc15adf106a083fe`;
 
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=dd1481c9866799f1bc15adf106a083fe`
-    )
+    fetch(endpoint)
       .then((res) => res.json())
       .then((data) => {
         setMovies(data.results || []);
@@ -25,7 +29,7 @@ function DetailsPage() {
         console.error(err);
         setLoading(false);
       });
-  }, [id]);
+  }, [id, endpoint]);
 
   if (loading)
     return (
@@ -40,7 +44,7 @@ function DetailsPage() {
   return (
     <>
       <NavBar />
-      <CardDetails id={id} />
+      <CardDetails id={id} selectedType={selectedType} />
       <hr style={{ width: "90%", margin: "2rem auto" }} />
       <CardList data={movies} isRecommendation={true} />
     </>
