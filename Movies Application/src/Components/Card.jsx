@@ -25,6 +25,8 @@ function CardList() {
         const dateRaw =
           selectedType === "movies" ? release_date : first_air_date;
 
+        console.log(selectedType)
+
         const date = dateRaw
           ? new Date(dateRaw).toLocaleDateString("en-US", {
             month: "short",

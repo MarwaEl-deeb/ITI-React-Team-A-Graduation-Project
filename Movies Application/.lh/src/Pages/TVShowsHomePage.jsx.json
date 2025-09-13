@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 34,
+            "activePatchIndex": 35,
             "patches": [
                 {
                     "date": 1757681034964,
@@ -144,6 +144,10 @@
                 {
                     "date": 1757769057033,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,8 @@\n import Welcome from \"../Components/Welcome\";\r\n import CardList from \"../Components/Card\";\r\n import Pagination from \"../Components/Pagination\";\r\n import { MainContext } from \"../useContext\";\r\n-import Navbar from \"../Components/NavBar\";\r\n \r\n function TVShowsHomePage() {\r\n     const { setSelectedType } = useContext(MainContext);\r\n \r\n@@ -13,9 +12,8 @@\n     }, [setSelectedType]);\r\n \r\n     return (\r\n         <div>\r\n-            <Navbar />\r\n             <Welcome />\r\n             <CardList />\r\n             <Pagination />\r\n         </div>\r\n"
+                },
+                {
+                    "date": 1757769657629,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,9 @@\n     useEffect(() => {\r\n         setSelectedType(\"tv\");\r\n     }, [setSelectedType]);\r\n \r\n+    console.log(setSelectedType)\r\n     return (\r\n         <div>\r\n             <Welcome />\r\n             <CardList />\r\n"
                 }
             ],
             "date": 1757681034964,

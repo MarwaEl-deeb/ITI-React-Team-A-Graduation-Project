@@ -33,6 +33,14 @@ function App() {
       });
   }, [page, selectedType]);
 
+  if (loading) {
+    return (
+      <div className="loading">
+        <div className="loading"></div>
+      </div >
+    );
+  }
+
   return (
     <MainContext.Provider
       value={{

@@ -11,6 +11,7 @@ function TVShowsHomePage() {
         setSelectedType("tv");
     }, [setSelectedType]);
 
+    console.log(setSelectedType)
     return (
         <div>
             <Welcome />
