@@ -2,6 +2,9 @@
   margin-left: 0px;
   font-family: cursive;
 }
+body{
+  padding-bottom: 5%;
+}
 
 nav {
   display: flex;
@@ -41,13 +44,10 @@ nav {
 }
 
 /* ********** Card ********** */
-.CardBody {
-  padding: 0px;
-  border: 0px;
-}
 
 .Card {
   transition: all 1s;
+  cursor: pointer;
 
 }
 
@@ -166,7 +166,7 @@ i {
 .serachInput {
   display: inline-block;
   background-color: white;
-  border: none;
+  border: 1px solid #76756fbb;
   border-radius: 10px;
   width: 100%;
   padding: 10px;
@@ -193,6 +193,12 @@ button:hover {
 
 }
 
+.searchHeader,
+.SearchResult .searchPageInput {
+  margin: 4%;
+  margin-top: 1%;
+}
+
 /* ******* ******* ******* ******* ******* ******* ****** ****** ****** */
 .loading {
   display: flex;
@@ -200,11 +206,12 @@ button:hover {
   align-items: center;
   margin: 2%;
   width: 90vw;
+
   height: 90vh;
 }
 
 .loadspan {
-  border-left: 5px solid black;
+  border-left: 5px solid #e6ca40;
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -216,17 +223,16 @@ button:hover {
 @keyframes load {
   25% {
     transform: rotate(90deg);
-    border-color: red;
   }
 
   50% {
     transform: rotate(180deg);
-    border-color: blue;
+    
   }
 
   75% {
     transform: rotate(250deg);
-    border-color: green;
+ 
   }
 
   100% {
@@ -240,7 +246,7 @@ button:hover {
   align-items: center;
   justify-content: center;
 }
-
+/****************Pagination************************/
 .pagination {
   display: flex;
   align-items: center;
@@ -248,18 +254,26 @@ button:hover {
   width: 50vw;
   overflow: hidden;
   margin: auto;
-}
-
-.paginationBtn {
-  background-color: inherit;
-  color: rgba(0, 0, 0, 0.666);
   border: none;
+  color:darkgray;    
 }
 
-.paginationBtn:hover {
+
+ .page-item.active  .page-link {
   background-color: #ffe353;
-  border-radius: 5px;
+  color:darkgray;              
+  border: 2px solid #ffe353; 
 }
+.page-item:not(.active) .page-link{
+  border: 2px solid #ffff ;
+   color:darkgray;    
+}
+
+.page-item.disabled{
+  visibility: hidden;
+}
+
+
 
 
 

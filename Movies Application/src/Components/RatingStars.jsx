@@ -2,7 +2,7 @@ import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
 export default function RatingStars({ rating, votes }) {
   const stars = [];
-  const value = rating / 2;
+  const value = (rating ?? 0) / 2; // fallback 0
 
   for (let i = 1; i <= 5; i++) {
     if (i <= Math.floor(value)) {
@@ -14,12 +14,12 @@ export default function RatingStars({ rating, votes }) {
     }
   }
 
+  const votesDisplay = votes != null ? votes.toLocaleString() : "0"; // fallback
+
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
       {stars}
-      <span style={{ marginLeft: "8px" }}>
-        ({votes.toLocaleString()} votes)
-      </span>
+      <span style={{ marginLeft: "8px" }}>({votesDisplay} votes)</span>
     </div>
   );
 }

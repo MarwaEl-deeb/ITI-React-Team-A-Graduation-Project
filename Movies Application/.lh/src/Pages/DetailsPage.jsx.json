@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 23,
             "patches": [
                 {
                     "date": 1757681087615,
@@ -20,6 +20,86 @@
                 {
                     "date": 1757769128209,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,13 +7,12 @@\n   const { id } = useParams();\r\n \r\n   return (\r\n     <>\r\n-      <NavBar />\r\n       <CardDetails id={id} />\r\n       <hr style={{ width: \"90%\", margin: \"2rem auto\" }} />\r\n       <Recommendation id={id} />\r\n     </>\r\n   );\r\n }\r\n \r\n-export default DetailsPage;\n\\ No newline at end of file\n+export default DetailsPage;\r\n"
+                },
+                {
+                    "date": 1757784529584,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,16 +2,31 @@\n import NavBar from \"../Components/NavBar\";\r\n import CardDetails from \"../Components/CardDetails\";\r\n import Recommendation from \"../Components/Recommendation\";\r\n \r\n+useEffect(() => {\r\n+  fetch(\r\n+    `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=dd1481c9866799f1bc15adf106a083fe`\r\n+  )\r\n+    .then((res) => res.json())\r\n+    .then((data) => {\r\n+      setMovies(data.results || []);\r\n+      setLoading(false);\r\n+    })\r\n+    .catch((err) => {\r\n+      console.error(err);\r\n+      setLoading(false);\r\n+    });\r\n+}, [id]);\r\n function DetailsPage() {\r\n   const { id } = useParams();\r\n \r\n   return (\r\n     <>\r\n+      <NavBar />\r\n       <CardDetails id={id} />\r\n       <hr style={{ width: \"90%\", margin: \"2rem auto\" }} />\r\n-      <Recommendation id={id} />\r\n+      <Card id={id} />\r\n     </>\r\n   );\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1757784560710,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,19 @@\n       console.error(err);\r\n       setLoading(false);\r\n     });\r\n }, [id]);\r\n+if (loading)\r\n+  return (\r\n+    <div className=\"text-center my-4\">\r\n+      <Spinner animation=\"border\" variant=\"warning\" />\r\n+    </div>\r\n+  );\r\n+\r\n+if (!movies.length)\r\n+  return <p className=\"text-center\">No recommendations found</p>;\r\n+\r\n+\r\n function DetailsPage() {\r\n   const { id } = useParams();\r\n \r\n   return (\r\n"
+                },
+                {
+                    "date": 1757784575655,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,19 +16,10 @@\n       console.error(err);\r\n       setLoading(false);\r\n     });\r\n }, [id]);\r\n-if (loading)\r\n-  return (\r\n-    <div className=\"text-center my-4\">\r\n-      <Spinner animation=\"border\" variant=\"warning\" />\r\n-    </div>\r\n-  );\r\n \r\n-if (!movies.length)\r\n-  return <p className=\"text-center\">No recommendations found</p>;\r\n \r\n-\r\n function DetailsPage() {\r\n   const { id } = useParams();\r\n \r\n   return (\r\n"
+                },
+                {
+                    "date": 1757784591085,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,10 +16,8 @@\n       console.error(err);\r\n       setLoading(false);\r\n     });\r\n }, [id]);\r\n-\r\n-\r\n function DetailsPage() {\r\n   const { id } = useParams();\r\n \r\n   return (\r\n"
+                },
+                {
+                    "date": 1757784635907,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,23 +1,12 @@\n-import { useParams } from \"react-router-dom\";\r\n+import { useEffect, useState } from \"react\";\r\n+import { useParams, } from \"react-router-dom\";\r\n import NavBar from \"../Components/NavBar\";\r\n import CardDetails from \"../Components/CardDetails\";\r\n import Recommendation from \"../Components/Recommendation\";\r\n \r\n-useEffect(() => {\r\n-  fetch(\r\n-    `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=dd1481c9866799f1bc15adf106a083fe`\r\n-  )\r\n-    .then((res) => res.json())\r\n-    .then((data) => {\r\n-      setMovies(data.results || []);\r\n-      setLoading(false);\r\n-    })\r\n-    .catch((err) => {\r\n-      console.error(err);\r\n-      setLoading(false);\r\n-    });\r\n-}, [id]);\r\n+\r\n+\r\n function DetailsPage() {\r\n   const { id } = useParams();\r\n \r\n   return (\r\n"
+                },
+                {
+                    "date": 1757784643632,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n import { useEffect, useState } from \"react\";\r\n+import { Spinner, Card, Container, Row, Col } from \"react-bootstrap\";\r\n+\r\n import { useParams, } from \"react-router-dom\";\r\n import NavBar from \"../Components/NavBar\";\r\n import CardDetails from \"../Components/CardDetails\";\r\n import Recommendation from \"../Components/Recommendation\";\r\n"
+                },
+                {
+                    "date": 1757784695710,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { useEffect, useState } from \"react\";\r\n import { Spinner, Card, Container, Row, Col } from \"react-bootstrap\";\r\n-\r\n+import { useNavigate } from \"react-router-dom\";\r\n import { useParams, } from \"react-router-dom\";\r\n import NavBar from \"../Components/NavBar\";\r\n import CardDetails from \"../Components/CardDetails\";\r\n import Recommendation from \"../Components/Recommendation\";\r\n@@ -9,8 +9,10 @@\n \r\n \r\n function DetailsPage() {\r\n   const { id } = useParams();\r\n+  const [loading, setLoading] = useState(true);\r\n+  const navigate = useNavigate();\r\n \r\n   return (\r\n     <>\r\n       <NavBar />\r\n"
+                },
+                {
+                    "date": 1757784771913,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,23 @@\n \r\n \r\n \r\n function DetailsPage() {\r\n+\r\n+  useEffect(() => {\r\n+    fetch(\r\n+      `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=dd1481c9866799f1bc15adf106a083fe`\r\n+    )\r\n+      .then((res) => res.json())\r\n+      .then((data) => {\r\n+        setMovies(data.results || []);\r\n+        setLoading(false);\r\n+      })\r\n+      .catch((err) => {\r\n+        console.error(err);\r\n+        setLoading(false);\r\n+      });\r\n+  }, [id]);\r\n   const { id } = useParams();\r\n   const [loading, setLoading] = useState(true);\r\n   const navigate = useNavigate();\r\n \r\n"
+                },
+                {
+                    "date": 1757784827171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,12 @@\n \r\n \r\n function DetailsPage() {\r\n \r\n+  const { id } = useParams();\r\n+  const [loading, setLoading] = useState(true);\r\n+  const navigate = useNavigate();\r\n+\r\n   useEffect(() => {\r\n     fetch(\r\n       `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=dd1481c9866799f1bc15adf106a083fe`\r\n     )\r\n@@ -23,12 +27,20 @@\n         console.error(err);\r\n         setLoading(false);\r\n       });\r\n   }, [id]);\r\n-  const { id } = useParams();\r\n-  const [loading, setLoading] = useState(true);\r\n-  const navigate = useNavigate();\r\n \r\n+  if (loading)\r\n+    return (\r\n+      <div className=\"text-center my-4\">\r\n+        <Spinner animation=\"border\" variant=\"warning\" />\r\n+      </div>\r\n+    );\r\n+\r\n+  if (!movies.length)\r\n+    return <p className=\"text-center\">No recommendations found</p>;\r\n+\r\n+\r\n   return (\r\n     <>\r\n       <NavBar />\r\n       <CardDetails id={id} />\r\n"
+                },
+                {
+                    "date": 1757784845115,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,10 @@\n function DetailsPage() {\r\n \r\n   const { id } = useParams();\r\n   const [loading, setLoading] = useState(true);\r\n+  const [movies, setMovies] = useState([]);\r\n+\r\n   const navigate = useNavigate();\r\n \r\n   useEffect(() => {\r\n     fetch(\r\n"
+                },
+                {
+                    "date": 1757784947869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,18 +3,16 @@\n import { useNavigate } from \"react-router-dom\";\r\n import { useParams, } from \"react-router-dom\";\r\n import NavBar from \"../Components/NavBar\";\r\n import CardDetails from \"../Components/CardDetails\";\r\n-import Recommendation from \"../Components/Recommendation\";\r\n \r\n \r\n \r\n function DetailsPage() {\r\n \r\n   const { id } = useParams();\r\n   const [loading, setLoading] = useState(true);\r\n   const [movies, setMovies] = useState([]);\r\n-\r\n   const navigate = useNavigate();\r\n \r\n   useEffect(() => {\r\n     fetch(\r\n"
+                },
+                {
+                    "date": 1757784963348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n     <>\r\n       <NavBar />\r\n       <CardDetails id={id} />\r\n       <hr style={{ width: \"90%\", margin: \"2rem auto\" }} />\r\n-      <Card id={id} />\r\n+      <CardList id={id} />\r\n     </>\r\n   );\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1757784980694,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n import { useNavigate } from \"react-router-dom\";\r\n import { useParams, } from \"react-router-dom\";\r\n import NavBar from \"../Components/NavBar\";\r\n import CardDetails from \"../Components/CardDetails\";\r\n+import CardList from \"../Components/Card\";\r\n \r\n \r\n \r\n function DetailsPage() {\r\n"
+                },
+                {
+                    "date": 1757785007852,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n     <>\r\n       <NavBar />\r\n       <CardDetails id={id} />\r\n       <hr style={{ width: \"90%\", margin: \"2rem auto\" }} />\r\n-      <CardList id={id} />\r\n+      <CardList data={id} />\r\n     </>\r\n   );\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1757785042290,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,10 @@\n     <>\r\n       <NavBar />\r\n       <CardDetails id={id} />\r\n       <hr style={{ width: \"90%\", margin: \"2rem auto\" }} />\r\n-      <CardList data={id} />\r\n+      <CardList data={  const [movies, setMovies] = useState([]);\r\n+} />\r\n     </>\r\n   );\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1757786099670,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,10 +45,9 @@\n     <>\r\n       <NavBar />\r\n       <CardDetails id={id} />\r\n       <hr style={{ width: \"90%\", margin: \"2rem auto\" }} />\r\n-      <CardList data={  const [movies, setMovies] = useState([]);\r\n-} />\r\n+      <CardList data={movies} />\r\n     </>\r\n   );\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1757786185902,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n     <>\r\n       <NavBar />\r\n       <CardDetails id={id} />\r\n       <hr style={{ width: \"90%\", margin: \"2rem auto\" }} />\r\n-      <CardList data={movies} />\r\n+      <CardList data={movies} isRecommendation={true} />\r\n     </>\r\n   );\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1757786254592,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,25 @@\n+import { useParams } from \"react-router-dom\";\r\n+import NavBar from \"../Components/NavBar\";\r\n+import CardDetails from \"../Components/CardDetails\";\r\n+import Recommendation from \"../Components/Recommendation\";\r\n+\r\n+function DetailsPage() {\r\n+  const { id } = useParams();\r\n+\r\n+  return (\r\n+    <>\r\n+      <NavBar />\r\n+      <CardDetails id={id} />\r\n+      <hr style={{ width: \"90%\", margin: \"2rem auto\" }} />\r\n+      <Recommendation id={id} />\r\n+    </>\r\n+  );\r\n+}\r\n+\r\n+export default DetailsPage;\r\n+\r\n+/*\r\n import { useEffect, useState } from \"react\";\r\n import { Spinner, Card, Container, Row, Col } from \"react-bootstrap\";\r\n import { useNavigate } from \"react-router-dom\";\r\n import { useParams, } from \"react-router-dom\";\r\n@@ -51,4 +72,6 @@\n   );\r\n }\r\n \r\n export default DetailsPage;\r\n+\r\n+*/\r\n"
+                },
+                {
+                    "date": 1757786583934,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,25 +1,5 @@\n-import { useParams } from \"react-router-dom\";\r\n-import NavBar from \"../Components/NavBar\";\r\n-import CardDetails from \"../Components/CardDetails\";\r\n-import Recommendation from \"../Components/Recommendation\";\r\n \r\n-function DetailsPage() {\r\n-  const { id } = useParams();\r\n-\r\n-  return (\r\n-    <>\r\n-      <NavBar />\r\n-      <CardDetails id={id} />\r\n-      <hr style={{ width: \"90%\", margin: \"2rem auto\" }} />\r\n-      <Recommendation id={id} />\r\n-    </>\r\n-  );\r\n-}\r\n-\r\n-export default DetailsPage;\r\n-\r\n-/*\r\n import { useEffect, useState } from \"react\";\r\n import { Spinner, Card, Container, Row, Col } from \"react-bootstrap\";\r\n import { useNavigate } from \"react-router-dom\";\r\n import { useParams, } from \"react-router-dom\";\r\n@@ -72,6 +52,4 @@\n   );\r\n }\r\n \r\n export default DetailsPage;\r\n-\r\n-*/\r\n"
+                },
+                {
+                    "date": 1757786630241,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,25 @@\n+import { useParams } from \"react-router-dom\";\r\n+import NavBar from \"../Components/NavBar\";\r\n+import CardDetails from \"../Components/CardDetails\";\r\n+import Recommendation from \"../Components/Recommendation\";\r\n \r\n+function DetailsPage() {\r\n+  const { id } = useParams();\r\n+\r\n+  return (\r\n+    <>\r\n+      <NavBar />\r\n+      <CardDetails id={id} />\r\n+      <hr style={{ width: \"90%\", margin: \"2rem auto\" }} />\r\n+      <Recommendation id={id} />\r\n+    </>\r\n+  );\r\n+}\r\n+\r\n+export default DetailsPage;\r\n+\r\n+/*\r\n import { useEffect, useState } from \"react\";\r\n import { Spinner, Card, Container, Row, Col } from \"react-bootstrap\";\r\n import { useNavigate } from \"react-router-dom\";\r\n import { useParams, } from \"react-router-dom\";\r\n@@ -52,4 +72,6 @@\n   );\r\n }\r\n \r\n export default DetailsPage;\r\n+\r\n+*/\r\n"
                 }
             ],
             "date": 1757681087615,
