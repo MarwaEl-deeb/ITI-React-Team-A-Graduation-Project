@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 87,
+            "activePatchIndex": 88,
             "patches": [
                 {
                     "date": 1757681034964,
@@ -356,6 +356,10 @@
                 {
                     "date": 1757784192888,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,25 +1,62 @@\n-import { useEffect, useContext } from \"react\";\r\n+import { useEffect, useState, useContext } from \"react\";\r\n import Welcome from \"../Components/Welcome\";\r\n import CardList from \"../Components/Card\";\r\n import Pagination from \"../Components/Pagination\";\r\n import { MainContext } from \"../useContext\";\r\n \r\n function TVShowsHomePage() {\r\n-    const { selectedType, setSelectedType } = useContext(MainContext);\r\n+    const [items, setItems] = useState([]);\r\n+    const [loading, setLoading] = useState(true);\r\n+    const [page, setPage] = useState(1);\r\n+    const [totalPages, setTotalPages] = useState(1);\r\n+    const [selectedType, setSelectedType] = useState(\"tv\");\r\n+    const { setSelectedType: setGlobalSelectedType } = useContext(MainContext);\r\n \r\n     useEffect(() => {\r\n-        if (selectedType !== \"tv\") {\r\n-            setSelectedType(\"tv\");\r\n-        }\r\n-    }, [selectedType, setSelectedType]);\r\n+        setGlobalSelectedType(\"tv\");\r\n+    }, [setGlobalSelectedType]);\r\n \r\n+    useEffect(() => {\r\n+        setLoading(true);\r\n+        fetch(\r\n+            `https://api.themoviedb.org/3/tv/popular?api_key=dd1481c9866799f1bc15adf106a083fe&page=${page}`\r\n+        )\r\n+            .then((res) => res.json())\r\n+            .then((data) => {\r\n+                setItems(data.results || []);\r\n+                setTotalPages(data.total_pages || 1);\r\n+                setLoading(false);\r\n+            })\r\n+            .catch(() => setLoading(false));\r\n+    }, [page, selectedType]);\r\n+\r\n+    if (loading) {\r\n+        return (\r\n+            <div className=\"loading\">\r\n+                <div className=\"loading\"></div>\r\n+            </div >\r\n+        );\r\n+    }\r\n+\r\n     return (\r\n-        <div>\r\n+        <MainContext.Provider\r\n+            value={{\r\n+                items,\r\n+                setItems,\r\n+                totalPages,\r\n+                page,\r\n+                setPage,\r\n+                loading,\r\n+                setLoading,\r\n+                selectedType,\r\n+                setSelectedType,\r\n+            }}\r\n+        >\r\n             <Welcome />\r\n             <CardList />\r\n             <Pagination />\r\n-        </div>\r\n+        </MainContext.Provider>\r\n     );\r\n }\r\n \r\n export default TVShowsHomePage;\r\n"
+                },
+                {
+                    "date": 1757794456298,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n                 selectedType,\r\n                 setSelectedType,\r\n             }}\r\n         >\r\n-            <Welcome />\r\n+            <Welcome dataText={\"Popular\"} />\r\n             <CardList />\r\n             <Pagination />\r\n         </MainContext.Provider>\r\n     );\r\n"
                 }
             ],
             "date": 1757681034964,

@@ -30,7 +30,7 @@ function DetailsPage() {
         setMovies([]);
         setLoading(false);
       });
-  }, [id, selectedType]); // dependency updated
+  }, [id, selectedType]);
 
   return (
     <>

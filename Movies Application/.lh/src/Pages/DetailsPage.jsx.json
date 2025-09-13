@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 23,
+            "activePatchIndex": 24,
             "patches": [
                 {
                     "date": 1757681087615,
@@ -100,6 +100,10 @@
                 {
                     "date": 1757786630241,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,25 @@\n+import { useParams } from \"react-router-dom\";\r\n+import NavBar from \"../Components/NavBar\";\r\n+import CardDetails from \"../Components/CardDetails\";\r\n+import Recommendation from \"../Components/Recommendation\";\r\n \r\n+function DetailsPage() {\r\n+  const { id } = useParams();\r\n+\r\n+  return (\r\n+    <>\r\n+      <NavBar />\r\n+      <CardDetails id={id} />\r\n+      <hr style={{ width: \"90%\", margin: \"2rem auto\" }} />\r\n+      <Recommendation id={id} />\r\n+    </>\r\n+  );\r\n+}\r\n+\r\n+export default DetailsPage;\r\n+\r\n+/*\r\n import { useEffect, useState } from \"react\";\r\n import { Spinner, Card, Container, Row, Col } from \"react-bootstrap\";\r\n import { useNavigate } from \"react-router-dom\";\r\n import { useParams, } from \"react-router-dom\";\r\n@@ -52,4 +72,6 @@\n   );\r\n }\r\n \r\n export default DetailsPage;\r\n+\r\n+*/\r\n"
+                },
+                {
+                    "date": 1757794897514,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,54 @@\n+import { useEffect, useState, useContext } from \"react\";\r\n+import { Spinner } from \"react-bootstrap\";\r\n+import { useParams } from \"react-router-dom\";\r\n+import NavBar from \"../Components/NavBar\";\r\n+import CardDetails from \"../Components/CardDetails\";\r\n+import CardList from \"../Components/Card\";\r\n+import { MainContext } from \"../useContext\";\r\n+\r\n+function DetailsPage() {\r\n+  const { id } = useParams();\r\n+  const { selectedType } = useContext(MainContext);\r\n+  const [loading, setLoading] = useState(true);\r\n+  const [movies, setMovies] = useState([]);\r\n+\r\n+  const endpoint =\r\n+    selectedType === \"movies\"\r\n+      ? `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=dd1481c9866799f1bc15adf106a083fe`\r\n+      : `https://api.themoviedb.org/3/tv/${id}/similar?api_key=dd1481c9866799f1bc15adf106a083fe`;\r\n+\r\n+  useEffect(() => {\r\n+    setLoading(true);\r\n+    fetch(endpoint)\r\n+      .then((res) => res.json())\r\n+      .then((data) => {\r\n+        setMovies(data.results || []);\r\n+        setLoading(false);\r\n+      })\r\n+      .catch((err) => {\r\n+        console.error(err);\r\n+        setMovies([]);\r\n+        setLoading(false);\r\n+      });\r\n+  }, [id, selectedType]);\r\n+\r\n+  return (\r\n+    <>\r\n+      <NavBar />\r\n+      <CardDetails id={id} selectedType={selectedType} />\r\n+      <hr style={{ width: \"90%\", margin: \"2rem auto\" }} />\r\n+\r\n+      {loading ? (\r\n+        <div className=\"text-center my-4\">\r\n+          <Spinner animation=\"border\" variant=\"warning\" />\r\n+        </div>\r\n+      ) : movies.length ? (\r\n+        <CardList data={movies} isRecommendation={true} />\r\n+      ) : (\r\n+        <p className=\"text-center\">No recommendations found</p>\r\n+      )}\r\n+    </>\r\n+  );\r\n+}\r\n+\r\n+export default DetailsPage;\r\n"
                 }
             ],
             "date": 1757681087615,

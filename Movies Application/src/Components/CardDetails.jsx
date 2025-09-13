@@ -19,7 +19,7 @@ export default function CardDetails({ id, selectedType }) {
 
   const endpoint =
     selectedType === "movies"
-      ? `https://api.themoviedb.org/3/movie/${id}?api_key=dd1481c9866799f1bc15adf106a083fe`
+      ? ` `
       : `https://api.themoviedb.org/3/tv/${id}?api_key=dd1481c9866799f1bc15adf106a083fe`;
 
   useEffect(() => {
@@ -47,7 +47,6 @@ export default function CardDetails({ id, selectedType }) {
 
   if (!movie) return <p className="text-center">No movie found</p>;
 
-  // Date and runtime handling for movies and TV shows
   const formattedDate =
     movie.release_date || movie.first_air_date
       ? new Date(movie.release_date || movie.first_air_date).toLocaleDateString(

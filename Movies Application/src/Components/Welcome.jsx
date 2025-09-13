@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Search from "./Search";
-function Welcome() {
+function Welcome({ dataText }) {
     return (
         <div>
             <div className="WelcomeMainContainer">
@@ -20,7 +20,7 @@ function Welcome() {
             </div >
 
             <div className="nowPlaying">
-                <h2>Now Playing</h2>
+                <h2>{dataText}</h2>
             </div>
         </div>
     )

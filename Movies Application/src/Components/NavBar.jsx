@@ -42,7 +42,6 @@ function NavBar() {
           </select>
         </strong>
 
-        {/* Toggler (hamburger button) */}
         <button
           className="navbar-toggler"
           type="button"
@@ -55,16 +54,16 @@ function NavBar() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Collapsible content */}
-        <div className="collapse navbar-collapse" id="navbarContent">
+        <div className="collapse navbar-collapse" id="navbarContent"
+        >
           <div
             className="d-flex ms-auto headerRightSide fw-bold"
-            // style={{ color: "#726625" }}
+          // style={{ color: "#726625" }}
           >
             <select
               name="lang"
               className="form-select fw-bold"
-              // style={{ color: "#726625" }}
+            // style={{ color: "#726625" }}
             >
               <option value="En">En</option>
               <option value="Ar">Ar</option>
