@@ -40,7 +40,6 @@ function PaginationComponent() {
             </Pagination.Item>)
     }
     return (
-        <Pagination className="  w-75 justify-content-center ">
             <Pagination.First className="paginationBtn"
                 disabled={page === 1}
                 onClick={() => { setPage(1) }} />
