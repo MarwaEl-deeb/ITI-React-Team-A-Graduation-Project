@@ -17,16 +17,29 @@ nav {
   background-color: #ffe353;
 }
 
+body[data-theme="dark"] nav {
+  background-color: #1a2a3a;
+  color: white;
+  transition: all 0.5s;
+}
+
 .navbar-brand select {
   font-weight: bold;
   font-size: 1.4rem;
-  /* color: #726625; */
   font-size: 22px;
+}
+
+body[data-theme="dark"] .navbar-brand select {
+  color: #ffe353
+}
+
+body[data-theme="dark"] .navbar-brand select:hover {
+  color: #ffe253bb
 }
 
 .navbar-brand .form-select,
 .headerRightSide select {
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(209, 14, 14, 0);
   border: none !important;
   box-shadow: none !important;
   outline: none;
@@ -37,7 +50,7 @@ nav {
 .navbar-collapse.collapse.show {
   background-color: #f8e895af;
   border-radius: 10px;
-  padding: 15px;
+  padding: 15px 23px;
   transition: all 0.8s;
 }
 
@@ -45,10 +58,25 @@ nav {
   font-weight: bold;
 }
 
+body[data-theme="dark"] .headerRightSide select {
+  color: #ffe353;
+
+}
+
 .navbar-brand .form-select:hover {
   transform: scale(1.04);
   background-color: rgba(255, 0, 0, 0);
   color: rgba(0, 0, 0, 0.703);
+}
+
+.themeImage {
+  width: 25px;
+  cursor: pointer;
+}
+
+.themeImage:hover {
+  transform: rotate(360deg);
+  transition: all 0.8s;
 }
 
 /* ********** Card ********** */
@@ -129,6 +157,11 @@ a {
 
 .watchListText {
   font-weight: bold;
+  color: black
+}
+
+body[data-theme="dark"] .watchListText {
+  color: #ffe353
 }
 
 .favListNum {
@@ -281,8 +314,9 @@ button:hover {
 .page-item.active .page-link {
   border-radius: 5px;
   background-color: #ffe353;
-  color: darkgray;
+  color: rgba(0, 0, 0, 0.563);
   border: 2px solid #ffe353;
+  font-weight: bold;
 }
 
 .page-item:not(.active) .page-link {
