@@ -5,7 +5,6 @@ import { useTranslation } from "react-i18next";
 import CardList from "../Components/Card";
 
 function WatchListPage() {
-  const movies = [];
   const { t } = useTranslation();
 
   const [favorites, setFavorites] = useState([]);
@@ -50,17 +49,19 @@ function WatchListPage() {
 
   return (
     <div className="container-fluid mt-4   h-100 " >
-      <h3 className="text-start ps-5 " style={{ color: "#A08E33", fontWeight: "bold" }}>{t("Watch List")}
-      </h3>
+      <h3 className="text-start ps-5 " style={{ fontWeight: "bold", marginBottom:"2%"}}>
+        {t("Watch List")} 
+        <span style={{color:"#726625", fontSize:"25px"}}>({detailedFavorites.length})</span> 
+        </h3>
       <div
         className="d-flex flex-column align-items-center justify-content-center"
         style={{ minHeight: "70vh" }}
       >
-        {favorites.length === 0 ? (
+        {detailedFavorites.length === 0 ? (
           <>
             <img src="/whatchlist.png" alt="" style={{ width: "200px" }} />
             <p className="mt-3 fs-5">{t("No Movies in watch list")}</p>
-            <Link to="/" className="btn btn-warning mt-3 w-25">
+            <Link to="/" className="btn-custom mt-3 w-25">
               {t("Back to home")}
             </Link>
           </>
