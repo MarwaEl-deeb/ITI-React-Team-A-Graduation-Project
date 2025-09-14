@@ -105,7 +105,7 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
                 <Card.Body className="d-flex flex-column justify-content-between ps-3">
                   <div>
                     <Card.Title style={{ fontSize: "20px", fontWeight: "bold" }}>
-                      {title?.length > 25 ? title.slice(0, 20) + "..." : title}
+                      {title?.length > 25 ? title.slice(0, 100)  : title}
                     </Card.Title>
                     <Card.Text style={{ color: "#7d7b7bc5", fontSize: "13px" }}>{date}</Card.Text>
 
@@ -144,7 +144,7 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
             <Card.Img
               className="CardImage"
               variant="center"
-              src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : "/placeholder.png"}
+              src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : " "}
               alt={title}
               onClick={() => navigate(
                 selectedType === "movies" ? `/movie/${id}` : `/tv/${id}`
@@ -159,7 +159,7 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
                 <div className="row">
                   <div className="col-10">
                     <Card.Title style={{ fontSize: "17px", fontWeight: "bold" }}>
-                      {title?.length > 25 ? title.slice(0, 20) + "..." : title}
+                      {title?.length > 25 ? title.slice(0, 100)  : title}
                     </Card.Title>
                     <Card.Text style={{ color: "#7d7b7bc5" }}>
                       {date}</Card.Text>
