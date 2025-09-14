@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 20,
+            "activePatchIndex": 25,
             "patches": [
                 {
                     "date": 1757674933738,
@@ -88,6 +88,26 @@
                 {
                     "date": 1757884573468,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,7 +19,8 @@\n   \"Website\":\"Website\",\r\n   \"Back to home\":\"Back to home\",\r\n   \"No Movies in watch list\":\"No Movies in watch list\",\r\n   \"Watch List\": \"Watch List\",\r\n-  \"NOT FOUND\":\"NOT FOUND\"\r\n+  \"NOT FOUND\":\"NOT FOUND\",\r\n+  \"votes\":\"votes\"\r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757891673717,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n   \"Languages:\":\"Languages:\",\r\n   \"Website\":\"Website\",\r\n   \"Back to home\":\"Back to home\",\r\n   \"No Movies in watch list\":\"No Movies in watch list\",\r\n-  \"Watch List\": \"Watch List\",\r\n+  \"Watch List \": \"Watch List \",\r\n   \"NOT FOUND\":\"NOT FOUND\",\r\n   \"votes\":\"votes\"\r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757892768154,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,7 +20,8 @@\n   \"Back to home\":\"Back to home\",\r\n   \"No Movies in watch list\":\"No Movies in watch list\",\r\n   \"Watch List \": \"Watch List \",\r\n   \"NOT FOUND\":\"NOT FOUND\",\r\n-  \"votes\":\"votes\"\r\n+  \"votes\":\"votes\",\r\n+  \"Oops!\":\"Oops!\"\r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757892830219,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,7 +21,8 @@\n   \"No Movies in watch list\":\"No Movies in watch list\",\r\n   \"Watch List \": \"Watch List \",\r\n   \"NOT FOUND\":\"NOT FOUND\",\r\n   \"votes\":\"votes\",\r\n-  \"Oops!\":\"Oops!\"\r\n+  \"Oops!\":\"Oops!\",\r\n+  \"page is not found Please Go Back\":\"page is not found Please Go Back\"\r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757892844709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,7 +22,8 @@\n   \"Watch List \": \"Watch List \",\r\n   \"NOT FOUND\":\"NOT FOUND\",\r\n   \"votes\":\"votes\",\r\n   \"Oops!\":\"Oops!\",\r\n-  \"page is not found Please Go Back\":\"page is not found Please Go Back\"\r\n+  \"page is not found Please Go Back\":\"page is not found Please Go Back\",\r\n+  \"GO back\":\"GO back\"\r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757893117101,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,8 @@\n   \"No Movies in watch list\":\"No Movies in watch list\",\r\n   \"Watch List \": \"Watch List \",\r\n   \"NOT FOUND\":\"NOT FOUND\",\r\n   \"votes\":\"votes\",\r\n-  \"Oops!\":\"Oops!\",\r\n   \"page is not found Please Go Back\":\"page is not found Please Go Back\",\r\n   \"GO back\":\"GO back\"\r\n   \r\n }\r\n"
                 }
             ],
             "date": 1757674933738,

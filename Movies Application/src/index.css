@@ -9,6 +9,7 @@
   --secondary-color: #f3f1f1;
   --third-color: black;
   --forth-color: #7d7b7bc5;
+  --fifth-color: white;
 }
 
 [data-theme="dark"] {
@@ -16,6 +17,7 @@
   --secondary-color: #59626b3a;
   --third-color: white;
   --forth-color: #ffffffa0;
+  --fifth-color: #ffffff1d;
 }
 
 body {
@@ -385,7 +387,7 @@ button:hover {
 /******** Responsive Mobile Only *********/
 
 .WatchListCard .watchlist-card {
-  background-color: rgba(255, 0, 0, 0);
+  background-color: var(--fifth-color);
 }
 
 @media (max-width: 767px) {
@@ -469,7 +471,7 @@ button:hover {
 .cardDetailsContainer .detailListItem span,
 .detailsCompanyName,
 .NoResultWt,
-.text-start {
+.ErrorText {
   color: var(--third-color);
 }
 

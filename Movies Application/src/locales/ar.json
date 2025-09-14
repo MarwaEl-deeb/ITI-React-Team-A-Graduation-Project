@@ -21,7 +21,9 @@
   "Website":"الموقع",
   "Back to home":"العودة إلى الصفحة الرئيسية",
   "No Movies in watch list":"لا توجد أفلام في قائمة المشاهدات",
-  "Watch List":"قائمة المشاهدات",
+  "Watch List ":"قائمة المشاهدات ",
   "NOT FOUND":"غير موجود",
-  "votes":"تصويتات"
+  "votes":"تصويتات",
+  "page is not found Please Go Back":"لم يتم العثور على الصفحة الرجاء الرجوع",
+  "GO back":"رجوع"
 }

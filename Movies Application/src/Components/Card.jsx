@@ -4,12 +4,14 @@ import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
 import Circle from "./Circle";
 import RatingStars from "./RatingStars";
+import i18n from "i18next";
 
 
 function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetailedFavorites }) {
   const { items, selectedType } = useContext(MainContext);
   const navigate = useNavigate();
   const [favorites, setFavorites] = useState([]);
+  const currentLang = i18n.language;
 
   const [theme, setTheme] = useState(
     document.body.getAttribute("data-theme") || "light"
@@ -101,7 +103,8 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
                     cursor: "pointer",
                     position: "absolute",
                     top: "10px",
-                    right: "10px",
+                    right: currentLang === "en" ? "10px" : "auto",
+                    left: currentLang === "ar" ? "10px" : "auto",
                     zIndex: 10,
                   }}
                   onClick={() => toggleFavorite(item)}
@@ -175,6 +178,7 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
             className={isSearch ? "m-3 border-0 Card" : "m-4 border-0 Card"}
             style={{ width: "200px", height: "420px", backgroundColor: "transparent" }}
           >
+
             <Card.Img
               className="CardImage"
               variant="center"
@@ -183,7 +187,7 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
               onClick={() => navigate(
                 selectedType === "movies" ? `/movie/${id}` : `/tv/${id}`
               )}
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              style={{ width: "100%", height: "100%", objectFit: poster_path ? "cover" : "contain", }}
             />
             <div>
               <Circle value={vote_average} />

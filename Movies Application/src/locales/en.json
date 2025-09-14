@@ -19,8 +19,10 @@
   "Website":"Website",
   "Back to home":"Back to home",
   "No Movies in watch list":"No Movies in watch list",
-  "Watch List": "Watch List",
+  "Watch List ": "Watch List ",
   "NOT FOUND":"NOT FOUND",
-  "votes":"votes"
+  "votes":"votes",
+  "page is not found Please Go Back":"page is not found Please Go Back",
+  "GO back":"GO back"
   
 }
