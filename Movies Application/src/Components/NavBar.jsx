@@ -47,6 +47,7 @@ function NavBar() {
     } else {
       document.documentElement.dir = "ltr";
       document.body.style.textAlign = "left";
+      settedLanguage = "En";
     }
 
   };
@@ -93,7 +94,14 @@ function NavBar() {
 
             <span className="align-self-center WatchLinkContainer">
               <Link className="nav-link active position-relative" to="/WatchList">
-                <span className="watchListText">{t("WatchList")}</span>
+                <span className="watchListText"
+                  style={{
+                    paddingLeft: lang === "Ar" ? "0px" : "12px",
+                    paddingRight: lang === "Ar" ? "12px" : "0px",
+                  }}>
+                  {t("WatchList")}
+                </span>
+
                 <span className="badge bg-white position-absolute top-0 ms-2 translate-middle">
                   <span className="favListNum">{favCount}</span>
                 </span>
