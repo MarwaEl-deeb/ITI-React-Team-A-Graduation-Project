@@ -13,6 +13,8 @@ function App() {
   const [totalPages, setTotalPages] = useState(1);
   const [selectedType, setSelectedType] = useState("movies");
 
+
+
   useEffect(() => {
     const endpoint =
       selectedType === "movies"
@@ -51,6 +53,7 @@ function App() {
         setLoading,
         selectedType,
         setSelectedType,
+
       }}
     >
       <NavBar />
@@ -63,3 +66,4 @@ function App() {
 }
 
 export default App;
+
