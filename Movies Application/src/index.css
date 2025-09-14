@@ -394,3 +394,28 @@ button:hover {
   color: white;
   transform: scale(1.05);
 }
+
+
+/******** Responsive Mobile Only *********/
+@media (max-width: 767px) {
+  .watchlist-card {
+    background-color: #0b1620;
+    width: 100% !important;  
+
+  }
+
+  .watchlist-card .CardImage {
+    width: 50% !important;
+    border-radius: 20px !important;
+  }
+
+  .watchlist-card .card-body {
+    width: 100% !important;
+  }
+
+  .watchlist-card .card-title {
+    font-size: 18px !important;
+  }
+
+ 
+}

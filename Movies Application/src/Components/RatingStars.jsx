@@ -17,9 +17,9 @@ export default function RatingStars({ rating, votes }) {
   const votesDisplay = votes != null ? votes.toLocaleString() : "0"; // fallback
 
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
+    <div style={{ display: "flex", alignItems: "center", gap: "1px" }}>
       {stars}
-      <span style={{ marginLeft: "8px" }}>({votesDisplay} votes)</span>
+      <span style={{ marginLeft: "8px", width:"60%", fontSize:"13px" }}>({votesDisplay} votes)</span>
     </div>
   );
 }
