@@ -5,7 +5,6 @@ import { MainContext } from "../useContext";
 
 function NavBar() {
   const navigate = useNavigate();
-  const location = useLocation();
   const { selectedType, setSelectedType } = useContext(MainContext);
 
   const [favCount, setFavCount] = useState(0);
@@ -108,11 +107,23 @@ function NavBar() {
           />
         </div>
 
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+
         <div className="collapse navbar-collapse" id="navbarContent">
           <div
-            className={`d-flex fw-bold headerRightSide ${
-              lang === "Ar" ? "me-auto" : "ms-auto"
-            }`}
+            className={`d-flex fw-bold headerRightSide ${lang === "Ar" ? "me-auto" : "ms-auto"
+              }`}
           >
             <select
               name="lang"
