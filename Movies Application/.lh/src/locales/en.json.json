@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 19,
+            "activePatchIndex": 20,
             "patches": [
                 {
                     "date": 1757674933738,
@@ -84,6 +84,10 @@
                 {
                     "date": 1757849753422,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,16 +10,16 @@\n   \"Search and Explore...\": \"Search and Explore...\",\r\n   \"Search\": \"Search\",\r\n   \"Search Results for:\": \"Search Results for:\",\r\n   \"Loading...\": \"Loading...\",\r\n-  \"NOT FOUND\": \"NOT FOUND\" ,\r\n   \"No recommendations found\":\"No recommendations found\",\r\n   \"No movie/TV show found\":\"No movie/TV show found\",\r\n   \"Duration:\":\"Duration\",\r\n   \"Min.\":\"Min.\",\r\n   \"Languages:\":\"Languages:\",\r\n   \"Website\":\"Website\",\r\n   \"Back to home\":\"Back to home\",\r\n   \"No Movies in watch list\":\"No Movies in watch list\",\r\n-  \"Watch List\": \"Watch List\"\r\n+  \"Watch List\": \"Watch List\",\r\n+  \"NOT FOUND\":\"NOT FOUND\"\r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757884573468,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,7 +19,8 @@\n   \"Website\":\"Website\",\r\n   \"Back to home\":\"Back to home\",\r\n   \"No Movies in watch list\":\"No Movies in watch list\",\r\n   \"Watch List\": \"Watch List\",\r\n-  \"NOT FOUND\":\"NOT FOUND\"\r\n+  \"NOT FOUND\":\"NOT FOUND\",\r\n+  \"votes\":\"votes\"\r\n   \r\n }\r\n"
                 }
             ],
             "date": 1757674933738,

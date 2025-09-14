@@ -6,7 +6,7 @@ import Pagination from 'react-bootstrap/Pagination';
 function PaginationComponent() {
 
 
-    const { totalPages, setPage, page, selectedType } = useContext(MainContext);
+    const { totalPages, setTotalPages, setPage, page, selectedType } = useContext(MainContext);
     let maxPages = selectedType === "movies" ? totalPages : 500
     const window = 6;
     const start = Math.max(1, page - 2)

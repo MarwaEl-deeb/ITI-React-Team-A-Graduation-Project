@@ -35,7 +35,7 @@ function DetailsPage() {
     <>
       <NavBar />
       <CardDetails id={id} selectedType={selectedType} />
-      <hr style={{ width: "90%", margin: "2rem auto" }} />
+      <hr className="detailsSeparator" style={{ width: "90%", margin: "2rem auto" }} />
 
       {loading ? (
         <div className="text-center my-4">
@@ -47,7 +47,7 @@ function DetailsPage() {
           <CardList data={movies} isRecommendation={true} />
         </div>
       ) : (
-        <p className="text-center">{t("No recommendations found")}</p>
+        <p className="text-center noRecommend">{t("No recommendations found")}</p>
       )}
     </>
   );

@@ -78,8 +78,8 @@ export default function CardDetails({ id, selectedType }) {
     : "/fallback.jpg";
 
   return (
-    <Container fluid className="p-3">
-      <Card className="movie-card">
+    <Container fluid className="p-3 cardDetailsContainer">
+      <Card className="movie-card" >
         <Row className="g-3 flex-column flex-md-row">
           {/* Poster */}
           <Col md={5} className="d-flex justify-content-center align-items-stretch">
@@ -103,15 +103,15 @@ export default function CardDetails({ id, selectedType }) {
           {/* Details */}
           <Col md={7}>
             <Card.Body>
-              <Card.Title className="fw-bold fs-3 d-flex justify-content-between align-items-center">
+              <Card.Title className="fw-bold fs-3 d-flex justify-content-between align-items-center cardDetailsTitle">
                 {movie.original_title || movie.name}
                 <FaHeart style={{ color: "gold", cursor: "pointer" }} />
               </Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{formattedDate}</Card.Subtitle>
+              <Card.Subtitle className="mb-2 cardDetailsDate">{formattedDate}</Card.Subtitle>
 
               <RatingStars rating={movie.vote_average || 0} votes={movie.vote_count || 0} />
 
-              <Card.Text className="mt-3">{shortOverview}</Card.Text>
+              <Card.Text className="mt-3 cardOverview">{shortOverview}</Card.Text>
 
               {/* Genres */}
               <div className="mb-3">
@@ -127,22 +127,26 @@ export default function CardDetails({ id, selectedType }) {
               </div>
 
               {/* Extra Details */}
-              <ListGroup variant="flush" className="mb-3">
-                <ListGroup.Item>
-                  <strong>"Duration:"</strong> {duration} Min.
+              <ListGroup variant="flush" className="mb-3 detailListItem" >
+                <ListGroup.Item style={{
+                  backgroundColor: "transparent"
+                }} >
+                  <span> <strong >"Duration:"</strong> {duration} Min.</span>
                 </ListGroup.Item>
-                <ListGroup.Item>
-                  <strong>"Languages:"</strong>{" "}
-                  {movie.spoken_languages?.map((lang) => lang.english_name).join(", ") || "N/A"}
+                <ListGroup.Item style={{
+                  backgroundColor: "transparent"
+                }}>
+                  <span><strong>"Languages:"</strong>{" "}
+                    {movie.spoken_languages?.map((lang) => lang.english_name).join(", ") || "N/A"}</span>
                 </ListGroup.Item>
               </ListGroup>
 
               {movie.production_companies?.length > 0 && (
-                <div className="d-flex flex-wrap align-items-center mb-3">
+                <div className="d-flex flex-wrap align-items-center mb-3 cardCompanies">
                   {movie.production_companies.map((company) => (
                     <div
                       key={company.id}
-                      className="me-3 mb-2 d-flex flex-column align-items-center"
+                      className="me-3 mb-2 d-flex flex-column align-items-center "
                     >
                       {company.logo_path ? (
                         <img
@@ -152,13 +156,13 @@ export default function CardDetails({ id, selectedType }) {
                           style={{
                             maxHeight: "50px",
                             objectFit: "contain",
-                            background: "#fff",
+                            background: "#fefefe00",
                             borderRadius: "6px",
                             padding: "4px",
                           }}
                         />
                       ) : (
-                        <span className="text-muted small">{company.name}</span>
+                        <span className=" small ">{company.name}</span>
                       )}
                     </div>
                   ))}
@@ -181,6 +185,6 @@ export default function CardDetails({ id, selectedType }) {
           </Col>
         </Row>
       </Card>
-    </Container>
+    </Container >
   );
 }
