@@ -311,7 +311,7 @@ button:hover {
 
 .btn-custom {
   background-color: #ffe353;
-  color: #726625;
+  color: #4a3f1a;
   font-weight: bold;
   text-decoration: none;
   padding: 10px 0;
@@ -322,7 +322,8 @@ button:hover {
 
 .btn-custom:hover {
   background-color: #e6ca40;
-  color: #4a3f1a;
+  color: #726625;
+
 }
 
 /* custom details*/
