@@ -58,7 +58,7 @@ function App() {
     >
       <NavBar />
 
-      <Welcome />
+      <Welcome dataText={"Now Playing"} />
       <CardList />
       <PaginationComponent />
     </MainContext.Provider>

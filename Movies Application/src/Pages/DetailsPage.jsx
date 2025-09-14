@@ -5,22 +5,20 @@ import NavBar from "../Components/NavBar";
 import CardDetails from "../Components/CardDetails";
 import CardList from "../Components/Card";
 import { MainContext } from "../useContext";
+import { useTranslation } from "react-i18next";
 
 function DetailsPage() {
   const { id } = useParams();
   const { selectedType } = useContext(MainContext);
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
-
-  // Correct endpoint based on type
-  const endpoint =
-    selectedType === "movies"
-      ? `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=dd1481c9866799f1bc15adf106a083fe`
-      : `https://api.themoviedb.org/3/tv/${id}/popular?api_key=dd1481c9866799f1bc15adf106a083fe`;
+  const { t } = useTranslation();
 
   useEffect(() => {
     setLoading(true);
-    fetch(endpoint)
+    fetch(
+      `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=dd1481c9866799f1bc15adf106a083fe`
+    )
       .then((res) => res.json())
       .then((data) => {
         setMovies(data.results || []);
@@ -31,7 +29,7 @@ function DetailsPage() {
         setMovies([]);
         setLoading(false);
       });
-  }, [id, selectedType]); // dependency updated
+  }, [id, selectedType]);
 
   return (
     <>
@@ -44,7 +42,10 @@ function DetailsPage() {
           <Spinner animation="border" variant="warning" />
         </div>
       ) : movies.length ? (
-        <CardList data={movies} isRecommendation={true} />
+        <div>
+          <h2 className="recommendText">{t("Recommendations")}</h2>
+          <CardList data={movies} isRecommendation={true} />
+        </div>
       ) : (
         <p className="text-center">No recommendations found</p>
       )}
