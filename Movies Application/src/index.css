@@ -114,8 +114,7 @@ nav {
 .CardBody .cardDate,
 .cardDetailsContainer .cardDetailsDate,
 .cardCompanies span,
-.watchlist-card .cardDate,
-.watchlist-card .cardOverview {
+.watchlist-card .cardDate {
   color: var(--forth-color)
 }
 
@@ -463,6 +462,7 @@ button:hover {
 
 .cardDetailsContainer .cardDetailsTitle,
 .cardDetailsContainer .cardOverview,
+.watchlist-card .cardOverview,
 .voteText,
 .noRecommend,
 .detailsSeparator,
