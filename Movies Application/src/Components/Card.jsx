@@ -74,7 +74,7 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
             <div key={id} className="col-12 col-lg-6 d-flex justify-content-center ">
 
               {/* <Card className="d-flex flex-row h-75 p-3 border-0" style={{ width: "90%", boxShadow: "0 4px 8px rgba(0,0,0,0.2)", borderRadius: "20px" }} > */}
-              <Card className="d-flex flex-row p-3 h-75 border-0" style={{width:"90%", borderRadius: "20px", position: "relative", boxShadow: "0 4px 8px rgba(0,0,0,0.2)" }}>
+              <Card className="d-flex flex-row p-3 h-75 border-0" style={{ width: "90%", borderRadius: "20px", position: "relative", boxShadow: "0 4px 8px rgba(0,0,0,0.2)" }}>
 
                 <img
                   src={isFav ? "/yellowHeart.png" : "/heart.svg"}
@@ -109,9 +109,10 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
                     borderRadius: "15px",
                     cursor: "pointer",
                   }}
-                  onClick={() =>
+                  onClick={() => {
                     navigate(selectedType === "movies" ? `/movie/${id}` : `/tv/${id}`)
-                  }
+                    console.log(selectedType + "////////" + id);
+                  }}
                 />
 
                 <Card.Body className="d-flex flex-column justify-content-between ps-3">
@@ -122,7 +123,7 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
                     <Card.Title style={{ fontSize: "1.1rem", fontWeight: "bold" }}>
                       {title?.length > 25 ? title.slice(0, 25) + "..." : title}
                     </Card.Title>
-                    
+
                     {/* <Card.Text style={{ color: "#7d7b7bc5", fontSize: "13px" }}>{date}</Card.Text> */}
                     <Card.Text style={{ color: "#7d7b7bc5", fontSize: "0.8rem" }}>{date}</Card.Text>
 
@@ -131,7 +132,7 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
                     {/* <Card.Text style={{ fontSize: "14px", marginTop: "5%" }}>
                       {overview ? overview.substring(0, 110).trim() + "..." : "No description available."}
                     </Card.Text> */}
-                     <Card.Text style={{ fontSize: "0.85rem", marginTop: "5%" }}>
+                    <Card.Text style={{ fontSize: "0.85rem", marginTop: "5%" }}>
                       {overview ? overview.substring(0, 110).trim() + "..." : "No description available."}
                     </Card.Text>
 
@@ -180,7 +181,7 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
                 <div className="row">
                   <div className="col-10">
                     <Card.Title style={{ fontSize: "17px", fontWeight: "bold" }}>
-                      {title?.length > 25 ? title.slice(0, 100)  : title}
+                      {title?.length > 25 ? title.slice(0, 100) : title}
                     </Card.Title>
                     <Card.Text style={{ color: "#7d7b7bc5" }}>
                       {date}</Card.Text>
