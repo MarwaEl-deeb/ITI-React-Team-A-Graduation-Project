@@ -48,7 +48,7 @@ function WatchListPage() {
 
 
   return (
-    <div className="container-fluid mt-4   h-100 " >
+    <div className="container-fluid mt-4 h-100 " >
       <h3 className="text-start ps-5 " style={{ fontWeight: "bold", marginBottom: "2%" }}>
         {t("Watch List ")}
         <span style={{ color: "#726625", fontSize: "25px" }}>({detailedFavorites.length})</span>

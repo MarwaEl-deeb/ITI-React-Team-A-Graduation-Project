@@ -109,7 +109,8 @@ nav {
 }
 
 .CardBody .cardTitle,
-.watchlist-card .cardTitle {
+.watchlist-card .cardTitle,
+.text-start {
   color: var(--third-color)
 }
 
