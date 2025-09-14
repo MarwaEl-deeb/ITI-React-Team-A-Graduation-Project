@@ -11,12 +11,10 @@ import WatchListPage from "./Pages/WatchListPage.jsx";
 import DetailsPage from "./Pages/DetailsPage.jsx";
 import NavBar from "./Components/NavBar";
 import ErrorPage from "./Pages/ErrorPage.jsx";
+import { MainProvider } from "./MainProvider"; // ✅ استخدمنا البروفايدر
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
+  { path: "/", element: <App /> },
   {
     path: "/TV-Shows",
     element: (
@@ -44,30 +42,16 @@ const router = createBrowserRouter([
       </>
     ),
   },
-  {
-    path: "/DetailsPage",
-    element: (
-      <>
-        <DetailsPage />
-      </>
-    ),
-  },
+  { path: "/DetailsPage", element: <DetailsPage /> },
   { path: "/tv/:id", element: <DetailsPage /> },
   { path: "/movie/:id", element: <DetailsPage /> },
-
-  {
-    path: "*",
-    element: (
-      <>   
-        <ErrorPage />
-      </>
-
-    )
-  }
+  { path: "*", element: <ErrorPage /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <MainProvider>
+      <RouterProvider router={router} />
+    </MainProvider>
   </React.StrictMode>
 );

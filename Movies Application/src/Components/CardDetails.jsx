@@ -14,27 +14,22 @@ import RatingStars from "./RatingStars";
 import "../index.css";
 import { useTranslation } from "react-i18next";
 
-export default function CardDetails({ id, selectedType }) {
+export default function CardDetails({ id, isMovie }) {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const { t } = useTranslation();
 
-  // Determine correct endpoint based on type
-  const endpoint =
-    selectedType === "movies"
-      ? `https://api.themoviedb.org/3/movie/${id}?api_key=dd1481c9866799f1bc15adf106a083fe`
-      : `https://api.themoviedb.org/3/tv/${id}?api_key=dd1481c9866799f1bc15adf106a083fe`;
+  // ✅ endpoint يعتمد على النوع
+  const endpoint = isMovie
+    ? `https://api.themoviedb.org/3/movie/${id}?api_key=dd1481c9866799f1bc15adf106a083fe`
+    : `https://api.themoviedb.org/3/tv/${id}?api_key=dd1481c9866799f1bc15adf106a083fe`;
 
   useEffect(() => {
     setLoading(true);
 
-    // Debug log to ensure correct API is called
-    console.log("Fetching from endpoint:", endpoint);
-
     fetch(endpoint)
       .then((res) => res.json())
       .then((data) => {
-        console.log("API response:", data); // Check API response
         setMovie(data);
         setLoading(false);
       })
@@ -43,7 +38,7 @@ export default function CardDetails({ id, selectedType }) {
         setMovie(null);
         setLoading(false);
       });
-  }, [id, selectedType, endpoint]);
+  }, [id, endpoint]);
 
   if (loading) {
     return (
@@ -53,17 +48,22 @@ export default function CardDetails({ id, selectedType }) {
     );
   }
 
-  if (!movie) return <p className="text-center">{t("No movie/TV show found")}</p>;
+  if (!movie)
+    return <p className="text-center">{t("No movie/TV show found")}</p>;
 
   const formattedDate =
     movie.release_date || movie.first_air_date
       ? new Date(movie.release_date || movie.first_air_date).toLocaleDateString(
-        "en-US",
-        { year: "numeric", month: "short", day: "numeric" }
-      )
+          "en-US",
+          { year: "numeric", month: "short", day: "numeric" }
+        )
       : "N/A";
 
-  const duration = movie.runtime || movie.episode_run_time?.[0] || "N/A";
+  const duration = movie.runtime
+    ? `${movie.runtime} Min.`
+    : movie.episode_run_time?.length
+    ? `${movie.episode_run_time[0]} Min./Episode`
+    : "N/A";
 
   const shortOverview = movie.overview
     ? movie.overview.length > 250
@@ -79,10 +79,13 @@ export default function CardDetails({ id, selectedType }) {
 
   return (
     <Container fluid className="p-3 cardDetailsContainer">
-      <Card className="movie-card" >
+      <Card className="movie-card">
         <Row className="g-3 flex-column flex-md-row">
           {/* Poster */}
-          <Col md={5} className="d-flex justify-content-center align-items-stretch">
+          <Col
+            md={5}
+            className="d-flex justify-content-center align-items-stretch"
+          >
             <img
               src={posterSrc}
               alt={movie.original_title || movie.name}
@@ -107,11 +110,18 @@ export default function CardDetails({ id, selectedType }) {
                 {movie.original_title || movie.name}
                 <FaHeart style={{ color: "gold", cursor: "pointer" }} />
               </Card.Title>
-              <Card.Subtitle className="mb-2 cardDetailsDate">{formattedDate}</Card.Subtitle>
+              <Card.Subtitle className="mb-2 text-muted">
+                {formattedDate}
+              </Card.Subtitle>
 
-              <RatingStars rating={movie.vote_average || 0} votes={movie.vote_count || 0} />
+              <RatingStars
+                rating={movie.vote_average || 0}
+                votes={movie.vote_count || 0}
+              />
 
-              <Card.Text className="mt-3 cardOverview">{shortOverview}</Card.Text>
+              <Card.Text className="mt-3 cardOverview">
+                {shortOverview}
+              </Card.Text>
 
               {/* Genres */}
               <div className="mb-3">
@@ -127,20 +137,19 @@ export default function CardDetails({ id, selectedType }) {
               </div>
 
               {/* Extra Details */}
-              <ListGroup variant="flush" className="mb-3 detailListItem" >
-                <ListGroup.Item style={{
-                  backgroundColor: "transparent"
-                }} >
-                  <span> <strong >"Duration:"</strong> {duration} Min.</span>
+              <ListGroup variant="flush" className="mb-3">
+                <ListGroup.Item>
+                  <strong>{t("Duration")}:</strong> {duration}
                 </ListGroup.Item>
-                <ListGroup.Item style={{
-                  backgroundColor: "transparent"
-                }}>
-                  <span><strong>"Languages:"</strong>{" "}
-                    {movie.spoken_languages?.map((lang) => lang.english_name).join(", ") || "N/A"}</span>
+                <ListGroup.Item>
+                  <strong>{t("Languages")}:</strong>{" "}
+                  {movie.spoken_languages
+                    ?.map((lang) => lang.english_name)
+                    .join(", ") || "N/A"}
                 </ListGroup.Item>
               </ListGroup>
 
+              {/* Production Companies */}
               {movie.production_companies?.length > 0 && (
                 <div className="d-flex flex-wrap align-items-center mb-3 cardCompanies">
                   {movie.production_companies.map((company) => (
@@ -169,6 +178,7 @@ export default function CardDetails({ id, selectedType }) {
                 </div>
               )}
 
+              {/* Website */}
               {movie.homepage && (
                 <Button
                   variant="warning"
@@ -185,6 +195,6 @@ export default function CardDetails({ id, selectedType }) {
           </Col>
         </Row>
       </Card>
-    </Container >
+    </Container>
   );
 }

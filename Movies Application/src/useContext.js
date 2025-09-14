@@ -4,6 +4,7 @@ export const MainContext = createContext({
   items: [],
   setItems: () => {},
   totalPages: 1,
+  setTotalPages: () => {},
   page: 1,
   setPage: () => {},
   loading: true,
@@ -11,4 +12,3 @@ export const MainContext = createContext({
   selectedType: "movies",
   setSelectedType: () => {},
 });
-
