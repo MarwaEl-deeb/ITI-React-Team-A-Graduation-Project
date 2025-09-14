@@ -54,16 +54,16 @@ export default function CardDetails({ id, isMovie }) {
   const formattedDate =
     movie.release_date || movie.first_air_date
       ? new Date(movie.release_date || movie.first_air_date).toLocaleDateString(
-          "en-US",
-          { year: "numeric", month: "short", day: "numeric" }
-        )
+        "en-US",
+        { year: "numeric", month: "short", day: "numeric" }
+      )
       : "N/A";
 
   const duration = movie.runtime
     ? `${movie.runtime} Min.`
     : movie.episode_run_time?.length
-    ? `${movie.episode_run_time[0]} Min./Episode`
-    : "N/A";
+      ? `${movie.episode_run_time[0]} Min./Episode`
+      : "N/A";
 
   const shortOverview = movie.overview
     ? movie.overview.length > 250
@@ -124,7 +124,7 @@ export default function CardDetails({ id, isMovie }) {
               </Card.Text>
 
               {/* Genres */}
-              <div className="mb-3">
+              <div className="mb-3 detailsCompanyName">
                 {movie.genres?.map((g, index) => (
                   <Badge
                     bg={genreColors[index % genreColors.length]}
@@ -137,15 +137,20 @@ export default function CardDetails({ id, isMovie }) {
               </div>
 
               {/* Extra Details */}
-              <ListGroup variant="flush" className="mb-3">
-                <ListGroup.Item>
-                  <strong>{t("Duration")}:</strong> {duration}
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <strong>{t("Languages")}:</strong>{" "}
-                  {movie.spoken_languages
-                    ?.map((lang) => lang.english_name)
-                    .join(", ") || "N/A"}
+              <ListGroup variant="flush" className="mb-3"
+              >
+                <ListGroup.Item className="detailListItem"
+                  style={{ backgroundColor: "transparent" }} >
+                  <span>                  <strong>{t("Duration")}:</strong> {duration}
+                  </span>                </ListGroup.Item>
+                <ListGroup.Item className="detailListItem"
+                  style={{ backgroundColor: "transparent" }}>
+                  <span >
+                    <strong>{t("Languages")}:</strong>{" "}
+                    {movie.spoken_languages
+                      ?.map((lang) => lang.english_name)
+                      .join(", ") || "N/A"}
+                  </span>
                 </ListGroup.Item>
               </ListGroup>
 

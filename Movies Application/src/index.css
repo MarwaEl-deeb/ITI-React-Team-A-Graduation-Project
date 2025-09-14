@@ -468,6 +468,7 @@ button:hover {
 .NoResultWt,
 .text-start {
   color: var(--third-color);
+  background: transparent;
 }
 
 
