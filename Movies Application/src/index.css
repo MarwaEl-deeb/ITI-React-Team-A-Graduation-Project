@@ -331,6 +331,17 @@ button:hover {
   visibility: hidden;
 }
 
+@media (max-width:520px) {
+  .pagination {
+    width: 95vw;
+    /* padding: 1px;
+    background: red;
+    margin: 5px; */
+  }
+  .page-item{
+    width: 30px;
+  }
+}
 
 .recommendText {
   margin-left: 2%;
