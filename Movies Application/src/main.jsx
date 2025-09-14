@@ -10,6 +10,7 @@ import SearchPage from "./Pages/SearchPage.jsx";
 import WatchListPage from "./Pages/WatchListPage.jsx";
 import DetailsPage from "./Pages/DetailsPage.jsx";
 import NavBar from "./Components/NavBar";
+import ErrorPage from "./Pages/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -52,12 +53,13 @@ const router = createBrowserRouter([
     ),
   },
   { path: "/movie/:id", element: <DetailsPage /> },
-  {path:"*",
-    element:(
-      <div className="d-flex justify-content-center align-items-center "
-      style={{height:"100vh"}}>
-        <h1>ops!</h1>
-      </div>
+  {
+    path: "*",
+    element: (
+      <>   
+        <ErrorPage />
+      </>
+
     )
   }
 ]);

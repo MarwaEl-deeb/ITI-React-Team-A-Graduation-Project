@@ -31,7 +31,7 @@ function App() {
       
       });
   }, [page, selectedType]);
-console.log(loading)
+
   if (loading) {
     return (
       <div className="loading">
@@ -40,6 +40,7 @@ console.log(loading)
       </div >
     );
   }
+  console.log(totalPages)
 
   return (
     <MainContext.Provider
@@ -47,6 +48,7 @@ console.log(loading)
         items,
         setItems,
         totalPages,
+        setTotalPages,
         page,
         setPage,
         loading,
