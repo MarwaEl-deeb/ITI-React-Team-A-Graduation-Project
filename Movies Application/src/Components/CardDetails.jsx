@@ -12,10 +12,12 @@ import {
 import { FaGlobe, FaHeart } from "react-icons/fa";
 import RatingStars from "./RatingStars";
 import "../index.css";
+import { useTranslation } from "react-i18next";
 
 export default function CardDetails({ id, selectedType }) {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { t } = useTranslation();
 
   // Determine correct endpoint based on type
   const endpoint =
@@ -51,14 +53,14 @@ export default function CardDetails({ id, selectedType }) {
     );
   }
 
-  if (!movie) return <p className="text-center">No movie/TV show found</p>;
+  if (!movie) return <p className="text-center">{t("No movie/TV show found")}</p>;
 
   const formattedDate =
     movie.release_date || movie.first_air_date
       ? new Date(movie.release_date || movie.first_air_date).toLocaleDateString(
-          "en-US",
-          { year: "numeric", month: "short", day: "numeric" }
-        )
+        "en-US",
+        { year: "numeric", month: "short", day: "numeric" }
+      )
       : "N/A";
 
   const duration = movie.runtime || movie.episode_run_time?.[0] || "N/A";
@@ -127,10 +129,10 @@ export default function CardDetails({ id, selectedType }) {
               {/* Extra Details */}
               <ListGroup variant="flush" className="mb-3">
                 <ListGroup.Item>
-                  <strong>Duration:</strong> {duration} Min.
+                  <strong>"Duration:"</strong> {duration} Min.
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  <strong>Languages:</strong>{" "}
+                  <strong>"Languages:"</strong>{" "}
                   {movie.spoken_languages?.map((lang) => lang.english_name).join(", ") || "N/A"}
                 </ListGroup.Item>
               </ListGroup>
@@ -172,7 +174,7 @@ export default function CardDetails({ id, selectedType }) {
                   className="fw-bold"
                 >
                   <FaGlobe className="me-2" />
-                  Website
+                  {t("Website")}
                 </Button>
               )}
             </Card.Body>

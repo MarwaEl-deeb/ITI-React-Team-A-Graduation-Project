@@ -11,6 +11,15 @@
   "Search": "Search",
   "Search Results for:": "Search Results for:",
   "Loading...": "Loading...",
-  "NOT FOUND": "NOT FOUND" 
+  "NOT FOUND": "NOT FOUND" ,
+  "No recommendations found":"No recommendations found",
+  "No movie/TV show found":"No movie/TV show found",
+  "Duration:":"Duration",
+  "Min.":"Min.",
+  "Languages:":"Languages:",
+  "Website":"Website",
+  "Back to home":"Back to home",
+  "No Movies in watch list":"No Movies in watch list",
+  "Watch List": "Watch List"
   
 }

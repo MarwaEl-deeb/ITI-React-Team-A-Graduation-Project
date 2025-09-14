@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 28,
+            "activePatchIndex": 35,
             "patches": [
                 {
                     "date": 1757674927647,
@@ -120,6 +120,34 @@
                 {
                     "date": 1757845852784,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,6 +12,6 @@\n   \"Search and Explore...\": \"ابحث واستكشف...\",\r\n   \"Search\": \"بحث\",\r\n   \"Search Results for:\": \"نتائج البحث عن:\",\r\n   \"Loading...\": \"جار التحميل...\",\r\n-  \"NOT FOUND.: \": \"غير موجود.\",\r\n+  \"NOT FOUND.: \": \"غير موجود.\"\r\n }\r\n"
+                },
+                {
+                    "date": 1757846882959,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,6 +12,7 @@\n   \"Search and Explore...\": \"ابحث واستكشف...\",\r\n   \"Search\": \"بحث\",\r\n   \"Search Results for:\": \"نتائج البحث عن:\",\r\n   \"Loading...\": \"جار التحميل...\",\r\n-  \"NOT FOUND.: \": \"غير موجود.\"\r\n+  \"NOT FOUND.: \": \"غير موجود.\",\r\n+  \"No recommendations found\":\"\"\r\n }\r\n"
+                },
+                {
+                    "date": 1757846895440,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,6 +13,6 @@\n   \"Search\": \"بحث\",\r\n   \"Search Results for:\": \"نتائج البحث عن:\",\r\n   \"Loading...\": \"جار التحميل...\",\r\n   \"NOT FOUND.: \": \"غير موجود.\",\r\n-  \"No recommendations found\":\"\"\r\n+  \"No recommendations found\":\"ggg\"\r\n }\r\n"
+                },
+                {
+                    "date": 1757847478843,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,6 +13,11 @@\n   \"Search\": \"بحث\",\r\n   \"Search Results for:\": \"نتائج البحث عن:\",\r\n   \"Loading...\": \"جار التحميل...\",\r\n   \"NOT FOUND.: \": \"غير موجود.\",\r\n-  \"No recommendations found\":\"ggg\"\r\n+  \"No recommendations found\":\"ggg\",\r\n+  \"No movie/TV show found\":\"\",\r\n+  \"Duration:\":\"\",\r\n+  \"Min.\":\"دقيقة.\",\r\n+  \"Languages:\":\"اللغات:\",\r\n+  \"Website\":\"الموقع\"\r\n }\r\n"
+                },
+                {
+                    "date": 1757847727103,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,6 +18,9 @@\n   \"No movie/TV show found\":\"\",\r\n   \"Duration:\":\"\",\r\n   \"Min.\":\"دقيقة.\",\r\n   \"Languages:\":\"اللغات:\",\r\n-  \"Website\":\"الموقع\"\r\n+  \"Website\":\"الموقع\",\r\n+  \"Back to home\":\"\",\r\n+  \"No Movies in watch list\":\"\",\r\n+  \"Watch List\":\"قائمة المشاهدات\"\r\n }\r\n"
+                },
+                {
+                    "date": 1757847822564,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,8 +19,8 @@\n   \"Duration:\":\"\",\r\n   \"Min.\":\"دقيقة.\",\r\n   \"Languages:\":\"اللغات:\",\r\n   \"Website\":\"الموقع\",\r\n-  \"Back to home\":\"\",\r\n-  \"No Movies in watch list\":\"\",\r\n+  \"Back to home\":\"العودة إلى الصفحة الرئيسية\",\r\n+  \"No Movies in watch list\":\"لا توجد أفلام في قائمة المشاهدات\",\r\n   \"Watch List\":\"قائمة المشاهدات\"\r\n }\r\n"
+                },
+                {
+                    "date": 1757847856479,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,11 +13,11 @@\n   \"Search\": \"بحث\",\r\n   \"Search Results for:\": \"نتائج البحث عن:\",\r\n   \"Loading...\": \"جار التحميل...\",\r\n   \"NOT FOUND.: \": \"غير موجود.\",\r\n-  \"No recommendations found\":\"ggg\",\r\n-  \"No movie/TV show found\":\"\",\r\n-  \"Duration:\":\"\",\r\n+  \"No recommendations found\":\"لم يتم العثور على اقتراحات\",\r\n+  \"No movie/TV show found\":\"لم يتم العثور على فيلم/برنامج تلفزيوني\",\r\n+  \"Duration:\":\"المدة:\",\r\n   \"Min.\":\"دقيقة.\",\r\n   \"Languages:\":\"اللغات:\",\r\n   \"Website\":\"الموقع\",\r\n   \"Back to home\":\"العودة إلى الصفحة الرئيسية\",\r\n"
+                },
+                {
+                    "date": 1757848132444,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n   \"Loading...\": \"جار التحميل...\",\r\n   \"NOT FOUND.: \": \"غير موجود.\",\r\n   \"No recommendations found\":\"لم يتم العثور على اقتراحات\",\r\n   \"No movie/TV show found\":\"لم يتم العثور على فيلم/برنامج تلفزيوني\",\r\n-  \"Duration:\":\"المدة:\",\r\n+  \"Duration:\":\"المدة: \",\r\n   \"Min.\":\"دقيقة.\",\r\n   \"Languages:\":\"اللغات:\",\r\n   \"Website\":\"الموقع\",\r\n   \"Back to home\":\"العودة إلى الصفحة الرئيسية\",\r\n"
                 }
             ],
             "date": 1757674927647,

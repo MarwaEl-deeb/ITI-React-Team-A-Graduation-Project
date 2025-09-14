@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 
 function WatchListPage() {
     const movies = [];
+    const { t } = useTranslation();
 
     return (
         <div className="container-fluid mt-4   h-100 " >
-            <h3 className="text-start ps-5 " style={{ color: "#A08E33", fontWeight: "bold" }}>Watch List</h3>
+            <h3 className="text-start ps-5 " style={{ color: "#A08E33", fontWeight: "bold" }}>{t("Watch List")}</h3>
 
             <div
                 className="d-flex flex-column align-items-center justify-content-center"
@@ -20,9 +22,9 @@ function WatchListPage() {
                             style={{ width: "200px", }}
                         />
 
-                        <p className="mt-3 fs-5">No Movies in watch list</p>
+                        <p className="mt-3 fs-5">{t("No Movies in watch list")}</p>
 
-                        <Link to="/" className="  btn-custom mt-3 w-25 ">Back to home</Link>
+                        <Link to="/" className="  btn-custom mt-3 w-25 ">{t("Back to home")}</Link>
 
                     </>
 

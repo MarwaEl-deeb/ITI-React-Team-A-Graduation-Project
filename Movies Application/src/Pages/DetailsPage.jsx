@@ -43,11 +43,11 @@ function DetailsPage() {
         </div>
       ) : movies.length ? (
         <div>
-          <h2 className="recommendText">{t("Recommendations")}</h2>
+          <h1 className="recommendText">{t("Recommendations")}</h1>
           <CardList data={movies} isRecommendation={true} />
         </div>
       ) : (
-        <p className="text-center">No recommendations found</p>
+        <p className="text-center">{t("No recommendations found")}</p>
       )}
     </>
   );

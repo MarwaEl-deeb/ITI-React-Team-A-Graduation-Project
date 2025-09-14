@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 12,
+            "activePatchIndex": 18,
             "patches": [
                 {
                     "date": 1757674933738,
@@ -56,6 +56,30 @@
                 {
                     "date": 1757845797968,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,7 +8,9 @@\n   \"Recommendations\": \"Recommendations\",\r\n   \" Millions of movies ,TV shows and people to discover.Explore now.\": \" Millions of movies ,TV shows and people to discover.Explore now.\",\r\n   \"Search and Explore...\": \"Search and Explore...\",\r\n   \"Search\": \"Search\",\r\n-  \"Search Results for:\": \"Search Results for:\"\r\n+  \"Search Results for:\": \"Search Results for:\",\r\n+  \"Loading...\": \"Loading...\",\r\n+  \"NOT FOUND\": \"NOT FOUND\" \r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757846732103,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,7 +10,8 @@\n   \"Search and Explore...\": \"Search and Explore...\",\r\n   \"Search\": \"Search\",\r\n   \"Search Results for:\": \"Search Results for:\",\r\n   \"Loading...\": \"Loading...\",\r\n-  \"NOT FOUND\": \"NOT FOUND\" \r\n+  \"NOT FOUND\": \"NOT FOUND\" ,\r\n+  \"No recommendations found\"\r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757846898804,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,7 +11,7 @@\n   \"Search\": \"Search\",\r\n   \"Search Results for:\": \"Search Results for:\",\r\n   \"Loading...\": \"Loading...\",\r\n   \"NOT FOUND\": \"NOT FOUND\" ,\r\n-  \"No recommendations found\"\r\n+  \"No recommendations found\":\"ggg\"\r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757847322491,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,7 +11,10 @@\n   \"Search\": \"Search\",\r\n   \"Search Results for:\": \"Search Results for:\",\r\n   \"Loading...\": \"Loading...\",\r\n   \"NOT FOUND\": \"NOT FOUND\" ,\r\n-  \"No recommendations found\":\"ggg\"\r\n+  \"No recommendations found\":\"No recommendations found\",\r\n+  \"No movie/TV show found\":\"No movie/TV show found\",\r\n+  \"Duration:\":\"Duration\",\r\n+  \"Min.\":\"Min.\"\r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757847384596,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,7 +14,8 @@\n   \"NOT FOUND\": \"NOT FOUND\" ,\r\n   \"No recommendations found\":\"No recommendations found\",\r\n   \"No movie/TV show found\":\"No movie/TV show found\",\r\n   \"Duration:\":\"Duration\",\r\n-  \"Min.\":\"Min.\"\r\n+  \"Min.\":\"Min.\",\r\n+  \"Languages:\":\"Languages:\"\r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757847463888,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,7 +15,8 @@\n   \"No recommendations found\":\"No recommendations found\",\r\n   \"No movie/TV show found\":\"No movie/TV show found\",\r\n   \"Duration:\":\"Duration\",\r\n   \"Min.\":\"Min.\",\r\n-  \"Languages:\":\"Languages:\"\r\n+  \"Languages:\":\"Languages:\",\r\n+  \"Website\":\"Website\"\r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757847668776,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,7 +16,10 @@\n   \"No movie/TV show found\":\"No movie/TV show found\",\r\n   \"Duration:\":\"Duration\",\r\n   \"Min.\":\"Min.\",\r\n   \"Languages:\":\"Languages:\",\r\n-  \"Website\":\"Website\"\r\n+  \"Website\":\"Website\",\r\n+  \"Back to home\":\"Back to home\",\r\n+  \"No Movies in watch list\":\"No Movies in watch list\",\r\n+  \"Watch List\": \"Watch List\"\r\n   \r\n }\r\n"
                 }
             ],
             "date": 1757674933738,

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 34,
+            "activePatchIndex": 36,
             "patches": [
                 {
                     "date": 1757681087615,
@@ -144,6 +144,14 @@
                 {
                     "date": 1757805818541,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n           <Spinner animation=\"border\" variant=\"warning\" />\r\n         </div>\r\n       ) : movies.length ? (\r\n         <div>\r\n-          <h2>{t(\"Recommendations\")}</h2>\r\n+          <h2 className=\"recommendText\">{t(\"Recommendations\")}</h2>\r\n           <CardList data={movies} isRecommendation={true} />\r\n         </div>\r\n       ) : (\r\n         <p className=\"text-center\">No recommendations found</p>\r\n"
+                },
+                {
+                    "date": 1757846820543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n           <h2 className=\"recommendText\">{t(\"Recommendations\")}</h2>\r\n           <CardList data={movies} isRecommendation={true} />\r\n         </div>\r\n       ) : (\r\n-        <p className=\"text-center\">No recommendations found</p>\r\n+        <p className=\"text-center\">{t(\"No recommendations found\")}</p>\r\n       )}\r\n     </>\r\n   );\r\n }\r\n"
+                },
+                {
+                    "date": 1757846949658,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n           <Spinner animation=\"border\" variant=\"warning\" />\r\n         </div>\r\n       ) : movies.length ? (\r\n         <div>\r\n-          <h2 className=\"recommendText\">{t(\"Recommendations\")}</h2>\r\n+          <h1 className=\"recommendText\">{t(\"Recommendations\")}</h1>\r\n           <CardList data={movies} isRecommendation={true} />\r\n         </div>\r\n       ) : (\r\n         <p className=\"text-center\">{t(\"No recommendations found\")}</p>\r\n"
                 }
             ],
             "date": 1757681087615,

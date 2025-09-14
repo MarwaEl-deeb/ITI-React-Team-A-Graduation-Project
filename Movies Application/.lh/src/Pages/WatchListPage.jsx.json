@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 5,
             "patches": [
                 {
                     "date": 1757680877970,
@@ -20,6 +20,14 @@
                 {
                     "date": 1757781090607,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,10 +21,9 @@\n                         />\r\n \r\n                         <p className=\"mt-3 fs-5\">No Movies in watch list</p>\r\n \r\n-                        <Link onClick={() => navigate(-1) || navigate(\"/\")}\r\n-                            className=\"  btn-custom mt-3 w-25 \">Back to home</Link>\r\n+                        <Link to=\"/\" className=\"  btn-custom mt-3 w-25 \">Back to home</Link>\r\n \r\n                     </>\r\n \r\n                 ) : (\r\n"
+                },
+                {
+                    "date": 1757847588084,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,15 @@\n import { Link } from \"react-router-dom\";\r\n+import { useTranslation } from \"react-i18next\";\r\n \r\n \r\n function WatchListPage() {\r\n     const movies = [];\r\n+    const { t } = useTranslation();\r\n \r\n     return (\r\n         <div className=\"container-fluid mt-4   h-100 \" >\r\n-            <h3 className=\"text-start ps-5 \" style={{ color: \"#A08E33\", fontWeight: \"bold\" }}>Watch List</h3>\r\n+            <h3 className=\"text-start ps-5 \" style={{ color: \"#A08E33\", fontWeight: \"bold\" }}>{t(\"Watch List\")}</h3>\r\n \r\n             <div\r\n                 className=\"d-flex flex-column align-items-center justify-content-center\"\r\n                 style={{ minHeight: \"70vh\" }}\r\n"
+                },
+                {
+                    "date": 1757847628448,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,11 +21,11 @@\n                             alt=\"\"\r\n                             style={{ width: \"200px\", }}\r\n                         />\r\n \r\n-                        <p className=\"mt-3 fs-5\">No Movies in watch list</p>\r\n+                        <p className=\"mt-3 fs-5\">{t(\"No Movies in watch list\")}</p>\r\n \r\n-                        <Link to=\"/\" className=\"  btn-custom mt-3 w-25 \">Back to home</Link>\r\n+                        <Link to=\"/\" className=\"  btn-custom mt-3 w-25 \">{t(\"Back to home\")}</Link>\r\n \r\n                     </>\r\n \r\n                 ) : (\r\n"
                 }
             ],
             "date": 1757680877970,

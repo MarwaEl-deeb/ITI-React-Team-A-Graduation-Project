@@ -13,5 +13,14 @@
   "Search": "بحث",
   "Search Results for:": "نتائج البحث عن:",
   "Loading...": "جار التحميل...",
-  "NOT FOUND.: ": "غير موجود."
+  "NOT FOUND.: ": "غير موجود.",
+  "No recommendations found":"لم يتم العثور على اقتراحات",
+  "No movie/TV show found":"لم يتم العثور على فيلم/برنامج تلفزيوني",
+  "Duration:":"المدة: ",
+  "Min.":"دقيقة.",
+  "Languages:":"اللغات:",
+  "Website":"الموقع",
+  "Back to home":"العودة إلى الصفحة الرئيسية",
+  "No Movies in watch list":"لا توجد أفلام في قائمة المشاهدات",
+  "Watch List":"قائمة المشاهدات"
 }
