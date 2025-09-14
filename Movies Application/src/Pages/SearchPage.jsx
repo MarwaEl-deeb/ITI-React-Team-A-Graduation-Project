@@ -31,14 +31,14 @@ export default function SearchPage() {
       <div className="searchPageInput "> <Search /> </div>
 
       {loading ? (
-        <p>Loading...</p>
+        <p>{t("Loading...")}</p>
       ) : (
         <>
           <h2 className="my-5 searchHeader">{t("Search Results for:")} "{query}"</h2>
           {results.length > 0 ? (
             <CardList data={results} isSearch={true} />
           ) : (
-            <p style={{ color: "red" }}>NOT FOUND </p>
+            <p className="notFoundResult" style={{ color: "red" }}>{t("NOT FOUND")} </p>
           )}
         </>
       )}

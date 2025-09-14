@@ -210,6 +210,11 @@ button:hover {
   margin: 10px auto;
 }
 
+.notFoundResult {
+  margin-right: 5%;
+  margin-left: 5%
+}
+
 /* ******* ******* ******* ******* ******* ******* ****** ****** ****** */
 .loading {
   display: flex;

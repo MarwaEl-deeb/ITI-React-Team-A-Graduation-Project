@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 26,
+            "activePatchIndex": 28,
             "patches": [
                 {
                     "date": 1757674927647,
@@ -112,6 +112,14 @@
                 {
                     "date": 1757805741180,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,10 @@\n   \"Movie App\": \"تطبيق الأفلام\",\r\n   \"TV Shows\": \"البرامج التلفزيونية\",\r\n   \"Welcome to our movie app\": \"مرحبًا بكم في تطبيق الأفلام الخاص بنا\",\r\n   \"Now Playing\": \"يعرض الآن\",\r\n+  \"Popular\": \"شائع\",\r\n+  \"Recommendations\": \"الاقتراحات\",\r\n   \" Millions of movies ,TV shows and people to discover.Explore now.\": \" ملايين الأفلام والبرامج التلفزيونية والأشخاص لاكتشافها. استكشف الآن.\",\r\n   \"Search and Explore...\": \"ابحث واستكشف...\",\r\n   \"Search\": \"بحث\",\r\n   \"Search Results for:\": \"نتائج البحث عن:\"\r\n"
+                },
+                {
+                    "date": 1757845782309,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,6 +10,8 @@\n   \"Recommendations\": \"الاقتراحات\",\r\n   \" Millions of movies ,TV shows and people to discover.Explore now.\": \" ملايين الأفلام والبرامج التلفزيونية والأشخاص لاكتشافها. استكشف الآن.\",\r\n   \"Search and Explore...\": \"ابحث واستكشف...\",\r\n   \"Search\": \"بحث\",\r\n-  \"Search Results for:\": \"نتائج البحث عن:\"\r\n+  \"Search Results for:\": \"نتائج البحث عن:\",\r\n+  \"Loading...\": \"جار التحميل...\",\r\n+  \"NOT FOUND.: \": \"غير موجود.\",\r\n }\r\n"
+                },
+                {
+                    "date": 1757845852784,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,6 +12,6 @@\n   \"Search and Explore...\": \"ابحث واستكشف...\",\r\n   \"Search\": \"بحث\",\r\n   \"Search Results for:\": \"نتائج البحث عن:\",\r\n   \"Loading...\": \"جار التحميل...\",\r\n-  \"NOT FOUND.: \": \"غير موجود.\",\r\n+  \"NOT FOUND.: \": \"غير موجود.\"\r\n }\r\n"
                 }
             ],
             "date": 1757674927647,
