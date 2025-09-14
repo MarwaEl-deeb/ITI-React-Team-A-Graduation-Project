@@ -215,6 +215,11 @@ button:hover {
   margin-left: 5%
 }
 
+.loadingText {
+  margin-right: 5%;
+  margin-left: 5%
+}
+
 /* ******* ******* ******* ******* ******* ******* ****** ****** ****** */
 .loading {
   display: flex;

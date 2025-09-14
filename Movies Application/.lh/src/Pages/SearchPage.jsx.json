@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 63,
+            "activePatchIndex": 65,
             "patches": [
                 {
                     "date": 1757681050180,
@@ -260,6 +260,14 @@
                 {
                     "date": 1757846000357,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,16 +30,16 @@\n     <div className=\"SearchResult mt-5\">\r\n       <div className=\"searchPageInput \"> <Search /> </div>\r\n \r\n       {loading ? (\r\n-        <p>Loading...</p>\r\n+        <p>{t(\"Loading...\")}</p>\r\n       ) : (\r\n         <>\r\n           <h2 className=\"my-5 searchHeader\">{t(\"Search Results for:\")} \"{query}\"</h2>\r\n           {results.length > 0 ? (\r\n             <CardList data={results} isSearch={true} />\r\n           ) : (\r\n-            <p style={{ color: \"red\" }}>NOT FOUND </p>\r\n+            <p className=\"notFoundResult\" style={{ color: \"red\" }}>{t(\"NOT FOUND\")} </p>\r\n           )}\r\n         </>\r\n       )}\r\n     </div>\r\n"
+                },
+                {
+                    "date": 1757849496251,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n     <div className=\"SearchResult mt-5\">\r\n       <div className=\"searchPageInput \"> <Search /> </div>\r\n \r\n       {loading ? (\r\n-        <p>{t(\"Loading...\")}</p>\r\n+        <p className=\"loadingText\">{t(\"Loading...\")}</p>\r\n       ) : (\r\n         <>\r\n           <h2 className=\"my-5 searchHeader\">{t(\"Search Results for:\")} \"{query}\"</h2>\r\n           {results.length > 0 ? (\r\n@@ -44,4 +44,6 @@\n       )}\r\n     </div>\r\n   );\r\n }\r\n+\r\n+\r\n"
+                },
+                {
+                    "date": 1757849722458,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,6 @@\n import { useSearchParams } from \"react-router-dom\";\r\n import { useEffect, useState } from \"react\";\r\n-import NavBar from \"../Components/NavBar\";\r\n import Search from \"../Components/Search\";\r\n import CardList from \"../Components/Card\";\r\n import { useTranslation } from \"react-i18next\";\r\n \r\n"
                 }
             ],
             "date": 1757681050180,

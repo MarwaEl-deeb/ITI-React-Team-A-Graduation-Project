@@ -1,6 +1,5 @@
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import NavBar from "../Components/NavBar";
 import Search from "../Components/Search";
 import CardList from "../Components/Card";
 import { useTranslation } from "react-i18next";
@@ -31,7 +30,7 @@ export default function SearchPage() {
       <div className="searchPageInput "> <Search /> </div>
 
       {loading ? (
-        <p>{t("Loading...")}</p>
+        <p className="loadingText">{t("Loading...")}</p>
       ) : (
         <>
           <h2 className="my-5 searchHeader">{t("Search Results for:")} "{query}"</h2>
@@ -45,3 +44,5 @@ export default function SearchPage() {
     </div>
   );
 }
+
+
