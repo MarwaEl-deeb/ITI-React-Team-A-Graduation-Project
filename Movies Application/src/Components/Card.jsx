@@ -89,7 +89,7 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
           const isFav = favorites.some((fav) => fav.id === item.id);
 
           return (
-            <div key={id} className="col-12 col-lg-6 d-flex justify-content-center ">
+            <div key={id} className="col-12 col-lg-6 d-flex justify-content-center WatchListCard">
 
               <Card className="watchlist-card d-flex flex-row p-3 h-75 border-0"
                 style={{ width: "90%", borderRadius: "20px", position: "relative", boxShadow: "0 4px 8px rgba(0,0,0,0.2)" }}>
@@ -126,7 +126,7 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
 
                 <Card.Body className="d-flex flex-column justify-content-between ps-3">
                   <div>
-                    <Card.Title style={{ fontSize: "20px", fontWeight: "bold" }}>
+                    <Card.Title className="cardTitle" style={{ fontSize: "20px", fontWeight: "bold" }}>
                       {title?.length > 25 ? title.slice(0, 100) : title}
                     </Card.Title>
 

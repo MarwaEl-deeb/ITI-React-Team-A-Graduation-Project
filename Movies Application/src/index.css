@@ -365,7 +365,8 @@ button:hover {
     background: red;
     margin: 5px; */
   }
-  .page-item{
+
+  .page-item {
     width: 30px;
   }
 }
@@ -380,9 +381,13 @@ button:hover {
 
 
 /******** Responsive Mobile Only *********/
+
+.WatchListCard .watchlist-card {
+  background-color: var(--primary-color);
+}
+
 @media (max-width: 767px) {
-  .watchlist-card {
-    background-color: #0b1620;
+  .WatchListCard .watchlist-card {
     width: 100% !important;
 
   }
