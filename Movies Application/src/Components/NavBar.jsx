@@ -88,7 +88,7 @@ function NavBar() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navTitle">
+    <nav className="navbar navbar-expand-lg navTitle sticky-top">
       <div className="container-fluid">
         <div className="d-flex align-items-center">
           <strong className="navbar-brand">
@@ -104,7 +104,7 @@ function NavBar() {
           </strong>
 
 
-          <img src={theme === "light" ? "/moon.png" : "/sun.png"} className="themeImage ms-2" alt="Theme Image" title="Change Theme Icon" onClick={toggleTheme} />
+          < img src={theme === "light" ? "/moon.png" : "/sun.png"} className="themeImage ms-2" alt="Theme Image" title="Change Theme Icon" onClick={toggleTheme} />
 
         </div>
 
@@ -138,7 +138,7 @@ function NavBar() {
             </select>
 
             <span className="watchListIcon align-self-center">
-              <img src={theme === "light" ? "/heartFilled.png" : "/yellowHeart.png"} className="watchListIcon" />
+              <img src="/heartFilled.png" className="watchListIcon" />
             </span>
 
             <span
@@ -170,7 +170,7 @@ function NavBar() {
           </div>
         </div>
       </div>
-    </nav>
+    </nav >
   );
 }
 

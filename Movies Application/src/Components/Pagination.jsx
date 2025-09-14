@@ -1,51 +1,36 @@
 import { useContext, useEffect } from "react"
 import { MainContext } from "../useContext"
 import Pagination from 'react-bootstrap/Pagination';
-import { useSearchParams } from "react-router-dom";
 
 
 function PaginationComponent() {
 
 
     const { totalPages, setPage, page, selectedType } = useContext(MainContext);
-
-    const [ searchParams, setSearchParams ] = useSearchParams();
-
-    useEffect(() => {
-        let pageURL = parseInt(searchParams.get("page") || "1", 10)
-        if (!isNaN(pageURL) && pageURL !== page) {
-            setPage(pageURL)
-        }
-    }, [])
-
-    useEffect(() => {
-        setSearchParams({page: page.toString()})
-    }, [page, setSearchParams])
-
     let maxPages = selectedType === "movies" ? totalPages : 500
     const window = 6;
     const start = Math.max(1, page - 2)
     const end = Math.min(maxPages, start + window - 1);
-    
+
     let Pages = [];
     for (let i = start; i <= end; i++) {
         Pages.push
             (<Pagination.Item
-           
                 key={i}
-                onClick={(e) => { e.preventDefault();   setPage(i); console.log(i); }}
+                onClick={() => { setPage(i); console.log(i); }}
                 active={i === page}>
                 {i}
-                
             </Pagination.Item>)
     }
     return (
-        <Pagination className="justify-content-center ">
+        <Pagination className="  w-75 justify-content-center ">
             <Pagination.First className="paginationBtn"
                 disabled={page === 1}
                 onClick={() => { setPage(1) }} />
-            <Pagination.Prev className="paginationBtn" disabled={page === 1}onClick={() => { setPage(page - 1) }} />
 
+            <Pagination.Prev className="paginationBtn"
+                disabled={page === 1}
+                onClick={() => { setPage(page - 1) }} />
             {start > 1 && <Pagination.Ellipsis
                 disabled={page === 1}
                 className="paginationBtn" />}

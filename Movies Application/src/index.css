@@ -1,10 +1,31 @@
 * {
   margin-left: 0px;
   font-family: cursive;
+  transition: all 2s;
+}
+
+:root {
+  --primary-color: white;
+  --secondary-color: #f3f1f1;
+  --third-color: black;
+  --forth-color: #7d7b7bc5;
+}
+
+[data-theme="dark"] {
+  --primary-color: #1a2a3a;
+  --secondary-color: #59626b3a;
+  --third-color: white;
+  --forth-color: #ffffffa0;
 }
 
 body {
+  transition: all 1s;
   padding-bottom: 5%;
+}
+
+body[data-theme="dark"] {
+  padding-bottom: 5%;
+  background-color: #1a2a3a;
 }
 
 nav {
@@ -14,27 +35,14 @@ nav {
   height: 60px;
   padding: 0 2%;
   top: 0;
-  background-color: #ffe353;
+  background-color: #ffe14adf;
 }
 
-body[data-theme="dark"] nav {
-  background-color: #1a2a3a;
-  color: white;
-  transition: all 0.5s;
-}
 
 .navbar-brand select {
   font-weight: bold;
   font-size: 1.4rem;
   font-size: 22px;
-}
-
-body[data-theme="dark"] .navbar-brand select {
-  color: #ffe353
-}
-
-body[data-theme="dark"] .navbar-brand select:hover {
-  color: #ffe253bb
 }
 
 .navbar-brand .form-select,
@@ -58,11 +66,6 @@ body[data-theme="dark"] .navbar-brand select:hover {
   font-weight: bold;
 }
 
-body[data-theme="dark"] .headerRightSide select {
-  color: #ffe353;
-
-}
-
 .navbar-brand .form-select:hover {
   transform: scale(1.04);
   background-color: rgba(255, 0, 0, 0);
@@ -83,11 +86,16 @@ body[data-theme="dark"] .headerRightSide select {
 
 .Card {
   transition: all 1s;
+  background-color: var(--primary-color);
   cursor: pointer;
+}
 
+.cardMainContainer {
+  background-color: var(--primary-color);
 }
 
 .Card:hover {
+  background-color: var(--primary-color);
   transform: scale(1.05);
 }
 
@@ -95,6 +103,15 @@ body[data-theme="dark"] .headerRightSide select {
   border-radius: 20px;
   margin-bottom: 15%;
   object-fit: fill;
+
+}
+
+.CardBody .cardTitle {
+  color: var(--third-color)
+}
+
+.CardBody .cardDate {
+  color: var(--forth-color)
 }
 
 .cardFavIcon {
@@ -160,9 +177,6 @@ a {
   color: black
 }
 
-body[data-theme="dark"] .watchListText {
-  color: #ffe353
-}
 
 .favListNum {
   color: black;
@@ -176,6 +190,7 @@ i {
 
 /* ***** ******* ******* ****** welcome style ***** ******* ******* ***** */
 .nowPlaying {
+  color: var(--third-color);
   margin-left: 3%;
   margin-right: 3%;
 }
@@ -192,12 +207,17 @@ i {
 }
 
 .welcome {
-  background-color: #f3f1f1;
+  background-color: var(--secondary-color);
   padding: 4%;
   width: 100%;
 }
 
+.welcome>h2 {
+  color: var(--third-color);
+}
+
 .welcome>p {
+  color: var(--third-color);
   font-size: smaller;
   padding: 20px 0px 10px 0px;
 }
@@ -298,6 +318,7 @@ button:hover {
   justify-content: center;
 }
 
+
 /****************Pagination************************/
 .pagination {
   display: flex;
@@ -323,9 +344,11 @@ button:hover {
 
 .page-item:not(.active) .page-link {
   border-radius: 5px;
-  border: 2px solid #ffff;
+  border: 2px solid var(--primary-color);
+  background-color: var(--primary-color);
   color: darkgray;
 }
+
 
 .page-item.disabled {
   visibility: hidden;
@@ -400,7 +423,6 @@ button:hover {
 .CardDetails {
   border-radius: 12px;
   border: none;
-
   margin: auto;
   width: 100%;
   height: 100%;

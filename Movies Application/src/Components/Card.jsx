@@ -11,6 +11,24 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
   const navigate = useNavigate();
   const [favorites, setFavorites] = useState([]);
 
+  const [theme, setTheme] = useState(
+    document.body.getAttribute("data-theme") || "light"
+  );
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      const currentTheme = document.body.getAttribute("data-theme");
+      setTheme(currentTheme);
+    });
+
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   useEffect(() => {
     const storedFavs = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavorites(storedFavs);
@@ -103,7 +121,6 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
                   }}
                   onClick={() => {
                     navigate(selectedType === "movies" ? `/movie/${id}` : `/tv/${id}`)
-                    console.log(selectedType + "////////" + id);
                   }}
                 />
 
@@ -157,7 +174,7 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
           <Card
             key={id}
             className={isSearch ? "m-3 border-0 Card" : "m-4 border-0 Card"}
-            style={{ width: "200px", height: "420px" }}
+            style={{ width: "200px", height: "420px", backgroundColor: "transparent" }}
           >
             <Card.Img
               className="CardImage"
@@ -175,16 +192,20 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
             <Card.Body className="CardBody">
               <div className="container">
                 <div className="row">
-                  <div className="col-10">
-                    <Card.Title style={{ fontSize: "17px", fontWeight: "bold" }}>
+                  <div className="col-10 ">
+                    <Card.Title className="cardTitle" style={{ fontSize: "17px", fontWeight: "bold" }}>
                       {title?.length > 25 ? title.slice(0, 100) : title}
                     </Card.Title>
-                    <Card.Text style={{ color: "#7d7b7bc5" }}>
+                    <Card.Text className="cardDate">
                       {date}</Card.Text>
                   </div>
                   <div className="col-2 position-relative" style={{ height: "120px" }}>
                     <img
-                      src={isFav ? "/yellowHeart.png" : "/heart.svg"}
+                      src={isFav
+                        ? "/yellowHeart.png"
+                        : theme === "light"
+                          ? "/heart.svg"
+                          : "/emptyYellowHeart.svg"}
                       className="cardFavIcon position-absolute"
                       style={{ top: "25px" }}
                       onClick={() => toggleFavorite(item)}
