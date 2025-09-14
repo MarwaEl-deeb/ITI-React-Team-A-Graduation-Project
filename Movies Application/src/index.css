@@ -448,7 +448,9 @@ button:hover {
 .noRecommend,
 .detailsSeparator,
 .cardDetailsContainer .detailListItem span,
-.detailsCompanyName {
+.detailsCompanyName,
+.NoResultWt,
+.text-start {
   color: var(--third-color);
 }
 
