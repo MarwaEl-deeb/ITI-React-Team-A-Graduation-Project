@@ -10,7 +10,5 @@ export const MainContext = createContext({
   setLoading: () => {},
   selectedType: "movies",
   setSelectedType: () => {},
-  watchlist: [],
-  setWatchlist: () => {},
 });
 
