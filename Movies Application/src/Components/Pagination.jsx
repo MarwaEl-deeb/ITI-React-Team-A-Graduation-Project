@@ -1,25 +1,42 @@
 import { useContext, useEffect } from "react"
 import { MainContext } from "../useContext"
 import Pagination from 'react-bootstrap/Pagination';
+import { useSearchParams } from "react-router-dom";
 
 
 function PaginationComponent() {
 
 
-    const { totalPages, setTotalPages, setPage, page, selectedType } = useContext(MainContext);
-    let maxPages =selectedType==="movies"? totalPages: 500
+    const { totalPages, setPage, page, selectedType } = useContext(MainContext);
+
+    const [ searchParams, setSearchParams ] = useSearchParams();
+
+    useEffect(() => {
+        let pageURL = parseInt(searchParams.get("page") || "1", 10)
+        if (!isNaN(pageURL) && pageURL !== page) {
+            setPage(pageURL)
+        }
+    }, [])
+
+    useEffect(() => {
+        setSearchParams({page: page.toString()})
+    }, [page, setSearchParams])
+
+    let maxPages = selectedType === "movies" ? totalPages : 500
     const window = 6;
     const start = Math.max(1, page - 2)
-    const end = Math.min(maxPages, start + window-1);
-
+    const end = Math.min(maxPages, start + window - 1);
+    
     let Pages = [];
     for (let i = start; i <= end; i++) {
         Pages.push
             (<Pagination.Item
+           
                 key={i}
-                onClick={() => { setPage(i); console.log(i); }}
+                onClick={(e) => { e.preventDefault();   setPage(i); console.log(i); }}
                 active={i === page}>
                 {i}
+                
             </Pagination.Item>)
     }
     return (
