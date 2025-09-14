@@ -384,3 +384,13 @@ button:hover {
   border: none !important;
   padding-left: 0;
 }
+/****************Errorbtn******************/
+.goBack{
+  height: 40px;
+  border-radius: 20px;
+  transition: all 1s;
+}
+.goBack:hover{
+  color: white;
+  transform: scale(1.05);
+}

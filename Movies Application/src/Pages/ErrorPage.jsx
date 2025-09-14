@@ -8,7 +8,7 @@ const navigate=useNavigate();
       style={{height:"100vh"}}>
         <h1 style={{color:'red'}}>Oops!</h1>
         <p>page is not found Please Go Back</p>
-        <button onClick={()=>navigate(-1)}>GO back</button>
+        <button className=" goBack border-0 w-25" onClick={()=>navigate(-1)}>GO back</button>
       </div>)
 }
 export default ErrorPage;
