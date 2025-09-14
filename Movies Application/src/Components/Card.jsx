@@ -82,7 +82,7 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
               year: "numeric",
             })
             : "N/A";
-            
+
           const vote = item.vote_average ?? 0;
           const votesCount = item.vote_count ?? 0;
 
@@ -91,7 +91,7 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
           return (
             <div key={id} className="col-12 col-lg-6 d-flex justify-content-center ">
 
-              <Card className="watchlist-card d-flex flex-row p-3 h-75 border-0" 
+              <Card className="watchlist-card d-flex flex-row p-3 h-75 border-0"
                 style={{ width: "90%", borderRadius: "20px", position: "relative", boxShadow: "0 4px 8px rgba(0,0,0,0.2)" }}>
                 <img
                   src={isFav ? "/yellowHeart.png" : "/heart.svg"}
@@ -127,15 +127,15 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
                 <Card.Body className="d-flex flex-column justify-content-between ps-3">
                   <div>
                     <Card.Title style={{ fontSize: "20px", fontWeight: "bold" }}>
-                      {title?.length > 25 ? title.slice(0, 100)  : title}
+                      {title?.length > 25 ? title.slice(0, 100) : title}
                     </Card.Title>
 
                     <Card.Text style={{ color: "#7d7b7bc5", fontSize: "13px" }}>{date}</Card.Text>
 
                     <RatingStars rating={vote} votes={votesCount} />
 
-                     <Card.Text 
-                      style={{ 
+                    <Card.Text
+                      style={{
                         fontSize: "0.85rem",
                         marginTop: "5%",
                         overflow: "hidden",
@@ -144,7 +144,7 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
                         WebkitLineClamp: 3,
                         WebkitBoxOrient: "vertical",
                         // wordWrap: "break-word"
-                        }}>
+                      }}>
 
                       {overview ? overview.substring(0, 200).trim() + "..." : "No description available."}
                     </Card.Text>

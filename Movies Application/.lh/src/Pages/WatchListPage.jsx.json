@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 12,
+            "activePatchIndex": 13,
             "patches": [
                 {
                     "date": 1757680877970,
@@ -56,6 +56,10 @@
                 {
                     "date": 1757849710092,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,9 +60,10 @@\n           <>\r\n             <img src=\"/whatchlist.png\" alt=\"\" style={{ width: \"200px\" }} />\r\n             <p className=\"mt-3 fs-5\">{t(\"No Movies in watch list\")}</p>\r\n             <Link to=\"/\" className=\"btn btn-warning mt-3 w-25\">\r\n-              {t(\"Back to home\")}            </Link>\r\n+              {t(\"Back to home\")}\r\n+            </Link>\r\n           </>\r\n         ) : (\r\n           <CardList data={detailedFavorites} isWatchlistPage={true}\r\n             setDetailedFavorites={setDetailedFavorites}\r\n"
+                },
+                {
+                    "date": 1757886417646,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,20 +48,20 @@\n \r\n \r\n   return (\r\n     <div className=\"container-fluid mt-4   h-100 \" >\r\n-      <h3 className=\"text-start ps-5 \" style={{ fontWeight: \"bold\", marginBottom:\"2%\"}}>\r\n-        {t(\"Watch List\")} \r\n-        <span style={{color:\"#726625\", fontSize:\"25px\"}}>({detailedFavorites.length})</span> \r\n-        </h3>\r\n+      <h3 className=\"text-start ps-5 \" style={{ fontWeight: \"bold\", marginBottom: \"2%\" }}>\r\n+        {t(\"Watch List\")}\r\n+        <span style={{ color: \"#726625\", fontSize: \"25px\" }}>({detailedFavorites.length})</span>\r\n+      </h3>\r\n       <div\r\n         className=\"d-flex flex-column align-items-center justify-content-center\"\r\n         style={{ minHeight: \"70vh\" }}\r\n       >\r\n         {detailedFavorites.length === 0 ? (\r\n           <>\r\n             <img src=\"/whatchlist.png\" alt=\"\" style={{ width: \"200px\" }} />\r\n-            <p className=\"mt-3 fs-5\">{t(\"No Movies in watch list\")}</p>\r\n+            <p className=\"mt-3 fs-5 NoResultWt\">{t(\"No Movies in watch list\")}</p>\r\n             <Link to=\"/\" className=\"btn-custom mt-3 w-25\">\r\n               {t(\"Back to home\")}\r\n             </Link>\r\n           </>\r\n"
                 }
             ],
             "date": 1757680877970,

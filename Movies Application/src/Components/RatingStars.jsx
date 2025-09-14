@@ -1,8 +1,10 @@
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 export default function RatingStars({ rating, votes }) {
   const stars = [];
   const value = (rating ?? 0) / 2; // fallback 0
+  const { t } = useTranslation();
 
   for (let i = 1; i <= 5; i++) {
     if (i <= Math.floor(value)) {
@@ -19,7 +21,7 @@ export default function RatingStars({ rating, votes }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "1px" }}>
       {stars}
-      <span style={{ marginLeft: "8px", width:"60%", fontSize:"13px" }}>({votesDisplay} votes)</span>
+      <span className="voteText" style={{ marginLeft: "8px", width: "60%", fontSize: "13px" }}>({votesDisplay} {t("votes")})</span>
     </div>
   );
 }

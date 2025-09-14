@@ -53,7 +53,9 @@ function DetailsPage() {
           <CardList data={movies} isRecommendation={true} />
         </div>
       ) : (
-        <p className="text-center">{t("No recommendations found")}</p>
+        <p className="text-center noRecommend">
+          {t("No recommendations found")}
+        </p>
       )}
     </>
   );

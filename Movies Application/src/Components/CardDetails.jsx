@@ -78,7 +78,7 @@ export default function CardDetails({ id, isMovie }) {
     : "/fallback.jpg";
 
   return (
-    <Container fluid className="p-3">
+    <Container fluid className="p-3 cardDetailsContainer">
       <Card className="movie-card">
         <Row className="g-3 flex-column flex-md-row">
           {/* Poster */}
@@ -106,7 +106,7 @@ export default function CardDetails({ id, isMovie }) {
           {/* Details */}
           <Col md={7}>
             <Card.Body>
-              <Card.Title className="fw-bold fs-3 d-flex justify-content-between align-items-center">
+              <Card.Title className="fw-bold fs-3 d-flex justify-content-between align-items-center cardDetailsTitle">
                 {movie.original_title || movie.name}
                 <FaHeart style={{ color: "gold", cursor: "pointer" }} />
               </Card.Title>
@@ -119,7 +119,9 @@ export default function CardDetails({ id, isMovie }) {
                 votes={movie.vote_count || 0}
               />
 
-              <Card.Text className="mt-3">{shortOverview}</Card.Text>
+              <Card.Text className="mt-3 cardOverview">
+                {shortOverview}
+              </Card.Text>
 
               {/* Genres */}
               <div className="mb-3">
@@ -149,11 +151,11 @@ export default function CardDetails({ id, isMovie }) {
 
               {/* Production Companies */}
               {movie.production_companies?.length > 0 && (
-                <div className="d-flex flex-wrap align-items-center mb-3">
+                <div className="d-flex flex-wrap align-items-center mb-3 cardCompanies">
                   {movie.production_companies.map((company) => (
                     <div
                       key={company.id}
-                      className="me-3 mb-2 d-flex flex-column align-items-center"
+                      className="me-3 mb-2 d-flex flex-column align-items-center "
                     >
                       {company.logo_path ? (
                         <img
@@ -163,13 +165,13 @@ export default function CardDetails({ id, isMovie }) {
                           style={{
                             maxHeight: "50px",
                             objectFit: "contain",
-                            background: "#fff",
+                            background: "#fefefe00",
                             borderRadius: "6px",
                             padding: "4px",
                           }}
                         />
                       ) : (
-                        <span className="text-muted small">{company.name}</span>
+                        <span className=" small ">{company.name}</span>
                       )}
                     </div>
                   ))}

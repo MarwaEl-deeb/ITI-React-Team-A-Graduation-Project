@@ -110,7 +110,9 @@ nav {
   color: var(--third-color)
 }
 
-.CardBody .cardDate {
+.CardBody .cardDate,
+.cardDetailsContainer .cardDetailsDate,
+.cardCompanies span {
   color: var(--forth-color)
 }
 
@@ -251,6 +253,7 @@ button:hover {
 }
 
 .searchHeader {
+  color: var(--third-color);
   margin: 5%;
   margin-top: 1%;
 }
@@ -266,8 +269,9 @@ button:hover {
 }
 
 .loadingText {
-  margin-right: 5%;
-  margin-left: 5%
+  color: var(--third-color);
+  margin-right: 6%;
+  margin-left: 6%
 }
 
 /* ******* ******* ******* ******* ******* ******* ****** ****** ****** */
@@ -330,7 +334,7 @@ button:hover {
   border: none;
   color: darkgray;
   width: 75vw;
-  
+
 }
 
 
@@ -354,11 +358,23 @@ button:hover {
   visibility: hidden;
 }
 
+@media (max-width:520px) {
+  .pagination {
+    width: 95vw;
+    /* padding: 1px;
+    background: red;
+    margin: 5px; */
+  }
+  .page-item{
+    width: 30px;
+  }
+}
 
 .recommendText {
   margin-left: 2%;
   margin-right: 2%;
-  padding: 15px
+  padding: 15px;
+  color: var(--third-color)
 }
 
 
@@ -417,13 +433,15 @@ button:hover {
   height: 100%;
 }
 
-.movie-card {
+.cardDetailsContainer .movie-card {
+  background-color: var(--primary-color);
   border: none;
   border-radius: 15px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .genre-badge {
+
   padding: 7px;
   min-width: 80px;
   text-align: center;
@@ -434,6 +452,19 @@ button:hover {
   border: none !important;
   padding-left: 0;
 }
+
+.cardDetailsContainer .cardDetailsTitle,
+.cardDetailsContainer .cardOverview,
+.voteText,
+.noRecommend,
+.detailsSeparator,
+.cardDetailsContainer .detailListItem span,
+.detailsCompanyName,
+.NoResultWt,
+.text-start {
+  color: var(--third-color);
+}
+
 
 /****************Errorbtn******************/
 .goBack {
