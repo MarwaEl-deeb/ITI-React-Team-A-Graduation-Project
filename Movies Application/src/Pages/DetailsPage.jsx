@@ -20,7 +20,7 @@ function DetailsPage() {
     const endpoint =
       selectedType === "movies"
         ? `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=dd1481c9866799f1bc15adf106a083fe`
-        : `https://api.themoviedb.org/3/tv/${id}/recommendations?api_key=dd1481c9866799f1bc15adf106a083fe`;
+        : `https://api.themoviedb.org/3/tv/${id}/similar?api_key=dd1481c9866799f1bc15adf106a083fe`;
 
     fetch(endpoint)
       .then((res) => res.json())
