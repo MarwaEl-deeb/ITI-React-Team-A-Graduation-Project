@@ -1,6 +1,9 @@
-import { Link } from "react-router-dom";
 import Search from "./Search";
-function Welcome() {
+import { useTranslation } from "react-i18next";
+
+function Welcome({ dataText }) {
+    const { t } = useTranslation();
+
     return (
         <div>
             <div className="WelcomeMainContainer">
@@ -8,10 +11,10 @@ function Welcome() {
                     <div className="col-12">
                         <section className="welcome">
                             <h2>
-                                Welcome to our movie app
+                                {t('Welcome to our movie app')}
                             </h2>
                             <p>
-                                Millions of movies ,TV shows and people to discover.Explore now.
+                                {t(" Millions of movies ,TV shows and people to discover.Explore now.")}
                             </p>
                             <Search />
                         </section >
@@ -20,7 +23,7 @@ function Welcome() {
             </div >
 
             <div className="nowPlaying">
-                <h2>Now Playing</h2>
+                <h2>{t(dataText)}</h2>
             </div>
         </div>
     )

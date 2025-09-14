@@ -12,22 +12,38 @@ import {
 import { FaGlobe, FaHeart } from "react-icons/fa";
 import RatingStars from "./RatingStars";
 import "../index.css";
+import { useTranslation } from "react-i18next";
 
-export default function CardDetails({ id }) {
+export default function CardDetails({ id, selectedType }) {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { t } = useTranslation();
+
+  // Determine correct endpoint based on type
+  const endpoint =
+    selectedType === "movies"
+      ? `https://api.themoviedb.org/3/movie/${id}?api_key=dd1481c9866799f1bc15adf106a083fe`
+      : `https://api.themoviedb.org/3/tv/${id}?api_key=dd1481c9866799f1bc15adf106a083fe`;
 
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=dd1481c9866799f1bc15adf106a083fe`
-    )
+    setLoading(true);
+
+    // Debug log to ensure correct API is called
+    console.log("Fetching from endpoint:", endpoint);
+
+    fetch(endpoint)
       .then((res) => res.json())
       .then((data) => {
+        console.log("API response:", data); // Check API response
         setMovie(data);
         setLoading(false);
       })
-      .catch((err) => console.error(err));
-  }, [id]);
+      .catch((err) => {
+        console.error("Fetch error:", err);
+        setMovie(null);
+        setLoading(false);
+      });
+  }, [id, selectedType, endpoint]);
 
   if (loading) {
     return (
@@ -37,32 +53,39 @@ export default function CardDetails({ id }) {
     );
   }
 
-  if (!movie) return <p className="text-center">No movie found</p>;
+  if (!movie) return <p className="text-center">{t("No movie/TV show found")}</p>;
 
-  const formattedDate = new Date(movie.release_date).toLocaleDateString(
-    "en-US",
-    { year: "numeric", month: "short", day: "numeric" }
-  );
+  const formattedDate =
+    movie.release_date || movie.first_air_date
+      ? new Date(movie.release_date || movie.first_air_date).toLocaleDateString(
+        "en-US",
+        { year: "numeric", month: "short", day: "numeric" }
+      )
+      : "N/A";
 
-  const shortOverview =
-    movie.overview.length > 250
+  const duration = movie.runtime || movie.episode_run_time?.[0] || "N/A";
+
+  const shortOverview = movie.overview
+    ? movie.overview.length > 250
       ? movie.overview.substring(0, 250) + "..."
-      : movie.overview;
+      : movie.overview
+    : "No description available";
 
   const genreColors = ["primary", "success", "danger", "info", "warning"];
+
+  const posterSrc = movie.poster_path
+    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+    : "/fallback.jpg";
 
   return (
     <Container fluid className="p-3">
       <Card className="movie-card">
         <Row className="g-3 flex-column flex-md-row">
           {/* Poster */}
-          <Col
-            md={5}
-            className="d-flex justify-content-center align-items-stretch"
-          >
+          <Col md={5} className="d-flex justify-content-center align-items-stretch">
             <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.original_title}
+              src={posterSrc}
+              alt={movie.original_title || movie.name}
               className="CardDetails"
               style={{
                 height: "98%",
@@ -81,17 +104,12 @@ export default function CardDetails({ id }) {
           <Col md={7}>
             <Card.Body>
               <Card.Title className="fw-bold fs-3 d-flex justify-content-between align-items-center">
-                {movie.original_title}
-                <FaHeart style={{ color: "gold", cursor: "pointer" }} />{" "}
+                {movie.original_title || movie.name}
+                <FaHeart style={{ color: "gold", cursor: "pointer" }} />
               </Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">
-                {formattedDate}
-              </Card.Subtitle>
+              <Card.Subtitle className="mb-2 text-muted">{formattedDate}</Card.Subtitle>
 
-              <RatingStars
-                rating={movie.vote_average}
-                votes={movie.vote_count}
-              />
+              <RatingStars rating={movie.vote_average || 0} votes={movie.vote_count || 0} />
 
               <Card.Text className="mt-3">{shortOverview}</Card.Text>
 
@@ -111,45 +129,41 @@ export default function CardDetails({ id }) {
               {/* Extra Details */}
               <ListGroup variant="flush" className="mb-3">
                 <ListGroup.Item>
-                  <strong>Duration:</strong> {movie.runtime} Min.
+                  <strong>"Duration:"</strong> {duration} Min.
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  <strong>Languages:</strong>{" "}
-                  {movie.spoken_languages
-                    .map((lang) => lang.english_name)
-                    .join(", ")}
+                  <strong>"Languages:"</strong>{" "}
+                  {movie.spoken_languages?.map((lang) => lang.english_name).join(", ") || "N/A"}
                 </ListGroup.Item>
               </ListGroup>
-              {movie.production_companies &&
-                movie.production_companies.length > 0 && (
-                  <div className="d-flex flex-wrap align-items-center mb-3">
-                    {movie.production_companies.map((company) => (
-                      <div
-                        key={company.id}
-                        className="me-3 mb-2 d-flex flex-column align-items-center"
-                      >
-                        {company.logo_path ? (
-                          <img
-                            src={`https://image.tmdb.org/t/p/w200${company.logo_path}`}
-                            alt={company.name}
-                            title={company.name}
-                            style={{
-                              maxHeight: "50px",
-                              objectFit: "contain",
-                              background: "#fff",
-                              borderRadius: "6px",
-                              padding: "4px",
-                            }}
-                          />
-                        ) : (
-                          <span className="text-muted small">
-                            {company.name}
-                          </span>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                )}
+
+              {movie.production_companies?.length > 0 && (
+                <div className="d-flex flex-wrap align-items-center mb-3">
+                  {movie.production_companies.map((company) => (
+                    <div
+                      key={company.id}
+                      className="me-3 mb-2 d-flex flex-column align-items-center"
+                    >
+                      {company.logo_path ? (
+                        <img
+                          src={`https://image.tmdb.org/t/p/w200${company.logo_path}`}
+                          alt={company.name}
+                          title={company.name}
+                          style={{
+                            maxHeight: "50px",
+                            objectFit: "contain",
+                            background: "#fff",
+                            borderRadius: "6px",
+                            padding: "4px",
+                          }}
+                        />
+                      ) : (
+                        <span className="text-muted small">{company.name}</span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
 
               {movie.homepage && (
                 <Button
@@ -160,7 +174,7 @@ export default function CardDetails({ id }) {
                   className="fw-bold"
                 >
                   <FaGlobe className="me-2" />
-                  Website
+                  {t("Website")}
                 </Button>
               )}
             </Card.Body>

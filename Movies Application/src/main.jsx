@@ -52,7 +52,9 @@ const router = createBrowserRouter([
       </>
     ),
   },
+  { path: "/tv/:id", element: <DetailsPage /> },
   { path: "/movie/:id", element: <DetailsPage /> },
+
   {
     path: "*",
     element: (

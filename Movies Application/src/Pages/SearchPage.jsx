@@ -1,14 +1,15 @@
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import NavBar from "../Components/NavBar";
 import Search from "../Components/Search";
 import CardList from "../Components/Card";
+import { useTranslation } from "react-i18next";
 
 export default function SearchPage() {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("query");
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (query) {
@@ -25,20 +26,23 @@ export default function SearchPage() {
   }, [query]);
 
   return (
-    <div className="container mt-5">
-      <Search />
+    <div className="SearchResult mt-5">
+      <div className="searchPageInput "> <Search /> </div>
+
       {loading ? (
-        <p>Loading...</p>
+        <p className="loadingText">{t("Loading...")}</p>
       ) : (
         <>
-          <h2 className="my-5">Search Results for "{query}"</h2>
+          <h2 className="my-5 searchHeader">{t("Search Results for:")} "{query}"</h2>
           {results.length > 0 ? (
-            <CardList data={results} />
+            <CardList data={results} isSearch={true} />
           ) : (
-            <p style={{ color: "red" }}>NOT FOUND </p>
+            <p className="notFoundResult" style={{ color: "red" }}>{t("NOT FOUND")} </p>
           )}
         </>
       )}
     </div>
   );
 }
+
+

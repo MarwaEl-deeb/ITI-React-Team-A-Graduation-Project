@@ -2,7 +2,8 @@
   margin-left: 0px;
   font-family: cursive;
 }
-body{
+
+body {
   padding-bottom: 5%;
 }
 
@@ -10,7 +11,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 8vh;
+  height: 60px;
   padding: 0 2%;
   top: 0;
   background-color: #ffe353;
@@ -19,7 +20,7 @@ nav {
 .navbar-brand select {
   font-weight: bold;
   font-size: 1.4rem;
-  color: #726625;
+  /* color: #726625; */
   font-size: 22px;
 }
 
@@ -33,6 +34,13 @@ nav {
   cursor: pointer;
 }
 
+.navbar-collapse.collapse.show {
+  background-color: #f8e895af;
+  border-radius: 10px;
+  padding: 15px;
+  transition: all 0.8s;
+}
+
 .headerRightSide select {
   font-weight: bold;
 }
@@ -40,7 +48,7 @@ nav {
 .navbar-brand .form-select:hover {
   transform: scale(1.04);
   background-color: rgba(255, 0, 0, 0);
-  color: #d4c151;
+  color: rgba(0, 0, 0, 0.703);
 }
 
 /* ********** Card ********** */
@@ -122,12 +130,13 @@ a {
 .watchListText {
   font-weight: bold;
   padding-left: 12px;
+
 }
 
 .favListNum {
   color: black;
   font-size: 12px;
-  font-weight: normal;
+  /* font-weight: normal; */
 }
 
 i {
@@ -138,6 +147,7 @@ i {
 /* ***** ******* ******* ****** welcome style ***** ******* ******* ***** */
 .nowPlaying {
   margin-left: 3%;
+  margin-right: 3%;
 }
 
 .WelcomeMainContainer {
@@ -163,13 +173,13 @@ i {
 }
 
 .serachInput {
-  display: inline-block;
   background-color: white;
   border: 1px solid #76756fbb;
   border-radius: 10px;
-  width: 100%;
+  width: 98%;
   padding: 10px;
   padding-left: 30px;
+  padding-right: 30px;
 }
 
 .serachInput:focus {
@@ -177,12 +187,10 @@ i {
 }
 
 .SearchButton {
-  width: 100%;
-  width: 120px;
   background-color: #ffe353;
   border-radius: 10px;
   border: none;
-  height: 100%;
+  padding: 10px;
   transition: all 1s;
 }
 
@@ -190,6 +198,26 @@ button:hover {
   background-color: #e6ca40;
   color: #4a3f1a;
 
+}
+
+.searchHeader {
+  margin: 5%;
+  margin-top: 1%;
+}
+
+.SearchResult .searchPageInput {
+  width: 89%;
+  margin: 10px auto;
+}
+
+.notFoundResult {
+  margin-right: 5%;
+  margin-left: 5%
+}
+
+.loadingText {
+  margin-right: 5%;
+  margin-left: 5%
 }
 
 /* ******* ******* ******* ******* ******* ******* ****** ****** ****** */
@@ -220,12 +248,12 @@ button:hover {
 
   50% {
     transform: rotate(180deg);
-    
+
   }
 
   75% {
     transform: rotate(250deg);
- 
+
   }
 
   100% {
@@ -239,6 +267,7 @@ button:hover {
   align-items: center;
   justify-content: center;
 }
+
 /****************Pagination************************/
 .pagination {
   display: flex;
@@ -248,25 +277,33 @@ button:hover {
   overflow: hidden;
   margin: auto;
   border: none;
-  color:darkgray;    
+  color: darkgray;
 }
 
 
- .page-item.active  .page-link {
+.page-item.active .page-link {
+  border-radius: 5px;
   background-color: #ffe353;
-  color:darkgray;              
-  border: 2px solid #ffe353; 
-}
-.page-item:not(.active) .page-link{
-  border: 2px solid #ffff ;
-   color:darkgray;    
+  color: darkgray;
+  border: 2px solid #ffe353;
 }
 
-.page-item.disabled{
+.page-item:not(.active) .page-link {
+  border-radius: 5px;
+  border: 2px solid #ffff;
+  color: darkgray;
+}
+
+.page-item.disabled {
   visibility: hidden;
 }
 
 
+.recommendText {
+  margin-left: 2%;
+  margin-right: 2%;
+  padding: 15px
+}
 
 
 
@@ -274,7 +311,7 @@ button:hover {
 
 .btn-custom {
   background-color: #ffe353;
-  color: #726625;
+  color: #4a3f1a;
   font-weight: bold;
   text-decoration: none;
   padding: 10px 0;
@@ -285,7 +322,8 @@ button:hover {
 
 .btn-custom:hover {
   background-color: #e6ca40;
-  color: #4a3f1a;
+  color: #726625;
+
 }
 
 /* custom details*/

@@ -1,42 +1,21 @@
+import { useEffect, useState, useContext } from "react";
+import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import NavBar from "../Components/NavBar";
 import CardDetails from "../Components/CardDetails";
-import Recommendation from "../Components/Recommendation";
-
-function DetailsPage() {
-  const { id } = useParams();
-
-  return (
-    <>
-      <NavBar />
-      <CardDetails id={id} />
-      <hr style={{ width: "90%", margin: "2rem auto" }} />
-      <Recommendation id={id} />
-    </>
-  );
-}
-
-export default DetailsPage;
-
-/*
-import { useEffect, useState } from "react";
-import { Spinner, Card, Container, Row, Col } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-import { useParams, } from "react-router-dom";
-import NavBar from "../Components/NavBar";
-import CardDetails from "../Components/CardDetails";
 import CardList from "../Components/Card";
-
-
+import { MainContext } from "../useContext";
+import { useTranslation } from "react-i18next";
 
 function DetailsPage() {
-
   const { id } = useParams();
+  const { selectedType } = useContext(MainContext);
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
-  const navigate = useNavigate();
+  const { t } = useTranslation();
 
   useEffect(() => {
+    setLoading(true);
     fetch(
       `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=dd1481c9866799f1bc15adf106a083fe`
     )
@@ -47,31 +26,33 @@ function DetailsPage() {
       })
       .catch((err) => {
         console.error(err);
+        setMovies([]);
         setLoading(false);
       });
-  }, [id]);
-
-  if (loading)
-    return (
-      <div className="text-center my-4">
-        <Spinner animation="border" variant="warning" />
-      </div>
-    );
-
-  if (!movies.length)
-    return <p className="text-center">No recommendations found</p>;
-
+  }, [id, selectedType]);
 
   return (
     <>
       <NavBar />
-      <CardDetails id={id} />
+      <CardDetails id={id} selectedType={selectedType} />
       <hr style={{ width: "90%", margin: "2rem auto" }} />
-      <CardList data={movies} isRecommendation={true} />
+
+      {loading ? (
+        <div className="text-center my-4">
+          <Spinner animation="border" variant="warning" />
+        </div>
+      ) : movies.length ? (
+        <div>
+          <h1 className="recommendText">{t("Recommendations")}</h1>
+          <CardList data={movies} isRecommendation={true} />
+        </div>
+      ) : (
+        <p className="text-center">{t("No recommendations found")}</p>
+      )}
     </>
   );
 }
 
 export default DetailsPage;
 
-*/
+

@@ -3,11 +3,87 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 19,
             "patches": [
                 {
                     "date": 1757674933738,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1757802131029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n {\r\n   \"welcome\": \"Welcome to my website\",\r\n   \"about\": \"About Us\"\r\n+  \"WatchList\": \"WatchList\"\r\n }\r\n"
+                },
+                {
+                    "date": 1757802150419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n {\r\n   \"welcome\": \"Welcome to my website\",\r\n-  \"about\": \"About Us\"\r\n+  \"about\": \"About Us\",\r\n   \"WatchList\": \"WatchList\"\r\n }\r\n"
+                },
+                {
+                    "date": 1757802337211,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n {\r\n   \"welcome\": \"Welcome to my website\",\r\n   \"about\": \"About Us\",\r\n-  \"WatchList\": \"WatchList\"\r\n+  \"WatchList\": \"WatchList\",\r\n+  \"Welcome to our movie app\": \"Welcome to our movie app\"\r\n }\r\n"
+                },
+                {
+                    "date": 1757802391550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,9 @@\n {\r\n   \"welcome\": \"Welcome to my website\",\r\n   \"about\": \"About Us\",\r\n   \"WatchList\": \"WatchList\",\r\n-  \"Welcome to our movie app\": \"Welcome to our movie app\"\r\n+  \"Welcome to our movie app\": \"Welcome to our movie app\",\r\n+  \"Now Playing\": \"Now Playing\",\r\n+  \" Millions of movies ,TV shows and people to discover.Explore now.\": \" Millions of movies ,TV shows and people to discover.Explore now.\"\r\n+  \r\n }\r\n"
+                },
+                {
+                    "date": 1757802425061,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,8 @@\n   \"welcome\": \"Welcome to my website\",\r\n   \"about\": \"About Us\",\r\n   \"WatchList\": \"WatchList\",\r\n   \"Welcome to our movie app\": \"Welcome to our movie app\",\r\n+  \" Millions of movies ,TV shows and people to discover.Explore now.\": \" Millions of movies ,TV shows and people to discover.Explore now.\"\r\n   \"Now Playing\": \"Now Playing\",\r\n-  \" Millions of movies ,TV shows and people to discover.Explore now.\": \" Millions of movies ,TV shows and people to discover.Explore now.\"\r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757802453577,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,8 @@\n   \"welcome\": \"Welcome to my website\",\r\n   \"about\": \"About Us\",\r\n   \"WatchList\": \"WatchList\",\r\n   \"Welcome to our movie app\": \"Welcome to our movie app\",\r\n+  \"Now Playing\": \"Now Playing\",\r\n   \" Millions of movies ,TV shows and people to discover.Explore now.\": \" Millions of movies ,TV shows and people to discover.Explore now.\"\r\n-  \"Now Playing\": \"Now Playing\",\r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757802532503,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,8 @@\n   \"about\": \"About Us\",\r\n   \"WatchList\": \"WatchList\",\r\n   \"Welcome to our movie app\": \"Welcome to our movie app\",\r\n   \"Now Playing\": \"Now Playing\",\r\n-  \" Millions of movies ,TV shows and people to discover.Explore now.\": \" Millions of movies ,TV shows and people to discover.Explore now.\"\r\n+  \" Millions of movies ,TV shows and people to discover.Explore now.\": \" Millions of movies ,TV shows and people to discover.Explore now.\",\r\n   \r\n+  \r\n }\r\n"
+                },
+                {
+                    "date": 1757802718541,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,7 +4,7 @@\n   \"WatchList\": \"WatchList\",\r\n   \"Welcome to our movie app\": \"Welcome to our movie app\",\r\n   \"Now Playing\": \"Now Playing\",\r\n   \" Millions of movies ,TV shows and people to discover.Explore now.\": \" Millions of movies ,TV shows and people to discover.Explore now.\",\r\n+  \"Search and Explore...\": \"Search and Explore...\"\r\n   \r\n-  \r\n }\r\n"
+                },
+                {
+                    "date": 1757802857551,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,7 +4,8 @@\n   \"WatchList\": \"WatchList\",\r\n   \"Welcome to our movie app\": \"Welcome to our movie app\",\r\n   \"Now Playing\": \"Now Playing\",\r\n   \" Millions of movies ,TV shows and people to discover.Explore now.\": \" Millions of movies ,TV shows and people to discover.Explore now.\",\r\n-  \"Search and Explore...\": \"Search and Explore...\"\r\n+  \"Search and Explore...\": \"Search and Explore...\",\r\n+  \"Search\": \"Search\"\r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757802954869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,7 +5,8 @@\n   \"Welcome to our movie app\": \"Welcome to our movie app\",\r\n   \"Now Playing\": \"Now Playing\",\r\n   \" Millions of movies ,TV shows and people to discover.Explore now.\": \" Millions of movies ,TV shows and people to discover.Explore now.\",\r\n   \"Search and Explore...\": \"Search and Explore...\",\r\n-  \"Search\": \"Search\"\r\n+  \"Search\": \"Search\",\r\n+  \"Search Results for:\": \"Search Results for:\"\r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757805754661,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,10 @@\n   \"about\": \"About Us\",\r\n   \"WatchList\": \"WatchList\",\r\n   \"Welcome to our movie app\": \"Welcome to our movie app\",\r\n   \"Now Playing\": \"Now Playing\",\r\n+  \"Popular\": \"Popular\",\r\n+  \"Recommendations\": \"Recommendations\",\r\n   \" Millions of movies ,TV shows and people to discover.Explore now.\": \" Millions of movies ,TV shows and people to discover.Explore now.\",\r\n   \"Search and Explore...\": \"Search and Explore...\",\r\n   \"Search\": \"Search\",\r\n   \"Search Results for:\": \"Search Results for:\"\r\n"
+                },
+                {
+                    "date": 1757845797968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,7 +8,9 @@\n   \"Recommendations\": \"Recommendations\",\r\n   \" Millions of movies ,TV shows and people to discover.Explore now.\": \" Millions of movies ,TV shows and people to discover.Explore now.\",\r\n   \"Search and Explore...\": \"Search and Explore...\",\r\n   \"Search\": \"Search\",\r\n-  \"Search Results for:\": \"Search Results for:\"\r\n+  \"Search Results for:\": \"Search Results for:\",\r\n+  \"Loading...\": \"Loading...\",\r\n+  \"NOT FOUND\": \"NOT FOUND\" \r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757846732103,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,7 +10,8 @@\n   \"Search and Explore...\": \"Search and Explore...\",\r\n   \"Search\": \"Search\",\r\n   \"Search Results for:\": \"Search Results for:\",\r\n   \"Loading...\": \"Loading...\",\r\n-  \"NOT FOUND\": \"NOT FOUND\" \r\n+  \"NOT FOUND\": \"NOT FOUND\" ,\r\n+  \"No recommendations found\"\r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757846898804,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,7 +11,7 @@\n   \"Search\": \"Search\",\r\n   \"Search Results for:\": \"Search Results for:\",\r\n   \"Loading...\": \"Loading...\",\r\n   \"NOT FOUND\": \"NOT FOUND\" ,\r\n-  \"No recommendations found\"\r\n+  \"No recommendations found\":\"ggg\"\r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757847322491,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,7 +11,10 @@\n   \"Search\": \"Search\",\r\n   \"Search Results for:\": \"Search Results for:\",\r\n   \"Loading...\": \"Loading...\",\r\n   \"NOT FOUND\": \"NOT FOUND\" ,\r\n-  \"No recommendations found\":\"ggg\"\r\n+  \"No recommendations found\":\"No recommendations found\",\r\n+  \"No movie/TV show found\":\"No movie/TV show found\",\r\n+  \"Duration:\":\"Duration\",\r\n+  \"Min.\":\"Min.\"\r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757847384596,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,7 +14,8 @@\n   \"NOT FOUND\": \"NOT FOUND\" ,\r\n   \"No recommendations found\":\"No recommendations found\",\r\n   \"No movie/TV show found\":\"No movie/TV show found\",\r\n   \"Duration:\":\"Duration\",\r\n-  \"Min.\":\"Min.\"\r\n+  \"Min.\":\"Min.\",\r\n+  \"Languages:\":\"Languages:\"\r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757847463888,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,7 +15,8 @@\n   \"No recommendations found\":\"No recommendations found\",\r\n   \"No movie/TV show found\":\"No movie/TV show found\",\r\n   \"Duration:\":\"Duration\",\r\n   \"Min.\":\"Min.\",\r\n-  \"Languages:\":\"Languages:\"\r\n+  \"Languages:\":\"Languages:\",\r\n+  \"Website\":\"Website\"\r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757847668776,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,7 +16,10 @@\n   \"No movie/TV show found\":\"No movie/TV show found\",\r\n   \"Duration:\":\"Duration\",\r\n   \"Min.\":\"Min.\",\r\n   \"Languages:\":\"Languages:\",\r\n-  \"Website\":\"Website\"\r\n+  \"Website\":\"Website\",\r\n+  \"Back to home\":\"Back to home\",\r\n+  \"No Movies in watch list\":\"No Movies in watch list\",\r\n+  \"Watch List\": \"Watch List\"\r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757849753422,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,16 +10,16 @@\n   \"Search and Explore...\": \"Search and Explore...\",\r\n   \"Search\": \"Search\",\r\n   \"Search Results for:\": \"Search Results for:\",\r\n   \"Loading...\": \"Loading...\",\r\n-  \"NOT FOUND\": \"NOT FOUND\" ,\r\n   \"No recommendations found\":\"No recommendations found\",\r\n   \"No movie/TV show found\":\"No movie/TV show found\",\r\n   \"Duration:\":\"Duration\",\r\n   \"Min.\":\"Min.\",\r\n   \"Languages:\":\"Languages:\",\r\n   \"Website\":\"Website\",\r\n   \"Back to home\":\"Back to home\",\r\n   \"No Movies in watch list\":\"No Movies in watch list\",\r\n-  \"Watch List\": \"Watch List\"\r\n+  \"Watch List\": \"Watch List\",\r\n+  \"NOT FOUND\":\"NOT FOUND\"\r\n   \r\n }\r\n"
                 }
             ],
             "date": 1757674933738,

@@ -52,7 +52,7 @@ function TVShowsHomePage() {
                 setSelectedType,
             }}
         >
-            <Welcome />
+            <Welcome dataText={"Popular"} />
             <CardList />
             <Pagination />
         </MainContext.Provider>
@@ -60,3 +60,5 @@ function TVShowsHomePage() {
 }
 
 export default TVShowsHomePage;
+
+
