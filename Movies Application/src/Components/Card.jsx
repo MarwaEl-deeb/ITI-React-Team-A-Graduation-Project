@@ -130,20 +130,19 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
                       {title?.length > 25 ? title.slice(0, 100) : title}
                     </Card.Title>
 
-                    <Card.Text style={{ color: "#7d7b7bc5", fontSize: "13px" }}>{date}</Card.Text>
+                    <Card.Text className="cardDate" style={{ fontSize: "13px" }}>{date}</Card.Text>
 
                     <RatingStars rating={vote} votes={votesCount} />
 
                     <Card.Text
+                      className="cardOverview"
                       style={{
                         fontSize: "0.85rem",
                         marginTop: "5%",
                         overflow: "hidden",
-                        // textOverflow: "ellipsis",
                         display: "-webkit-box",
                         WebkitLineClamp: 3,
                         WebkitBoxOrient: "vertical",
-                        // wordWrap: "break-word"
                       }}>
 
                       {overview ? overview.substring(0, 200).trim() + "..." : "No description available."}
