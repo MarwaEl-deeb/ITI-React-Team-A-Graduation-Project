@@ -1,21 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { MainContext } from "../useContext";
 
 function NavBar() {
   const navigate = useNavigate();
   const location = useLocation();
-  const [selected, setSelected] = useState("Movie App");
+  const { selectedType, setSelectedType } = useContext(MainContext);
+
   const [favCount, setFavCount] = useState(0);
   const { t, i18n } = useTranslation();
 
-  // Load saved language or default to "En"
   const [lang, setLang] = useState(localStorage.getItem("lang") || "En");
-
-  // Load saved theme or default to light
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
-  // Apply saved direction + theme on mount and whenever lang/theme changes
+  // Language
   useEffect(() => {
     if (lang === "Ar") {
       document.documentElement.dir = "rtl";
@@ -28,17 +27,17 @@ function NavBar() {
     }
   }, [lang, i18n]);
 
+  // Theme
   useEffect(() => {
     document.body.setAttribute("data-theme", theme);
   }, [theme]);
 
-  // Load favorites count
+  // Favorites
   useEffect(() => {
     const storedFavs = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavCount(storedFavs.length);
   }, []);
 
-  // Update favorites when changed
   useEffect(() => {
     const handleFavChange = () => {
       const storedFavs = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -50,21 +49,18 @@ function NavBar() {
       window.removeEventListener("favoritesChanged", handleFavChange);
   }, []);
 
-  // Update selected nav item
-  useEffect(() => {
-    if (location.pathname === "/") setSelected("Movie App");
-    else if (location.pathname === "/TV-Shows") setSelected("TV Shows");
-  }, [location.pathname]);
-
-  // Handle nav category change
+  // Handle select change
   const handleChange = (e) => {
     const value = e.target.value;
-    setSelected(value);
-    if (value === "Movie App") navigate("/");
-    else if (value === "TV Shows") navigate("/TV-Shows");
+    setSelectedType(value);
+
+    if (value === "movies") {
+      navigate("/");
+    } else if (value === "tv") {
+      navigate("/TV-Shows");
+    }
   };
 
-  // Handle language change
   const handleLanguageChange = (e) => {
     const newLang = e.target.value;
     setLang(newLang);
@@ -95,37 +91,28 @@ function NavBar() {
             <select
               className="form-select"
               name="categery"
-              value={selected}
+              value={selectedType} // ← مربوط مباشرة بالـ context
               onChange={handleChange}
             >
-              <option value="Movie App">{t("Movie App")}</option>
-              <option value="TV Shows">{t("TV Shows")}</option>
+              <option value="movies">{t("Movie App")}</option>
+              <option value="tv">{t("TV Shows")}</option>
             </select>
           </strong>
 
-
-          < img src={theme === "light" ? "/moon.png" : "/sun.png"} className="themeImage ms-2" alt="Theme Image" title="Change Theme Icon" onClick={toggleTheme} />
-
+          <img
+            src={theme === "light" ? "/moon.png" : "/sun.png"}
+            className="themeImage ms-2"
+            alt="Theme"
+            title="Change Theme"
+            onClick={toggleTheme}
+          />
         </div>
 
-        {/* Navbar toggler (mobile) */}
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarContent"
-          aria-controls="navbarContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        {/* Right/Left side content (language + watchlist) */}
         <div className="collapse navbar-collapse" id="navbarContent">
           <div
-            className={`d-flex fw-bold headerRightSide ${lang === "Ar" ? "me-auto" : "ms-auto"
-              }`}
+            className={`d-flex fw-bold headerRightSide ${
+              lang === "Ar" ? "me-auto" : "ms-auto"
+            }`}
           >
             <select
               name="lang"
@@ -161,7 +148,6 @@ function NavBar() {
                 >
                   {t("WatchList")}
                 </span>
-
                 <span className="badge bg-white position-absolute top-0 ms-2 translate-middle">
                   <span className="favListNum">{favCount}</span>
                 </span>
@@ -170,7 +156,7 @@ function NavBar() {
           </div>
         </div>
       </div>
-    </nav >
+    </nav>
   );
 }
 

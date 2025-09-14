@@ -4,21 +4,25 @@ import { useParams } from "react-router-dom";
 import NavBar from "../Components/NavBar";
 import CardDetails from "../Components/CardDetails";
 import CardList from "../Components/Card";
-import { MainContext } from "../useContext";
 import { useTranslation } from "react-i18next";
+import { MainContext } from "../useContext";
 
 function DetailsPage() {
   const { id } = useParams();
-  const { selectedType } = useContext(MainContext);
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
+  const { selectedType } = useContext(MainContext);
   const { t } = useTranslation();
 
   useEffect(() => {
     setLoading(true);
-    fetch(
-      `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=dd1481c9866799f1bc15adf106a083fe`
-    )
+
+    const endpoint =
+      selectedType === "movies"
+        ? `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=dd1481c9866799f1bc15adf106a083fe`
+        : `https://api.themoviedb.org/3/tv/${id}/recommendations?api_key=dd1481c9866799f1bc15adf106a083fe`;
+
+    fetch(endpoint)
       .then((res) => res.json())
       .then((data) => {
         setMovies(data.results || []);
@@ -34,7 +38,9 @@ function DetailsPage() {
   return (
     <>
       <NavBar />
-      <CardDetails id={id} selectedType={selectedType} />
+
+      {/* ✅ مرر isMovie بدل switchValue */}
+      <CardDetails id={id} isMovie={selectedType === "movies"} />
       <hr style={{ width: "90%", margin: "2rem auto" }} />
 
       {loading ? (
@@ -54,5 +60,3 @@ function DetailsPage() {
 }
 
 export default DetailsPage;
-
-
