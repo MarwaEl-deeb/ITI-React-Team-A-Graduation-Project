@@ -8,7 +8,7 @@
       > - Worked on TVShows page that is the home page of the TV Shows part by using its `API` and reuse the card component to display the data.
       > - Updated the Movies page which is the website's home page by adding some styles and features.
       > - Updated NavBar by adding some styles, watchList badge, toggelar and adding the feature to switch between movies and TV shows pages.
-      > - Created Rate `Circle` Component and updated Card by adding rate circle, FavIcon and some styles and handling its resuability.
+      > - Created Rate `Circle` Component and updated Card by adding rate circle, FavIcon and some styles and adding resuability to it.
       > - Adding `Dark theme` feature , `Arabic` as the second language option and English as the first language option and apply these to all pages and make them stored in localStorage.
 
 - ## Hager Ramadan Ghazal
@@ -19,12 +19,19 @@
       > - Worked on the `WatchList` page along with using and adding features and implementation in the Card component, NavBar, and RatingStars.
       > - Created a dedicated page for the Watchlist that displays movies stored in `localStorage`, along with fetching additional details from the `API`.
       > - Worked on the Card component to display items in an appropriate design in the watchlist with the option to delete or add directly from the Watchlist.
-      > - Added a feature to display the number of items in the Navbar WatchList counter "updating the `badge` " so that it updates automatically with any modification.
+      > - Added a feature to display the number of items in the Navbar WatchList counter "updating the `badge`" so that it updates automatically with any modification.
       > - ⁠I used the RatingStars component to display the rating in terms of stars and votes.
  
 
 - ## Amira Mohammed Alzaian
-   - ### Responsible for Movies and TV Shows Deatils Functionality:
+   - ### Responsible for Movies and TV Shows  Recommendations and Deatils Functionality:
+      > - Worked on implementing and display `recommendations` for both TV shows and movies by reusing the card component and using the `API` to fetch real data dynamically.
+      > - Adding navigation and reusability features across components while working with the API data to keep the code clean and efficient..
+      > - Implemented a functionality where clicking on a Card in the Home page navigates the user directly to its specific Details Page using its ID.
+      > - Displayed the `card details` (movie/TV show information) along with its related recommendations, all fetched from the API on the D   etails page.
+      > - Created the `RatingStars` component to display the rating in terms of stars and votes as a dynamic ratio.
+ 
+
       
 
 - ## Eman Mohamed Abd-Elsalam
