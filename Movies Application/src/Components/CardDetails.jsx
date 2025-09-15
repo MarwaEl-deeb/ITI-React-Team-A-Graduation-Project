@@ -84,11 +84,11 @@ export default function CardDetails({ id, isMovie }) {
   return (
     <Container fluid className="p-3 cardDetailsContainer">
       <Card className="movie-card">
-        <Row className="g-3 flex-column flex-md-row">
+        <Row className="g-2 flex-column flex-md-row m-auto">
           {/* Poster */}
           <Col
-            md={5}
-            className="d-flex justify-content-center align-items-stretch"
+            md={4}
+            className="d-flex justify-content-center justify-content-md-end align-items-stretch"
           >
             <img
               src={posterSrc}
@@ -96,9 +96,8 @@ export default function CardDetails({ id, isMovie }) {
               className="CardDetails"
               style={{
                 height: "98%",
-                paddingLeft: "5px",
-                paddingRight: "5px",
-                margin: "5px",
+                padding: 0,
+                margin: 0,
                 width: "auto",
                 maxHeight: "500px",
                 objectFit: "contain",
@@ -108,7 +107,7 @@ export default function CardDetails({ id, isMovie }) {
           </Col>
 
           {/* Details */}
-          <Col md={7}>
+          <Col md={8}>
             <Card.Body>
               <Card.Title className="fw-bold fs-3 d-flex justify-content-between align-items-center cardDetailsTitle">
                 {movie.original_title || movie.name}
