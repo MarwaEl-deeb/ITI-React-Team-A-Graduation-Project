@@ -13,7 +13,6 @@ function NavBar() {
   const [lang, setLang] = useState(localStorage.getItem("lang") || "En");
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
-  // Language
   useEffect(() => {
     if (lang === "Ar") {
       document.documentElement.dir = "rtl";
@@ -26,12 +25,10 @@ function NavBar() {
     }
   }, [lang, i18n]);
 
-  // Theme
   useEffect(() => {
     document.body.setAttribute("data-theme", theme);
   }, [theme]);
 
-  // Favorites
   useEffect(() => {
     const storedFavs = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavCount(storedFavs.length);
@@ -48,7 +45,6 @@ function NavBar() {
       window.removeEventListener("favoritesChanged", handleFavChange);
   }, []);
 
-  // Handle select change
   const handleChange = (e) => {
     const value = e.target.value;
     setSelectedType(value);
@@ -90,7 +86,7 @@ function NavBar() {
             <select
               className="form-select"
               name="categery"
-              value={selectedType} // ← مربوط مباشرة بالـ context
+              value={selectedType}
               onChange={handleChange}
             >
               <option value="movies">{t("Movie App")}</option>
