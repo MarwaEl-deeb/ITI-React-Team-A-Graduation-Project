@@ -17,16 +17,16 @@ import { useTranslation } from "react-i18next";
 export default function CardDetails({ id, isMovie }) {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isFav, setIsFav] = useState(false); // حالة القلب
   const { t } = useTranslation();
 
-  // ✅ endpoint يعتمد على النوع
-  const endpoint = isMovie
-    ? `https://api.themoviedb.org/3/movie/${id}?api_key=dd1481c9866799f1bc15adf106a083fe`
-    : `https://api.themoviedb.org/3/tv/${id}?api_key=dd1481c9866799f1bc15adf106a083fe`;
-
+  // تحميل بيانات الفيلم أو المسلسل
   useEffect(() => {
-    setLoading(true);
+    const endpoint = isMovie
+      ? `https://api.themoviedb.org/3/movie/${id}?api_key=dd1481c9866799f1bc15adf106a083fe`
+      : `https://api.themoviedb.org/3/tv/${id}?api_key=dd1481c9866799f1bc15adf106a083fe`;
 
+    setLoading(true);
     fetch(endpoint)
       .then((res) => res.json())
       .then((data) => {
@@ -38,7 +38,39 @@ export default function CardDetails({ id, isMovie }) {
         setMovie(null);
         setLoading(false);
       });
-  }, [id, endpoint]);
+  }, [id, isMovie]);
+
+  // تحميل حالة المفضلة من localStorage
+  useEffect(() => {
+    const storedFavs = JSON.parse(localStorage.getItem("favorites")) || [];
+    setIsFav(storedFavs.some((fav) => fav.id === id));
+  }, [id]);
+
+  // تغيير حالة المفضلة
+  const toggleFavorite = () => {
+    const storedFavs = JSON.parse(localStorage.getItem("favorites")) || [];
+    let updatedFavs;
+
+    if (isFav) {
+      // إزالة من المفضلة
+      updatedFavs = storedFavs.filter((fav) => fav.id !== id);
+    } else {
+      // إضافة إلى المفضلة
+      updatedFavs = [
+        ...storedFavs,
+        {
+          id,
+          original_title: movie.original_title,
+          name: movie.name,
+          poster_path: movie.poster_path,
+          release_date: movie.release_date || movie.first_air_date,
+        },
+      ];
+    }
+
+    localStorage.setItem("favorites", JSON.stringify(updatedFavs));
+    setIsFav(!isFav);
+  };
 
   if (loading) {
     return (
@@ -111,8 +143,14 @@ export default function CardDetails({ id, isMovie }) {
             <Card.Body>
               <Card.Title className="fw-bold fs-3 d-flex justify-content-between align-items-center cardDetailsTitle">
                 {movie.original_title || movie.name}
-                <FaHeart style={{ color: "gold", cursor: "pointer" }} />
+
+                {/* القلب التفاعلي */}
+                <FaHeart
+                  style={{ color: isFav ? "gold" : "#ccc", cursor: "pointer" }}
+                  onClick={toggleFavorite}
+                />
               </Card.Title>
+
               <Card.Subtitle className="mb-2 text-muted">
                 {formattedDate}
               </Card.Subtitle>
@@ -146,9 +184,8 @@ export default function CardDetails({ id, isMovie }) {
                   style={{ backgroundColor: "transparent" }}
                 >
                   <span>
-                    {" "}
                     <strong>{t("Duration")}:</strong> {duration}
-                  </span>{" "}
+                  </span>
                 </ListGroup.Item>
                 <ListGroup.Item
                   className="detailListItem"
@@ -169,7 +206,7 @@ export default function CardDetails({ id, isMovie }) {
                   {movie.production_companies.map((company) => (
                     <div
                       key={company.id}
-                      className="me-3 mb-2 d-flex flex-column align-items-center "
+                      className="me-3 mb-2 d-flex flex-column align-items-center"
                     >
                       {company.logo_path ? (
                         <img
@@ -185,7 +222,7 @@ export default function CardDetails({ id, isMovie }) {
                           }}
                         />
                       ) : (
-                        <span className=" small ">{company.name}</span>
+                        <span className="small">{company.name}</span>
                       )}
                     </div>
                   ))}
