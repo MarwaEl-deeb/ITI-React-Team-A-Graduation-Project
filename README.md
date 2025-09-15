@@ -16,7 +16,7 @@
       > - Created The Main Structure of `Home Page`. 
       > - Created `NavBar` Component and its main Functionality language selector, Watch List and Website Name.
       > - Created `Welcome` and `Search` Components that display a welcome message and enable user to search for a movie.
-      > - Created `Pagination` Component to navigate between API different pages that uses searchParama to survive refresh and copy-past and also added some styles .
+      > - Created `Pagination` Component to navigate between API different pages that uses searchParama to survive refresh and URL copy past process and also added some styles.
       > - Created `Error page` that arise when there is any problem in Routing logic and added `loading` logic. 
       > - Created `mainContext` and website's `Logo`.
       > - Created `Card` Component main structure and fetched data from `API` mapped and destructured them into card. 
