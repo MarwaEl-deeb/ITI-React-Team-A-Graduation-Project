@@ -6,7 +6,6 @@ import Circle from "./Circle";
 import RatingStars from "./RatingStars";
 import i18n from "i18next";
 
-
 function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetailedFavorites }) {
   const { items, selectedType } = useContext(MainContext);
   const navigate = useNavigate();
@@ -36,34 +35,30 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
     setFavorites(storedFavs);
   }, []);
 
-  //remove card from watchlist
   const toggleFavorite = (item) => {
     const exists = favorites.some((fav) => fav.id === item.id);
     let updatedFavs;
     if (exists) {
-      // Delete the item immediately
       updatedFavs = favorites.filter((fav) => fav.id !== item.id);
     } else {
       updatedFavs = [...favorites, item];
     }
 
     setFavorites(updatedFavs);
-    localStorage.setItem("favorites", JSON.stringify(updatedFavs)); // update localStorage
+    localStorage.setItem("favorites", JSON.stringify(updatedFavs));
 
     if (isWatchlistPage) {
       setDetailedFavorites((prev) => prev.filter((fav) => fav.id !== item.id));
     }
 
     window.dispatchEvent(new Event("favoritesChanged"));
-
   };
-
 
   const list = isWatchlistPage ? data : data || items;
 
   return isWatchlistPage ? (
     <div className="d-flex justify-content-center w-100">
-      <div className="row gy-0 w-100  " >
+      <div className="row gy-0 w-100">
         {list.map((item) => {
           const {
             id,
@@ -75,7 +70,7 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
             overview,
           } = item;
 
-          const title = selectedType === "movies" ? original_title : name;
+          const title = (selectedType === "movies" ? original_title : name) || "";
           const dateRaw = selectedType === "movies" ? release_date : first_air_date;
           const date = dateRaw
             ? new Date(dateRaw).toLocaleDateString("en-US", {
@@ -92,9 +87,15 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
 
           return (
             <div key={id} className="col-12 col-lg-6 d-flex justify-content-center WatchListCard">
-
-              <Card className="watchlist-card d-flex flex-row p-3 h-75 border-0"
-                style={{ width: "90%", borderRadius: "20px", position: "relative", boxShadow: "0 4px 8px rgba(0,0,0,0.2)" }}>
+              <Card
+                className="watchlist-card d-flex flex-row p-3 h-75 border-0"
+                style={{
+                  width: "90%",
+                  borderRadius: "20px",
+                  position: "relative",
+                  boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+                }}
+              >
                 <img
                   src={isFav ? "/yellowHeart.png" : "/heart.svg"}
                   alt="fav"
@@ -111,7 +112,11 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
                 />
 
                 <Card.Img
-                  src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : " "}
+                  src={
+                    poster_path
+                      ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+                      : " "
+                  }
                   alt={title}
                   className="CardImage"
                   style={{
@@ -123,17 +128,27 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
                     cursor: "pointer",
                   }}
                   onClick={() => {
-                    navigate(selectedType === "movies" ? `/movie/${id}` : `/tv/${id}`)
+                    navigate(
+                      selectedType === "movies" ? `/movie/${id}` : `/tv/${id}`
+                    );
                   }}
                 />
 
                 <Card.Body className="d-flex flex-column justify-content-between ps-3">
                   <div>
-                    <Card.Title className="cardTitle" style={{ fontSize: "20px", fontWeight: "bold" }}>
-                      {title?.length > 25 ? title.slice(0, 100) : title}
+                    <Card.Title
+                      className="cardTitle"
+                      style={{ fontSize: "20px", fontWeight: "bold" }}
+                    >
+                      {title.length > 25 ? title.slice(0, 100) : title}
                     </Card.Title>
 
-                    <Card.Text className="cardDate" style={{ fontSize: "13px" }}>{date}</Card.Text>
+                    <Card.Text
+                      className="cardDate"
+                      style={{ fontSize: "13px" }}
+                    >
+                      {date}
+                    </Card.Text>
 
                     <RatingStars rating={vote} votes={votesCount} />
 
@@ -146,14 +161,14 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
                         display: "-webkit-box",
                         WebkitLineClamp: 3,
                         WebkitBoxOrient: "vertical",
-                      }}>
-
-                      {overview ? overview.substring(0, 200).trim() + "..." : "No description available."}
+                      }}
+                    >
+                      {overview
+                        ? overview.substring(0, 200).trim() + "..."
+                        : "No description available."}
                     </Card.Text>
-
                   </div>
                 </Card.Body>
-
               </Card>
             </div>
           );
@@ -161,32 +176,62 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
       </div>
     </div>
   ) : (
-
     <div className="movies">
       {list.map((item) => {
-        const { id, original_title, name, poster_path, release_date, first_air_date, vote_average } = item;
-        const title = selectedType === "movies" ? original_title : name;
+        const {
+          id,
+          original_title,
+          name,
+          poster_path,
+          release_date,
+          first_air_date,
+          vote_average,
+        } = item;
+
+        const title = (selectedType === "movies" ? original_title : name) || "";
         const dateRaw = selectedType === "movies" ? release_date : first_air_date;
         const date = dateRaw
-          ? new Date(dateRaw).toLocaleDateString("en-US", { month: "short", day: "2-digit", year: "numeric" })
+          ? new Date(dateRaw).toLocaleDateString("en-US", {
+            month: "short",
+            day: "2-digit",
+            year: "numeric",
+          })
           : "N/A";
+
         const isFav = favorites.some((fav) => fav.id === id);
+
         return (
           <Card
             key={id}
             className={isSearch ? "m-3 border-0 Card" : "m-4 border-0 Card"}
-            style={{ width: "200px", height: "420px", backgroundColor: "transparent" }}
+            style={{
+              width: "200px",
+              height: "420px",
+              backgroundColor: "transparent",
+            }}
           >
             {poster_path ? (
               <Card.Img
                 className="CardImage"
                 variant="center"
                 src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-                onClick={() => navigate(
-                  selectedType === "movies" ? `/movie/${id}` : `/tv/${id}`
-                )}
-                style={{ width: "100%", height: "100%", objectFit: poster_path ? "cover" : "contain", marginBottom: !title ? "50px" : title?.length > 15 ? "30px" : "25px" }}
-              />) : (
+                onClick={() =>
+                  navigate(
+                    selectedType === "movies" ? `/movie/${id}` : `/tv/${id}`
+                  )
+                }
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: poster_path ? "cover" : "contain",
+                  marginBottom: !title
+                    ? "50px"
+                    : title.length > 15
+                      ? "30px"
+                      : "25px",
+                }}
+              />
+            ) : (
               <div className="altCardImage">
                 <span className="align-self-center">No Image</span>
               </div>
@@ -197,20 +242,30 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
             <Card.Body className="CardBody">
               <div className="container">
                 <div className="row">
-                  <div className="col-10  p-0">
-                    <Card.Title className="cardTitle" style={{ fontSize: "17px", fontWeight: "bold" }}>
-                      {poster_path ? title?.length > 15 ? title.slice(0, 10) + "..." : title : title.slice(0, 10) + ".."}
+                  <div className="col-10 p-0">
+                    <Card.Title
+                      className="cardTitle"
+                      style={{ fontSize: "17px", fontWeight: "bold" }}
+                    >
+                      {poster_path
+                        ? title.length > 15
+                          ? title.slice(0, 10) + "..."
+                          : title
+                        : title
+                          ? title.slice(0, 10) + ".."
+                          : ""}
                     </Card.Title>
-                    <Card.Text className="cardDate">
-                      {date}</Card.Text>
+                    <Card.Text className="cardDate">{date}</Card.Text>
                   </div>
-                  <div className="col-2 position-relative" >
+                  <div className="col-2 position-relative">
                     <img
-                      src={isFav
-                        ? "/yellowHeart.png"
-                        : theme === "light"
-                          ? "/heart.svg"
-                          : "/emptyYellowHeart.svg"}
+                      src={
+                        isFav
+                          ? "/yellowHeart.png"
+                          : theme === "light"
+                            ? "/heart.svg"
+                            : "/emptyYellowHeart.svg"
+                      }
                       className="cardFavIcon position-absolute"
                       style={{ top: "25px" }}
                       onClick={() => toggleFavorite(item)}
@@ -222,10 +277,8 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
           </Card>
         );
       })}
-    </div >
+    </div>
   );
 }
 
 export default CardList;
-
-
