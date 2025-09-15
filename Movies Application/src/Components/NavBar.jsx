@@ -139,7 +139,7 @@ function NavBar() {
               className="align-self-center WatchLinkContainer"
               style={{
                 paddingRight: lang === "Ar" ? "0px" : "15px",
-                paddingLeft: lang === "Ar" ? "30px" : "0px",
+                paddingLeft: lang === "Ar" ? "38px" : "0px",
               }}
             >
               <Link
