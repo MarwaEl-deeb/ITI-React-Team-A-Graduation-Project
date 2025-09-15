@@ -13,6 +13,13 @@
 
 - ## Hager Ramadan Ghazal
    - ### Responsible for Error and Movies Home Page Functionality:
+      > - Created The Main Structure of `Home Page`. 
+      > - Created `NavBar` Component and its main Functionality language selector, Watch List and Website Name.
+      > - Created `Welcome` and `Search` Components that display a welcome message and enable user to search for a movie.
+      > - Created `Pagination` Component to navigate between API different pages and added some styles.
+      > - Created `Error page` that arise when there is any problem in Routing logic and added loading logic. 
+      > - Created `mainContext` and website's `Logo`.
+      > - Created `Card` Component main structure and fetched data from `API` mapped and destructured them into card. 
 
 - ## Reem Tawfik Tawfik
   - ### Responsible for Watchlist Functionality:
