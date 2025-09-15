@@ -32,7 +32,7 @@ export default function CardDetails({ id, isMovie }) {
         setMovie(data);
         setLoading(false);
 
-        // تحديث حالة القلب من localStorage
+        // تحديث حالة القلب من locazlStorage
         const storedFavs = JSON.parse(localStorage.getItem("favorites")) || [];
         setIsFav(storedFavs.some((fav) => fav.id === data.id));
       })
@@ -118,7 +118,7 @@ export default function CardDetails({ id, isMovie }) {
                 />
               </Card.Title>
 
-              <Card.Subtitle className="mb-2 cardDetailsDate">
+              <Card.Subtitle className="mb-2 text-muted">
                 {formattedDate}
               </Card.Subtitle>
 
@@ -204,6 +204,7 @@ export default function CardDetails({ id, isMovie }) {
                   rel="noopener noreferrer"
                   className="fw-bold"
                 >
+                  <FaGlobe className="me-2" />
                   {t("Website")}
                 </Button>
               )}
