@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 38,
+            "activePatchIndex": 40,
             "patches": [
                 {
                     "date": 1757681087615,
@@ -160,6 +160,14 @@
                 {
                     "date": 1757884815273,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n           <h1 className=\"recommendText\">{t(\"Recommendations\")}</h1>\r\n           <CardList data={movies} isRecommendation={true} />\r\n         </div>\r\n       ) : (\r\n-        <p className=\"text-center\">{t(\"No recommendations found\")}</p>\r\n+        <p className=\"text-center noRecommend\">{t(\"No recommendations found\")}</p>\r\n       )}\r\n     </>\r\n   );\r\n }\r\n"
+                },
+                {
+                    "date": 1757972803269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n     <>\r\n       <NavBar />\r\n \r\n       {/* ✅ مرر isMovie بدل switchValue */}\r\n-      <CardDetails id={id} isMovie={selectedType === \"movies\"} />\r\n+      <CardDetails id={id} isMovie={selectedType === \"tv\"} />\r\n       <hr style={{ width: \"90%\", margin: \"2rem auto\" }} />\r\n \r\n       {loading ? (\r\n         <div className=\"text-center my-4\">\r\n"
+                },
+                {
+                    "date": 1757972815550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n     <>\r\n       <NavBar />\r\n \r\n       {/* ✅ مرر isMovie بدل switchValue */}\r\n-      <CardDetails id={id} isMovie={selectedType === \"tv\"} />\r\n+      <CardDetails id={id} isMovie={selectedType === \"movies\"} />\r\n       <hr style={{ width: \"90%\", margin: \"2rem auto\" }} />\r\n \r\n       {loading ? (\r\n         <div className=\"text-center my-4\">\r\n"
                 }
             ],
             "date": 1757681087615,
