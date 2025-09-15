@@ -57,9 +57,9 @@ export default function CardDetails({ id, isMovie }) {
   const formattedDate =
     movie.release_date || movie.first_air_date
       ? new Date(movie.release_date || movie.first_air_date).toLocaleDateString(
-          "en-US",
-          { year: "numeric", month: "short", day: "numeric" }
-        )
+        "en-US",
+        { year: "numeric", month: "short", day: "numeric" }
+      )
       : "N/A";
 
   const duration = isMovie
@@ -67,10 +67,10 @@ export default function CardDetails({ id, isMovie }) {
       ? `${movie.runtime} Min.`
       : "N/A"
     : movie.episode_run_time && movie.episode_run_time.length > 0
-    ? `${movie.episode_run_time[0]} Min./Episode`
-    : movie.last_episode_to_air?.runtime
-    ? `${movie.last_episode_to_air.runtime} Min./Episode`
-    : "N/A";
+      ? `${movie.episode_run_time[0]} Min./Episode`
+      : movie.last_episode_to_air?.runtime
+        ? `${movie.last_episode_to_air.runtime} Min./Episode`
+        : "N/A";
 
   const shortOverview = movie.overview
     ? movie.overview.length > 250
@@ -118,7 +118,7 @@ export default function CardDetails({ id, isMovie }) {
                 />
               </Card.Title>
 
-              <Card.Subtitle className="mb-2 text-muted">
+              <Card.Subtitle className="mb-2 cardDetailsDate">
                 {formattedDate}
               </Card.Subtitle>
 
