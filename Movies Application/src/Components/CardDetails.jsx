@@ -32,7 +32,7 @@ export default function CardDetails({ id, isMovie }) {
         setMovie(data);
         setLoading(false);
 
-        // تحديث حالة القلب من locazlStorage
+        // تحديث حالة القلب من localStorage
         const storedFavs = JSON.parse(localStorage.getItem("favorites")) || [];
         setIsFav(storedFavs.some((fav) => fav.id === data.id));
       })

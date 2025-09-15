@@ -22,23 +22,23 @@ function PaginationComponent() {
     }, [page, searchParams]);
 
     let maxPages = selectedType === "movies" ? totalPages : 500
-    const window = 4;
+    const window = 5;
     const start = Math.max(1, page - 2)
     const end = Math.min(maxPages, start + window - 1);
 
     let Pages = [];
     for (let i = start; i <= end; i++) {
         Pages.push
-            (<Pagination.Item  className="col-*"
+            (<Pagination.Item className="col-*"
                 key={i}
                 onClick={() => { setPage(i); console.log(i); }}
                 active={i === page}>
                 {i}
-               
+
             </Pagination.Item>)
     }
     return (
-        <Pagination className=" justify-content-center gap-2">
+        <Pagination className=" justify-content-center w-75">
             <Pagination.First className=" col-* paginationBtn"
                 disabled={page === 1}
                 onClick={() => { setPage(1) }} />
@@ -53,7 +53,7 @@ function PaginationComponent() {
             {end < maxPages && <Pagination.Ellipsis
                 disabled={page === maxPages}
                 className="col-* ellipsis" />}
-            <Pagination.Next className=" col-1 paginationBtn"
+            <Pagination.Next className=" col-* paginationBtn"
                 disabled={page === maxPages}
                 onClick={() => { setPage(page + 1) }} />
             <Pagination.Last className="col-* paginationBtn"

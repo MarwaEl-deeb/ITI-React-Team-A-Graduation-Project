@@ -395,11 +395,12 @@ button:hover {
 
   }
 }
+
 @media (max-width:600px) {
 
- .page-item.ellipsis {
-  display: none;
- }
+  .page-item.ellipsis {
+    display: none;
+  }
 }
 
 .recommendText {
