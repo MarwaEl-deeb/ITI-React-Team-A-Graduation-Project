@@ -2,6 +2,8 @@
   "welcome": "Welcome to my website",
   "about": "About Us",
   "WatchList": "WatchList",
+  "Movie App": "Movie App",
+  "TV Shows":"TV Shows",
   "Welcome to our movie app": "Welcome to our movie app",
   "Now Playing": "Now Playing",
   "Popular": "Popular",
@@ -24,5 +26,4 @@
   "votes":"votes",
   "page is not found Please Go Back":"page is not found Please Go Back",
   "GO back":"GO back"
-  
 }

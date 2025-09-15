@@ -10,6 +10,8 @@
   --third-color: black;
   --forth-color: #7d7b7bc5;
   --fifth-color: white;
+  --sixth-color: rgba(9, 8, 8, 0.722);
+  --seventh-color: #726625
 }
 
 [data-theme="dark"] {
@@ -17,7 +19,9 @@
   --secondary-color: #59626b3a;
   --third-color: white;
   --forth-color: #ffffffa0;
-  --fifth-color: #ffffff1d;
+  --fifth-color: #ffffff1c;
+  --sixth-color: rgba(219, 217, 217, 0.853);
+  --seventh-color: #ffe353
 }
 
 body {
@@ -123,6 +127,21 @@ nav {
 
 .cardFavIcon {
   cursor: pointer;
+}
+
+.altCardImage {
+  width: 100%;
+  height: 310px;
+  border-radius: 20px;
+  background-color: #9f9e9e47;
+  color: var(--sixth-color);
+  margin-bottom: 30px;
+}
+
+.altCardImage span {
+  display: flex;
+  justify-content: center;
+  margin-top: 70%;
 }
 
 /* ********** Circle ********** */
@@ -286,7 +305,6 @@ button:hover {
   align-items: center;
   margin: 2%;
   width: 90vw;
-
   height: 90vh;
 }
 
@@ -366,9 +384,6 @@ button:hover {
 @media (max-width:520px) {
   .pagination {
     width: 95vw;
-    /* padding: 1px;
-    background: red;
-    margin: 5px; */
   }
 
   .page-item {
@@ -389,6 +404,10 @@ button:hover {
 
 .WatchListCard .watchlist-card {
   background-color: var(--fifth-color);
+}
+
+.WatchPageNum {
+  color: var(--seventh-color)
 }
 
 @media (max-width: 767px) {

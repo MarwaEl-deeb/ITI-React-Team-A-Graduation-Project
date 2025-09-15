@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 25,
+            "activePatchIndex": 27,
             "patches": [
                 {
                     "date": 1757674933738,
@@ -108,6 +108,14 @@
                 {
                     "date": 1757893117101,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,8 @@\n   \"No Movies in watch list\":\"No Movies in watch list\",\r\n   \"Watch List \": \"Watch List \",\r\n   \"NOT FOUND\":\"NOT FOUND\",\r\n   \"votes\":\"votes\",\r\n-  \"Oops!\":\"Oops!\",\r\n   \"page is not found Please Go Back\":\"page is not found Please Go Back\",\r\n   \"GO back\":\"GO back\"\r\n   \r\n }\r\n"
+                },
+                {
+                    "date": 1757945698859,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,10 @@\n {\r\n   \"welcome\": \"Welcome to my website\",\r\n   \"about\": \"About Us\",\r\n   \"WatchList\": \"WatchList\",\r\n+    \"Movie App\": \"Movie App\",\r\n+\r\n   \"Welcome to our movie app\": \"Welcome to our movie app\",\r\n   \"Now Playing\": \"Now Playing\",\r\n   \"Popular\": \"Popular\",\r\n   \"Recommendations\": \"Recommendations\",\r\n@@ -23,6 +25,5 @@\n   \"NOT FOUND\":\"NOT FOUND\",\r\n   \"votes\":\"votes\",\r\n   \"page is not found Please Go Back\":\"page is not found Please Go Back\",\r\n   \"GO back\":\"GO back\"\r\n-  \r\n }\r\n"
+                },
+                {
+                    "date": 1757945720276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n {\r\n   \"welcome\": \"Welcome to my website\",\r\n   \"about\": \"About Us\",\r\n   \"WatchList\": \"WatchList\",\r\n-    \"Movie App\": \"Movie App\",\r\n-\r\n+  \"Movie App\": \"Movie App\",\r\n+  \"TV Shows\":\"TV Shows\"\r\n   \"Welcome to our movie app\": \"Welcome to our movie app\",\r\n   \"Now Playing\": \"Now Playing\",\r\n   \"Popular\": \"Popular\",\r\n   \"Recommendations\": \"Recommendations\",\r\n"
                 }
             ],
             "date": 1757674933738,

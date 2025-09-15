@@ -171,38 +171,40 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
           ? new Date(dateRaw).toLocaleDateString("en-US", { month: "short", day: "2-digit", year: "numeric" })
           : "N/A";
         const isFav = favorites.some((fav) => fav.id === id);
-
         return (
           <Card
             key={id}
             className={isSearch ? "m-3 border-0 Card" : "m-4 border-0 Card"}
             style={{ width: "200px", height: "420px", backgroundColor: "transparent" }}
           >
-
-            <Card.Img
-              className="CardImage"
-              variant="center"
-              src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : " "}
-              alt={title}
-              onClick={() => navigate(
-                selectedType === "movies" ? `/movie/${id}` : `/tv/${id}`
-              )}
-              style={{ width: "100%", height: "100%", objectFit: poster_path ? "cover" : "contain", }}
-            />
+            {poster_path ? (
+              <Card.Img
+                className="CardImage"
+                variant="center"
+                src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+                onClick={() => navigate(
+                  selectedType === "movies" ? `/movie/${id}` : `/tv/${id}`
+                )}
+                style={{ width: "100%", height: "100%", objectFit: poster_path ? "cover" : "contain", marginBottom: !title ? "50px" : title?.length > 15 ? "30px" : "25px" }}
+              />) : (
+              <div className="altCardImage">
+                <span className="align-self-center">No Image</span>
+              </div>
+            )}
             <div>
               <Circle value={vote_average} />
             </div>
             <Card.Body className="CardBody">
               <div className="container">
                 <div className="row">
-                  <div className="col-10 ">
+                  <div className="col-10  p-0">
                     <Card.Title className="cardTitle" style={{ fontSize: "17px", fontWeight: "bold" }}>
-                      {title?.length > 25 ? title.slice(0, 100) : title}
+                      {poster_path ? title?.length > 15 ? title.slice(0, 10) + "..." : title : title.slice(0, 10) + ".."}
                     </Card.Title>
                     <Card.Text className="cardDate">
                       {date}</Card.Text>
                   </div>
-                  <div className="col-2 position-relative" style={{ height: "120px" }}>
+                  <div className="col-2 position-relative" >
                     <img
                       src={isFav
                         ? "/yellowHeart.png"
@@ -220,7 +222,7 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
           </Card>
         );
       })}
-    </div>
+    </div >
   );
 }
 
