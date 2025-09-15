@@ -7,7 +7,7 @@
       > - Worked on linkig all pages together efficiently using `Routing` concept.
       > - Worked on TVShows page that is the home page of the TV Shows part by using its `API` and reuse the card component to display the data.
       > - Updated the Movies page which is the website's home page by adding some styles and features.
-      > - Updated NavBar by adding some styles, watchList badge, toggelar and adding the feature to switch between movies and TV shows pages.
+      > - Updated NavBar by adding some styles, watchList badge, toggelar its responsive and style and adding the feature to switch between movies and TV shows pages.
       > - Created Rate `Circle` Component and updated Card by adding rate circle, FavIcon and some styles and adding resuability to it.
       > - Adding `Dark theme` feature , `Arabic` as the second language option and English as the first language option and apply these to all pages and make them stored in localStorage.
 
