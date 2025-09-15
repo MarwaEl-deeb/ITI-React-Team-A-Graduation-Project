@@ -17,10 +17,9 @@ import { useTranslation } from "react-i18next";
 export default function CardDetails({ id, isMovie }) {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [isFav, setIsFav] = useState(false); // حالة القلب
+  const [isFav, setIsFav] = useState(false); // حالة المفضلة للعرض فقط
   const { t } = useTranslation();
 
-  // تحميل بيانات الفيلم أو المسلسل
   useEffect(() => {
     const endpoint = isMovie
       ? `https://api.themoviedb.org/3/movie/${id}?api_key=dd1481c9866799f1bc15adf106a083fe`
@@ -32,6 +31,10 @@ export default function CardDetails({ id, isMovie }) {
       .then((data) => {
         setMovie(data);
         setLoading(false);
+
+        // تحديث حالة القلب من localStorage
+        const storedFavs = JSON.parse(localStorage.getItem("favorites")) || [];
+        setIsFav(storedFavs.some((fav) => fav.id === data.id));
       })
       .catch((err) => {
         console.error("Fetch error:", err);
@@ -39,38 +42,6 @@ export default function CardDetails({ id, isMovie }) {
         setLoading(false);
       });
   }, [id, isMovie]);
-
-  // تحميل حالة المفضلة من localStorage
-  useEffect(() => {
-    const storedFavs = JSON.parse(localStorage.getItem("favorites")) || [];
-    setIsFav(storedFavs.some((fav) => fav.id === id));
-  }, [id]);
-
-  // تغيير حالة المفضلة
-  const toggleFavorite = () => {
-    const storedFavs = JSON.parse(localStorage.getItem("favorites")) || [];
-    let updatedFavs;
-
-    if (isFav) {
-      // إزالة من المفضلة
-      updatedFavs = storedFavs.filter((fav) => fav.id !== id);
-    } else {
-      // إضافة إلى المفضلة
-      updatedFavs = [
-        ...storedFavs,
-        {
-          id,
-          original_title: movie.original_title,
-          name: movie.name,
-          poster_path: movie.poster_path,
-          release_date: movie.release_date || movie.first_air_date,
-        },
-      ];
-    }
-
-    localStorage.setItem("favorites", JSON.stringify(updatedFavs));
-    setIsFav(!isFav);
-  };
 
   if (loading) {
     return (
@@ -128,8 +99,6 @@ export default function CardDetails({ id, isMovie }) {
               className="CardDetails"
               style={{
                 height: "98%",
-                padding: 0,
-                margin: 0,
                 width: "auto",
                 maxHeight: "500px",
                 objectFit: "contain",
@@ -143,11 +112,9 @@ export default function CardDetails({ id, isMovie }) {
             <Card.Body>
               <Card.Title className="fw-bold fs-3 d-flex justify-content-between align-items-center cardDetailsTitle">
                 {movie.original_title || movie.name}
-
-                {/* القلب التفاعلي */}
+                {/* القلب للعرض فقط */}
                 <FaHeart
-                  style={{ color: isFav ? "gold" : "#ccc", cursor: "pointer" }}
-                  onClick={toggleFavorite}
+                  style={{ color: isFav ? "gold" : "#ccc", cursor: "default" }}
                 />
               </Card.Title>
 
@@ -216,7 +183,6 @@ export default function CardDetails({ id, isMovie }) {
                           style={{
                             maxHeight: "50px",
                             objectFit: "contain",
-                            background: "#fefefe00",
                             borderRadius: "6px",
                             padding: "4px",
                           }}
@@ -238,7 +204,6 @@ export default function CardDetails({ id, isMovie }) {
                   rel="noopener noreferrer"
                   className="fw-bold"
                 >
-                  <FaGlobe className="me-2" />
                   {t("Website")}
                 </Button>
               )}
