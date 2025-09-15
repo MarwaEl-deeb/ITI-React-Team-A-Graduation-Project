@@ -16,7 +16,7 @@
       > - Created The Main Structure of `Home Page`. 
       > - Created `NavBar` Component and its main Functionality language selector, Watch List and Website Name.
       > - Created `Welcome` and `Search` Components that display a welcome message and enable user to search for a movie.
-      > - Created `Pagination` Component to navigate between API different pages and added some styles.
+      > - Created `Pagination` Component to navigate between API different pages that uses searchParama to survive refresh and copy-past and also added some styles .
       > - Created `Error page` that arise when there is any problem in Routing logic and added loading logic. 
       > - Created `mainContext` and website's `Logo`.
       > - Created `Card` Component main structure and fetched data from `API` mapped and destructured them into card. 
@@ -43,6 +43,12 @@
 
 - ## Eman Mohamed Abd-Elsalam
    - ### Responsible for Movies Search Functionality:
+      > - Created `Search` Page that display the result of cards that match search query which user entered in search bar and clicked search button by fetching data from mavies search `API` and display in card layout.
+      > - Worked on the Search feature and the SearchPage, along with integrating it with existing components like Card and NavBar.
+      > - Modified the Search component to handle both `search button` click and `Enter` key press, navigating to the SearchPage with the query parameter in the upper `URL`.
+      > - Integrated the `Card component` inside the SearchPage to display the search results with consistent design.
+      > - Handled the case of `empty results` by showing a "Not Found" message, `loading text` display if the searching process take some time to get the result and show an `alert` if the user try to search for `empty query`.
+
 
 
 
