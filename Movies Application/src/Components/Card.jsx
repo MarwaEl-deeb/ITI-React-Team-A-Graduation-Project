@@ -70,7 +70,11 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
             overview,
           } = item;
 
-          const title = (selectedType === "movies" ? original_title : name);
+          const title =
+            (selectedType === "movies" ? original_title : name) ||
+            original_title ||
+            name ||
+            "";
           const dateRaw = selectedType === "movies" ? release_date : first_air_date;
           const date = dateRaw
             ? new Date(dateRaw).toLocaleDateString("en-US", {
@@ -248,12 +252,13 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
                       style={{ fontSize: "17px", fontWeight: "bold" }}
                     >
                       {poster_path
-                        ? title.length > 15
+                        ? title?.length > 15
                           ? title.slice(0, 10) + "..."
                           : title
                         : title
                           ? title.slice(0, 10) + ".."
                           : "Untitled"}
+
                     </Card.Title>
                     <Card.Text className="cardDate">{date}</Card.Text>
                   </div>
