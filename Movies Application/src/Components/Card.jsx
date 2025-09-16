@@ -6,7 +6,7 @@ import Circle from "./Circle";
 import RatingStars from "./RatingStars";
 import i18n from "i18next";
 
-function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetailedFavorites }) {
+function CardList({ data, isSearch, isWatchlistPage, setDetailedFavorites }) {
   const { items, selectedType } = useContext(MainContext);
   const navigate = useNavigate();
   const [favorites, setFavorites] = useState([]);
@@ -75,14 +75,14 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
             original_title ||
             name ||
             "";
-          const dateRaw = selectedType === "movies" ? release_date : first_air_date;
+          const dateRaw = selectedType === "movies" ? release_date : first_air_date || release_date;
           const date = dateRaw
             ? new Date(dateRaw).toLocaleDateString("en-US", {
               month: "short",
               day: "2-digit",
               year: "numeric",
             })
-            : "N/A";
+            : first_air_date;
 
           const vote = item.vote_average ?? 0;
           const votesCount = item.vote_count ?? 0;
