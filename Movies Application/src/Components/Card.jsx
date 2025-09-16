@@ -70,15 +70,15 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
             overview,
           } = item;
 
-          const title = (selectedType === "movies" ? original_title : name) || original_title;
-          const dateRaw = selectedType === "movies" ? release_date : first_air_date || release_date;
+          const title = (selectedType === "movies" ? original_title : name);
+          const dateRaw = selectedType === "movies" ? release_date : first_air_date;
           const date = dateRaw
             ? new Date(dateRaw).toLocaleDateString("en-US", {
               month: "short",
               day: "2-digit",
               year: "numeric",
             })
-            : first_air_date;
+            : "N/A";
 
           const vote = item.vote_average ?? 0;
           const votesCount = item.vote_count ?? 0;
