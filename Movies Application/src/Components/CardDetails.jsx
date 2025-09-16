@@ -9,7 +9,7 @@ import {
   Container,
   ListGroup,
 } from "react-bootstrap";
-import { FaGlobe, FaHeart } from "react-icons/fa";
+import { FaGlobe } from "react-icons/fa";
 import RatingStars from "./RatingStars";
 import "../index.css";
 import { useTranslation } from "react-i18next";
@@ -17,8 +17,12 @@ import { useTranslation } from "react-i18next";
 export default function CardDetails({ id, isMovie }) {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [isFav, setIsFav] = useState(false); // حالة المفضلة للعرض فقط
+  const [isFav, setIsFav] = useState(false);
   const { t } = useTranslation();
+
+  const [theme, setTheme] = useState(
+    document.body.getAttribute("data-theme") || "light"
+  );
 
   useEffect(() => {
     const endpoint = isMovie
@@ -32,7 +36,6 @@ export default function CardDetails({ id, isMovie }) {
         setMovie(data);
         setLoading(false);
 
-        // تحديث حالة القلب من localStorage
         const storedFavs = JSON.parse(localStorage.getItem("favorites")) || [];
         setIsFav(storedFavs.some((fav) => fav.id === data.id));
       })
@@ -43,6 +46,21 @@ export default function CardDetails({ id, isMovie }) {
       });
   }, [id, isMovie]);
 
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      const currentTheme = document.body.getAttribute("data-theme");
+      setTheme(currentTheme);
+    });
+
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+
   if (loading) {
     return (
       <div className="loading text-center my-5">
@@ -52,7 +70,7 @@ export default function CardDetails({ id, isMovie }) {
   }
 
   if (!movie)
-    return <p className="text-center">{t("No movie/TV show found")}</p>;
+    return <p className="text-center noRecommend p-3">{t("No movie/TV show found")}</p>;
 
   const formattedDate =
     movie.release_date || movie.first_air_date
@@ -64,12 +82,12 @@ export default function CardDetails({ id, isMovie }) {
 
   const duration = isMovie
     ? movie.runtime
-      ? `${movie.runtime} Min.`
+      ? `${movie.runtime} ${t("Min.")}`
       : "N/A"
     : movie.episode_run_time && movie.episode_run_time.length > 0
-      ? `${movie.episode_run_time[0]} Min./Episode`
+      ? `${movie.episode_run_time[0]}  ${t("Min./Episode")}`
       : movie.last_episode_to_air?.runtime
-        ? `${movie.last_episode_to_air.runtime} Min./Episode`
+        ? `${movie.last_episode_to_air.runtime}  ${t("Min./Episode")}`
         : "N/A";
 
   const shortOverview = movie.overview
@@ -88,7 +106,6 @@ export default function CardDetails({ id, isMovie }) {
     <Container fluid className="p-3 cardDetailsContainer">
       <Card className="movie-card">
         <Row className="g-2 flex-column flex-md-row m-auto">
-          {/* Poster */}
           <Col
             md={4}
             className="d-flex justify-content-center justify-content-md-end align-items-stretch"
@@ -107,18 +124,19 @@ export default function CardDetails({ id, isMovie }) {
             />
           </Col>
 
-          {/* Details */}
           <Col md={8}>
             <Card.Body>
-              <Card.Title className="fw-bold fs-3 d-flex justify-content-between align-items-center cardDetailsTitle">
+              <Card.Title className="fw-bold fs-3 pb-2 d-flex justify-content-between align-items-center cardDetailsTitle">
                 {movie.original_title || movie.name}
-                {/* القلب للعرض فقط */}
-                <FaHeart
-                  style={{ color: isFav ? "gold" : "#ccc", cursor: "default" }}
-                />
+                <img src={
+                  isFav
+                    ? "/yellowHeart.png"
+                    : theme === "light"
+                      ? "/heart.svg"
+                      : "/emptyYellowHeart.svg"} alt="" />
               </Card.Title>
 
-              <Card.Subtitle className="mb-2 text-muted">
+              <Card.Subtitle className="mb-3 cardDetailsDate">
                 {formattedDate}
               </Card.Subtitle>
 
@@ -131,7 +149,6 @@ export default function CardDetails({ id, isMovie }) {
                 {shortOverview}
               </Card.Text>
 
-              {/* Genres */}
               <div className="mb-3 detailsCompanyName">
                 {movie.genres?.map((g, index) => (
                   <Badge
@@ -144,7 +161,6 @@ export default function CardDetails({ id, isMovie }) {
                 ))}
               </div>
 
-              {/* Extra Details */}
               <ListGroup variant="flush" className="mb-3">
                 <ListGroup.Item
                   className="detailListItem"
@@ -167,7 +183,6 @@ export default function CardDetails({ id, isMovie }) {
                 </ListGroup.Item>
               </ListGroup>
 
-              {/* Production Companies */}
               {movie.production_companies?.length > 0 && (
                 <div className="d-flex flex-wrap align-items-center mb-3 cardCompanies">
                   {movie.production_companies.map((company) => (
@@ -195,7 +210,6 @@ export default function CardDetails({ id, isMovie }) {
                 </div>
               )}
 
-              {/* Website */}
               {movie.homepage && (
                 <Button
                   variant="warning"

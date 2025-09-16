@@ -15,15 +15,17 @@
   "Loading...": "جار التحميل...",
   "No recommendations found":"لم يتم العثور على اقتراحات",
   "No movie/TV show found":"لم يتم العثور على فيلم/برنامج تلفزيوني",
-  "Duration:":"المدة: ",
+  "Duration":"المدة",
   "Min.":"دقيقة.",
-  "Languages:":"اللغات:",
+  "Languages":"اللغة",
   "Website":" الموقع",
   "Back to home":"العودة إلى الصفحة الرئيسية",
   "No Movies in watch list":"لا توجد أفلام في قائمة المشاهدات",
   "Watch List ":"قائمة المشاهدات ",
-  "NOT FOUND":"غير موجود",
-  "votes":"تصويت",
+  "NOT FOUND":"غير موجود",  
+  "vote":"تصويت",
   "page is not found Please Go Back":"لم يتم العثور على الصفحة الرجاء الرجوع",
-  "GO back":"رجوع"
+  "GO back":"رجوع",
+  "Min." : "دقيقة.",
+  "Min./Episode" :"دقيقة/حلقة."
 }

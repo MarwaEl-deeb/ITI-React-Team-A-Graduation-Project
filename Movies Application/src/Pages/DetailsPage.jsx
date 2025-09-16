@@ -40,7 +40,7 @@ function DetailsPage() {
       <NavBar />
 
       <CardDetails id={id} isMovie={selectedType === "movies"} />
-      <hr style={{ width: "90%", margin: "2rem auto" }} />
+      <hr className="detailsSeparator" style={{ width: "90%", margin: "2rem auto" }} />
 
       {loading ? (
         <div className="text-center my-4">

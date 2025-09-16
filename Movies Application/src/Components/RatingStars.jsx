@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 export default function RatingStars({ rating, votes }) {
   const stars = [];
-  const value = (rating ?? 0) / 2; // fallback 0
+  const value = (rating ?? 0) / 2;
   const { t } = useTranslation();
 
   for (let i = 1; i <= 5; i++) {
@@ -16,12 +16,12 @@ export default function RatingStars({ rating, votes }) {
     }
   }
 
-  const votesDisplay = votes != null ? votes.toLocaleString() : "0"; // fallback
+  const votesDisplay = votes != null ? votes.toLocaleString() : "0";
 
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "1px" }}>
       {stars}
-      <span className="voteText" style={{ marginLeft: "8px", width: "60%", fontSize: "13px" }}>({votesDisplay} {t("votes")})</span>
+      <span className="voteText" style={{ marginLeft: "8px", marginRight: "8px", width: "60%", fontSize: "13px" }}>({votesDisplay} {t("vote")})</span>
     </div>
   );
 }

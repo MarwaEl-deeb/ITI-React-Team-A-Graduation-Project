@@ -11,7 +11,7 @@ import WatchListPage from "./Pages/WatchListPage.jsx";
 import DetailsPage from "./Pages/DetailsPage.jsx";
 import NavBar from "./Components/NavBar";
 import ErrorPage from "./Pages/ErrorPage.jsx";
-import { MainProvider } from "./MainProvider"; //  استخدمنا البروفايدر
+import { MainProvider } from "./MainProvider";
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },

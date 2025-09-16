@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1757685014743,
@@ -16,6 +16,10 @@
                 {
                     "date": 1757688983415,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n+import i18n from \"i18next\";\r\n import { initReactI18next } from \"react-i18next\";\r\n import en from \"./locales/en.json\";\r\n import ar from \"./locales/ar.json\";\r\n \r\n"
+                },
+                {
+                    "date": 1758036351810,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     resources: {\r\n         en: { translation: en },\r\n         ar: { translation: ar }\r\n     },\r\n-    lng: \"en\",       // default language\r\n+    lng: \"en\", \r\n     fallbackLng: \"en\",\r\n     interpolation: { escapeValue: false }\r\n });\r\n \r\n"
                 }
             ],
             "date": 1757685014743,

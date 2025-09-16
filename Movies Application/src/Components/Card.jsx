@@ -140,7 +140,7 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
                       className="cardTitle"
                       style={{ fontSize: "20px", fontWeight: "bold" }}
                     >
-                      {title.length > 25 ? title.slice(0, 100) : title}
+                      {title ? (title.length > 25 ? title.slice(0, 100) : title) : "Untitled"}
                     </Card.Title>
 
                     <Card.Text
@@ -253,7 +253,7 @@ function CardList({ data, isRecommendation, isSearch, isWatchlistPage, setDetail
                           : title
                         : title
                           ? title.slice(0, 10) + ".."
-                          : ""}
+                          : "Untitled"}
                     </Card.Title>
                     <Card.Text className="cardDate">{date}</Card.Text>
                   </div>

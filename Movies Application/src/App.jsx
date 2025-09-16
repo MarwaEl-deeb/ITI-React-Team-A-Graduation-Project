@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import Welcome from "./Components/Welcome";
 import NavBar from "./Components/NavBar";
@@ -21,7 +21,6 @@ function App() {
     setSelectedType,
   } = useContext(MainContext);
 
-  // نخلي default dynamic حسب الـ URL
   useEffect(() => {
     if (
       location.pathname.startsWith("/TV-Shows") ||

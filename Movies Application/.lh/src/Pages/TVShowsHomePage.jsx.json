@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 88,
+            "activePatchIndex": 89,
             "patches": [
                 {
                     "date": 1757681034964,
@@ -360,6 +360,10 @@
                 {
                     "date": 1757794456298,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n                 selectedType,\r\n                 setSelectedType,\r\n             }}\r\n         >\r\n-            <Welcome />\r\n+            <Welcome dataText={\"Popular\"} />\r\n             <CardList />\r\n             <Pagination />\r\n         </MainContext.Provider>\r\n     );\r\n"
+                },
+                {
+                    "date": 1758036363295,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,4 +59,6 @@\n     );\r\n }\r\n \r\n export default TVShowsHomePage;\r\n+\r\n+\r\n"
                 }
             ],
             "date": 1757681034964,

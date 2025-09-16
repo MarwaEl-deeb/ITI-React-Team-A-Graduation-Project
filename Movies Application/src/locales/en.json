@@ -15,15 +15,17 @@
   "Loading...": "Loading...",
   "No recommendations found":"No recommendations found",
   "No movie/TV show found":"No movie/TV show found",
-  "Duration:":"Duration",
+  "Duration":"Duration",
   "Min.":"Min.",
-  "Languages:":"Languages:",
+  "Languages":"Languages",
   "Website":"Website",
   "Back to home":"Back to home",
   "No Movies in watch list":"No Movies in watch list",
   "Watch List ": "Watch List ",
   "NOT FOUND":"NOT FOUND",
-  "votes":"votes",
+  "vote":"vote",
   "page is not found Please Go Back":"page is not found Please Go Back",
-  "GO back":"GO back"
+  "GO back":"GO back",
+  "Min.":"Min.",
+  "Min./Episode" :"Min./Episode"
 }

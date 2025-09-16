@@ -6,7 +6,7 @@ export function MainProvider({ children }) {
   const [totalPages, setTotalPages] = useState(1);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
-  const [selectedType, setSelectedType] = useState("movies"); // default
+  const [selectedType, setSelectedType] = useState("movies");
 
   return (
     <MainContext.Provider
