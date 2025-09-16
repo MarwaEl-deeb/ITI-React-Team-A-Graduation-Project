@@ -39,7 +39,6 @@ function DetailsPage() {
     <>
       <NavBar />
 
-      {/* ✅ مرر isMovie بدل switchValue */}
       <CardDetails id={id} isMovie={selectedType === "movies"} />
       <hr style={{ width: "90%", margin: "2rem auto" }} />
 
